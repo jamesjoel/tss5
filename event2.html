@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#box{
+			height: 200px;
+			width: 200px;
+			background-color: #ACEAAA;
+			border-radius: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		function change()
+		{
+			var a=Math.random();
+			var b=a*800;
+			var left=Math.floor(b);
+
+
+			var x=Math.random();
+			var y=x*650;
+			var top=Math.floor(y);
+
+			document.getElementById("box").style.marginLeft=left+"px";
+			document.getElementById("box").style.marginTop=top+"px";
+			var color=get_color();
+			document.getElementById("box").style.backgroundColor="#"+color;
+			color=get_color();
+			document.getElementById("body").style.backgroundColor="#"+color;
+
+		}
+		function get_color()
+		{
+			var str="";
+			for(var i=1; i<=6; i++)
+			{
+
+				var a=Math.random();
+				var b=a*15;
+				var c=Math.floor(b);
+				switch(c){
+					case 10 : 	str += "A";
+								break;
+					case 11 : 	str += "B";
+								break;
+					case 12 : 	str += "C";
+								break;
+					case 13 : 	str += "D";
+								break;
+					case 14 : 	str += "E";
+								break;
+					case 15 : 	str += "F";
+								break;
+					default : str += c;
+				}
+			}
+			return str;
+		}
+	</script>
+
+</head>
+<body id="body">
+<div id="box" onmouseover="change()"></div>
+</body>
+</html>

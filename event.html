@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#box{
+			height: 200px;
+			width: 300px;
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		function show1()
+		{
+			alert();
+		}
+		function show3()
+		{
+			alert("mouse out");
+		}
+		var a=200;
+		function show2()
+		{
+			a++;
+			document.getElementById("box").style.backgroundColor="green";
+			document.getElementById("box").style.width=a+"px";
+		}
+	</script>
+</head>
+<body>
+<div id="box" onmouseover="show1()" onmousemove="show2()" onmouseout="show3()"></div>
+</body>
+</html>

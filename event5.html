@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#main_img{
+			height: 300px;
+			width: 300px;
+			border:1px solid #CCC;
+		}
+		.small_img{
+			height: 100px;
+			width: 100px;
+			margin: 5px;
+			border:1px solid #CCC;
+		}
+	</style>
+	<script type="text/javascript">
+		function change(a)
+		{
+			//alert(a);
+			document.getElementById("main_img").setAttribute("src", a);
+		}
+		function show()
+		{
+			document.getElementById("img3").onmouseover();
+		}
+	</script>
+</head>
+<body>
+<div style="margin: 50px auto; width:700px; padding: 20px; height: 500px; border:1px solid #CCC; text-align: center;">
+	<img id="main_img" src="1.jpg" />
+	<Hr />
+	<img src="1.jpg" class="small_img" onmouseover="change('1.jpg')" />
+	<img src="2.jpg" class="small_img" onmouseover="change('2.jpg')" />
+	<img src="3.jpg" class="small_img" onmouseover="change('3.jpg')" id="img3" />
+	<img src="4.jpg" class="small_img" onmouseover="change('4.jpg')" />
+	<img src="5.jpg" class="small_img" onmouseover="change('5.jpg')" />
+</div>
+<button onclick="show()">ok</button>
+</body>
+</html>

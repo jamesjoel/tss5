@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#inbox{
+			height: 300px;
+			width: 500px;
+			box-shadow: 0 0 10px #000;
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			border-radius: 10px;
+			display: none;
+			padding: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		function show()
+		{
+			document.getElementById("inbox").style.display="block";
+		}
+		function hide()
+		{
+			document.getElementById("inbox").style.display="none";
+		}
+	</script>
+</head>
+<body>
+<button onclick="show()">Inbox</button>
+<div id="inbox">
+	<a href="#" onclick="hide()">X</a>
+</div>
+</body>
+</html>

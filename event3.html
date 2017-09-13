@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function show1()
+		{
+			var a=document.getElementById("msg").value;
+			var b=a.length;
+			var total=160-b;
+			document.getElementById("ans").innerHTML=total;
+
+		}
+		
+	</script>
+</head>
+<body>
+Type Message 
+<br />
+<textarea id="msg" cols="35" rows="10" onkeyup="show1()"></textarea>
+<p>Limit : <b id="ans">160</b></p>
+</body>
+</html>

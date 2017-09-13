@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function focus1()
+		{
+			document.getElementById("txt1").style.borderColor="green";
+		}
+		function focus2()
+		{
+			document.getElementById("txt2").style.borderColor="green";
+		}
+		function blur1()
+		{
+			document.getElementById("txt1").style.borderColor="red";
+		}
+		function blur2()
+		{
+			document.getElementById("txt2").style.borderColor="red";
+		}
+	</script>
+</head>
+<body>
+<input type="text" onfocus="focus1()" onblur="blur1()" id="txt1">
+<br />
+<br />
+<input type="text" onfocus="focus2()" onblur="blur2()" id="txt2">
+<br />
+<br />
+
+<br />
+<br />
+</body>
+</html>
