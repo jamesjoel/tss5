@@ -1,0 +1,18 @@
+body{
+    background-color: #704036;
+}
+
+.box{
+    height: 250px;
+    width: 250px;
+    background-color: #fff;
+
+    /* border-top : 20px solid #000;
+    border-bottom : 20px solid #000;
+    border-left : 20px solid red;
+    border-right : 20px solid red; */
+    /* solid, dashed, dotted, double */
+
+    border-radius: 100px 100px 0px 100px;
+    /*             t   r   b  l  */
+}

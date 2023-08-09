@@ -1,0 +1,28 @@
+body{
+    
+}
+.box{
+    height: 300px;
+    width: 300px;
+    background-color: #b115e4;
+    border-radius: 25px;
+    box-shadow: 10px 10px 10px #000;
+    transition: 2s;
+}
+
+
+.box:hover{
+    background-color: green;   
+}
+
+h1{
+    color : #fff;
+    font-size: 50px;
+    font-family: Helvetica;
+    text-shadow: 2px 2px 5px #000;
+    transition: .5s;
+}
+h1:hover{
+    font-size: 70px;
+    text-shadow: 5px 5px 5px red;
+}
