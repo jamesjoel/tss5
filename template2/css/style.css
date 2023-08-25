@@ -1,0 +1,27 @@
+.bg-orange{
+    background-color: #F7512D;
+}
+.text-white{
+    color : #fff;
+}
+#menu .nav .nav-item .nav-link:hover{
+    background-color: #F7512D;
+    color : #000;
+    
+}
+.slider{
+    height: 350px;
+    background-image: url("../images/slider.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.left-menu .nav .nav-item .nav-link{
+    color : #000;
+}
+.left-menu .nav .nav-item .nav-link:hover{
+    background-color: #F7512D;
+    color : #fff;
+}
+.card-img-top{
+    height: 200px;
+}
