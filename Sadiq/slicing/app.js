@@ -24,7 +24,7 @@ app.get("/about", (req, res)=>{
         {
             name : "sourav",
             age : 54,
-            city : "pune"
+            city : "pune",
         },
         {
             name : "piyush",
@@ -58,5 +58,7 @@ app.get("/about", (req, res)=>{
 
 const port = 3000;
 app.listen(port, ()=>{
-    console.log(`server is running with ${port} port`)
+    // console.log(`server is running with ${port} port`)
+    
+    console.log("server running ", port);
 })
