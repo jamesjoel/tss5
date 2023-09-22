@@ -4,6 +4,32 @@
     <div class="row">
         <div class="col-md-12">
             <h1>About page</h1>
+            <br />
+            <br />
+            <table class="table table-bordered table-primary table-hover">
+                <tr>
+                    <th>S.no.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                </tr>
+                <% for(var a=1  a<=4  ++a) ( %>
+                <tr>
+                    <% data1.forEach((x, n)=>{ %>
+                        <td><%= n+1 %></td>
+                        <td><%= x.name %></td>
+                        <td><%= x.age %></td>
+                        <td><%= x.city %></td>
+                    <% }) %>
+                    <% data2.forEach((y)=>{ %>
+                        <td><%= y.subject %></td>
+                        <td><%= y.marks %></td>
+                    <% }) %>
+                </tr>
+                <% ) %>
+            </table>
         </div>
     </div>
 </div>
