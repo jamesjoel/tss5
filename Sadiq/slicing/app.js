@@ -8,6 +8,10 @@ app.get("/", (req, res)=>{
     res.render("pages/home")
 })
 
+app.get("/adding", (req, res)=>{
+    res.render("pages/student")
+})
+
 app.get("/about", (req, res)=>{
 
     let table = [
