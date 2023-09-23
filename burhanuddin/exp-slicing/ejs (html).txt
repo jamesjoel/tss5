@@ -1,0 +1,12 @@
+ejs (html)
+1) <form> </form>
+2) <form action="/save" method="get/post">  these attriutes accepts the data that is given
+3) all input types will have name attribute
+forex: <input type="text" name="fname" 
+
+node [server]
+1) must code: app.use(express.json());
+              app.use(express.urlencoded({extended:true}));
+2) route code: app.post("/save", (req,res)=>{
+    req.body
+})
