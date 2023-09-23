@@ -1,17 +1,33 @@
 let express = require("express");
 let app = express();
 
+//
+app.post("/adding", (req, res)=>{
+    req.body
+})
+
+//create a path 
 app.use(express.static(__dirname+"/assets"));
+
+//use to run ejs files
 app.set("view engine", "ejs")
 
+//use for taking data from user
+app.use(express.json());
+app.use(express.urlencoded({extend : true}));
+
+//route of home
 app.get("/", (req, res)=>{
     res.render("pages/home")
 })
 
+//route for adding new student
 app.get("/adding", (req, res)=>{
     res.render("pages/student")
 })
 
+
+//route of about
 app.get("/about", (req, res)=>{
 
     let table = [
@@ -60,6 +76,8 @@ app.get("/about", (req, res)=>{
     res.render("pages/about", pagedata)
 })
 
+
+//server of port = 3000
 const port = 3000;
 app.listen(port, ()=>{
     // console.log(`server is running with ${port} port`)

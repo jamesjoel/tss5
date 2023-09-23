@@ -2,9 +2,29 @@
 
 <div class="container" style="min-height: 600px;">
     <div class="row">
-        <div class="co-md-12">
-            <h1>Join Us</h1>
-            
+        <div class="col-md-6 offset-md-3">
+            <form action="/adding" method="post">
+                <div class="card my-5">
+                <div class="card-header bg-secondary">
+                    <h3>Fill data to make <span style="color:#fff; font-size: 30px;">ORDERS</span></h3>
+                </div>
+                <div class="card-body">
+                    <div class="my-2">
+                        <input type="text" name="fullname" placeholder="FULL NAME" class="form-control" />
+                        <br />
+                        <input type="number" name="contact" placeholder="CONTACT" class="form-control" />
+                        <br />
+                        <input type="email" name="email" placeholder="E-MAIL" class="form-control" />
+                        <br />
+                        <textarea name="address" class="form-control" placeholder="ADDRESS"></textarea>
+                        <br />
+                    </div>
+                </div>
+                <div class="card-footer bg-light">
+                    <input type="submit" value="ADD" class="btn btn-outline-success" />
+                </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
