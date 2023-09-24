@@ -1,15 +1,11 @@
 const bodyParser = require("body-parser");
 let express = require("express");
 let app = express();
-{
-    engine = require("express-handlebars")
-}
+// {
+//     engine = require("express-handlebars")
+// }
+// bodyparser = require("body-parser")
 
-
-//
-app.post("/adding", (req, res)=>{
-    console.log(req.body)
-})
 
 //create a path 
 app.use(express.static(__dirname+"/assets"));
@@ -19,11 +15,15 @@ app.set("view engine", "ejs")
 
 //use for taking data from user
 app.use(express.json());
-app.use(express.urlencoded({extend : true}));
+app.use(express.urlencoded({extended : true}));
 
 //route of home
 app.get("/", (req, res)=>{
     res.render("pages/home")
+})
+
+app.post("/save", (req, res)=>{
+    console.log(req.body)
 })
 
 //route for adding new student
