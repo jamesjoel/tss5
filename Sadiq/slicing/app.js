@@ -39,45 +39,42 @@ app.get("/about", (req, res)=>{
         {
             name : "rahul",
             age : 46,
-            city : "indore"
+            city : "indore",
+            course :{
+                        subject : "Mathametics",
+                        marks : 80
+                    }
         },
         {
             name : "arjun",
             age : 36,
-            city : "mumbai"
+            city : "mumbai",
+            course :{
+                subject : "Physics",
+                marks : 80
+            }
         },
         {
             name : "sourav",
             age : 54,
             city : "pune",
+            course :{
+                subject : "Biology",
+                marks : 80
+            }
         },
         {
             name : "piyush",
             age : 75,
-            city : "surat"
+            city : "surat",
+            course :{
+                subject : "Chemistry",
+                marks : 80
+            }
         }
     ]
 
-    let course = [
-        {
-            subject : "Mathametics",
-            marks : 80
-        },
-        {
-            subject : "Chemistry",
-            marks : 78
-        },
-        {
-            subject : "Biology",
-            marks : 59
-        },
-        {
-            subject : "Physics",
-            marks : 70
-        },
-    ]
-
-    let pagedata = {data1 : table, data2 : course}
+    let pagedata = {data1 : table}
     res.render("pages/about", pagedata)
 })
 

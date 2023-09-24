@@ -1,9 +1,34 @@
 <%- include('../include/header') %>
 
-<div class="container">
+<div class="container" style="min-height: 600px;">
     <div class="row">
         <div class="co-md-12">
             <h1>About Page</h1>
+        <div class="card my-5">
+            <div class="card-header bg-secondary text-center"><marquee><h3 class="text-light">DATA</h3></marquee></div>
+            <div class="card-body">
+            <table class="table table-bordered table-hover table-secondary">
+                <tr>
+                    <th>S.no.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                </tr>
+                <% data1.forEach((x, n)=>{ %>
+                    <tr>
+                        <td><%= n+1 %></td>
+                        <td><%= x.name %></td>
+                        <td><%= x.age %></td>
+                        <td><%= x.city %></td>
+                        <td><%= x.course.subject %></td>
+                        <td><%= x.course.marks %></td>
+                    </tr>
+                <% }) %>
+            </table>
+            </div>
+        </div>
         </div>
     </div>
 </div>
