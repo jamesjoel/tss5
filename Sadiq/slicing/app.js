@@ -1,9 +1,14 @@
+const bodyParser = require("body-parser");
 let express = require("express");
 let app = express();
+{
+    engine = require("express-handlebars")
+}
+
 
 //
 app.post("/adding", (req, res)=>{
-    req.body
+    console.log(req.body)
 })
 
 //create a path 
