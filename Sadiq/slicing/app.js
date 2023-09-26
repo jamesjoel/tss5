@@ -1,13 +1,12 @@
 const bodyParser = require("body-parser");
 let express = require("express");
 let app = express();
-// {
-//     engine = require("express-handlebars")
-// }
-// bodyparser = require("body-parser")
+let mongoose = require("mongoose")
 
 
-//create a path 
+//connect to mongoose
+mongoose.connect("mongodb://0.0.0.0:27017/sadiq");
+
 app.use(express.static(__dirname+"/assets"));
 
 //use to run ejs files
@@ -17,13 +16,20 @@ app.set("view engine", "ejs")
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
+
+
+
+
+
+
 //route of home
 app.get("/", (req, res)=>{
     res.render("pages/home")
 })
 
 app.post("/save", (req, res)=>{
-    console.log(req.body)
+    ordermodel.create(req.body);
+    // res.redirect("/data")
 })
 
 //route for adding new student
@@ -31,49 +37,26 @@ app.get("/adding", (req, res)=>{
     res.render("pages/student")
 })
 
+app.get("/data", (req, res)=>{
+
+    const orderschema = mongoose.Schema({
+        fullname : String,
+        contact : Number,
+        email : String,
+        address : String
+    });
+    
+    const ordermodel = mongoose.model("orders", orderschema);
+    
+    let pagedata = {data : orderschema}
+    console.log(pagedata)
+    res.render("pages/order_data")
+})
+
 
 //route of about
 app.get("/about", (req, res)=>{
-
-    let table = [
-        {
-            name : "rahul",
-            age : 46,
-            city : "indore",
-            course :{
-                        subject : "Mathametics",
-                        marks : 80
-                    }
-        },
-        {
-            name : "arjun",
-            age : 36,
-            city : "mumbai",
-            course :{
-                subject : "Physics",
-                marks : 80
-            }
-        },
-        {
-            name : "sourav",
-            age : 54,
-            city : "pune",
-            course :{
-                subject : "Biology",
-                marks : 80
-            }
-        },
-        {
-            name : "piyush",
-            age : 75,
-            city : "surat",
-            course :{
-                subject : "Chemistry",
-                marks : 80
-            }
-        }
-    ]
-
+    let table = require("table")
     let pagedata = {data1 : table}
     res.render("pages/about", pagedata)
 })
