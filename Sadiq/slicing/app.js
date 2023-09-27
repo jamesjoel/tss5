@@ -1,13 +1,16 @@
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 let express = require("express");
 let app = express();
-// {
-//     engine = require("express-handlebars")
-// }
-// bodyparser = require("body-parser")
+let employemodel = require("./models/employee");
+let ordermodel = require("./models/order");
 
 
-//create a path 
+
+
+
+
+
+
 app.use(express.static(__dirname+"/assets"));
 
 //use to run ejs files
@@ -17,13 +20,43 @@ app.set("view engine", "ejs")
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
+
+
+
+
+
+
+
+
 //route of home
 app.get("/", (req, res)=>{
     res.render("pages/home")
 })
 
-app.post("/save", (req, res)=>{
-    console.log(req.body)
+//data coming from [MAKE ORDERS]
+app.post("/save", async (req, res)=>{
+    await ordermodel.create(req.body);
+    res.redirect("/adding")
+})
+
+//data coming from [EMPLOYEES]
+app.post("/store", async (req, res)=>{
+    await employemodel.create(req.body);
+    res.redirect("/about")
+})
+
+//route for display our team
+app.get("/teams", async (req, res)=>{
+    const employe = await employemodel.find();
+    const pagedata = {data1 : employe}
+    res.render("pages/our_team", pagedata)
+})
+
+//rout of data page
+app.get("/data", async (req, res)=>{
+    const orders = await ordermodel.find();
+    let pagedata = {data : orders}
+    res.render("pages/order_data", pagedata)
 })
 
 //route for adding new student
@@ -31,52 +64,20 @@ app.get("/adding", (req, res)=>{
     res.render("pages/student")
 })
 
-
-//route of about
+//route of about for entering data of team
 app.get("/about", (req, res)=>{
-
-    let table = [
-        {
-            name : "rahul",
-            age : 46,
-            city : "indore",
-            course :{
-                        subject : "Mathametics",
-                        marks : 80
-                    }
-        },
-        {
-            name : "arjun",
-            age : 36,
-            city : "mumbai",
-            course :{
-                subject : "Physics",
-                marks : 80
-            }
-        },
-        {
-            name : "sourav",
-            age : 54,
-            city : "pune",
-            course :{
-                subject : "Biology",
-                marks : 80
-            }
-        },
-        {
-            name : "piyush",
-            age : 75,
-            city : "surat",
-            course :{
-                subject : "Chemistry",
-                marks : 80
-            }
-        }
-    ]
-
-    let pagedata = {data1 : table}
-    res.render("pages/about", pagedata)
+    res.render("pages/about")
 })
+
+
+
+
+
+
+
+
+
+
 
 
 //server of port = 3000
