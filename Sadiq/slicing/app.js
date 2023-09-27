@@ -1,8 +1,8 @@
 // const bodyParser = require("body-parser");
 let express = require("express");
 let app = express();
-let table = require("./models/table")
-let ordermodel = require("./models/order") 
+let employemodel = require("./models/employee");
+let ordermodel = require("./models/order");
 
 
 
@@ -39,9 +39,17 @@ app.post("/save", async (req, res)=>{
     res.redirect("/adding")
 })
 
-//route for adding new student
-app.get("/adding", (req, res)=>{
-    res.render("pages/student")
+//data coming from [EMPLOYEES]
+app.post("/store", async (req, res)=>{
+    await employemodel.create(req.body);
+    res.redirect("/about")
+})
+
+//route for display our team
+app.get("/teams", async (req, res)=>{
+    const employe = await employemodel.find();
+    const pagedata = {data1 : employe}
+    res.render("pages/our_team", pagedata)
 })
 
 //rout of data page
@@ -51,11 +59,14 @@ app.get("/data", async (req, res)=>{
     res.render("pages/order_data", pagedata)
 })
 
+//route for adding new student
+app.get("/adding", (req, res)=>{
+    res.render("pages/student")
+})
 
-//route of about
+//route of about for entering data of team
 app.get("/about", (req, res)=>{
-    let pagedata = {data1 : table}
-    res.render("pages/about", pagedata)
+    res.render("pages/about")
 })
 
 
