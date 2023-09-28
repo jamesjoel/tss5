@@ -1,18 +1,17 @@
-let express = require("express");
-let app = express();
+const express= require ("express");
+const app = express();
 
-app.use(express.static(__dirname+"/assets"));
-app.set("view engine","ejs")
+const allroutes = require("./config/allroutes");
+
+app.use(express.static(__dirname+("/assets")));
+app.use("views engine" , "ejs");
+app.use(express.json());
+app.use(express.urlencoded({extended : true }));
+
+app.use(allroutes);
 
 
-app.get("/" , (req, res)=>{
-    res.render("index")
-})
-app.get("/about" , (req, res)=>{
-    res.render("about")
-})
-
-const port= 3000;
-app.listen(port, ()=>{
-    console.log(`Server is running successfully ${port}`)
-})
+const port = process.env.PORt || 3000;
+app.listen(port,()=>{
+    console.log("server running")
+});
