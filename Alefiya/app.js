@@ -4,7 +4,9 @@ const app = express();
 const allroutes = require("./config/allroutes");
 
 app.use(express.static(__dirname+("/assets")));
-app.use("views engine" , "ejs");
+
+app.set("views engine" , "ejs");
+
 app.use(express.json());
 app.use(express.urlencoded({extended : true }));
 
