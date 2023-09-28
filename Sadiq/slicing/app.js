@@ -3,6 +3,7 @@ let express = require("express");
 let app = express();
 let employemodel = require("./models/employee");
 let ordermodel = require("./models/order");
+const Route = require("./config/AllRouters");
 
 
 
@@ -19,7 +20,7 @@ app.set("view engine", "ejs")
 //use for taking data from user
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
-
+app.use(Route);
 
 
 
@@ -29,9 +30,9 @@ app.use(express.urlencoded({extended : true}));
 
 
 //route of home
-app.get("/", (req, res)=>{
-    res.render("pages/home")
-})
+// app.get("/", (req, res)=>{
+//     res.render("pages/home")
+// })
 
 //data coming from [MAKE ORDERS]
 app.post("/save", async (req, res)=>{
@@ -61,7 +62,7 @@ app.get("/data", async (req, res)=>{
 
 //route for adding new student
 app.get("/adding", (req, res)=>{
-    res.render("pages/student")
+    res.render("pages/order")
 })
 
 //route of about for entering data of team
