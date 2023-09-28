@@ -6,10 +6,13 @@ app.set("view engine","ejs")
 
 
 app.get("/" , (req, res)=>{
-    res.sendFile(__dirname + "/index.html")
+    res.render("index")
+})
+app.get("/about" , (req, res)=>{
+    res.render("about")
 })
 
 const port= 3000;
 app.listen(port, ()=>{
-    console.log("Server is running successfully",port)
+    console.log(`Server is running successfully ${port}`)
 })
