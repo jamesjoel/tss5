@@ -12,10 +12,10 @@ Route.use("/", require("../controllers/HomeController"));
 Route.use("/About", require("../controllers/AboutController"));
 Route.use("/Adding", require("../controllers/AddingController"));
 Route.use("/Data", require("../controllers/DataController"));
-Route.use("/Save", require("../controllers/SaveController"));
-Route.use("/Store", require("../controllers/StoreController"));
 Route.use("/Teams", require("../controllers/TeamsController"));
 
+//Route.use("/Save", require("../controllers/SaveController"));
+//Route.use("/Store", require("../controllers/StoreController"));
 
 
 module.exports = Route;
