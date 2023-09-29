@@ -1,0 +1,39 @@
+<%- include("../includes/header") %>
+<div class="container" style="min-height: 600px;">
+    <form action="/teacher/save" method="post">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Teacher Page</h3>
+            <div class="my-3">
+                <label>Full Name</label>
+                <input type="text" name="fullname" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label>Salary</label>
+                <input type="text" name="salary" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label>Class</label>
+                <select class="form-control" name="class">
+                    <option>Select Teacher Class</option>
+                    <% for(var a = 1; a <= 12; a++){ %>
+                        <option><%= a %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="my-3">
+                <label>Education</label>
+                <input type="text" name="education" class="form-control" />
+            </div>
+            <br />
+            <Br />
+            <div class="d-grid">
+
+                <input type="submit" class="btn btn-primary" value="Add Teacher" />
+            </div>
+        </div>
+        
+    </div>
+    </form>
+</div>
+<%- include("../includes/footer") %>
