@@ -1,0 +1,31 @@
+<%- include('../includes/header') %>
+
+
+<div class="container" style="min-height: 600px;">
+    <div class="row">
+       <div class="col-md-10 offset-md-1 mt-4">
+            <h3 class="text-center">View All Student</h3>
+            <table class="table table-bordered table-hover table-dark table-striped">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Fee</th>
+                    <th>Contact</th>
+                </tr>
+                <% data.forEach((value, index)=>{ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= value.fullname %></td>
+                        <td><%= value.email %></td>
+                        <td>&#8377; <%= value.fee %></td>
+                        <td><%= value.contact %></td>
+                        
+                    </tr>
+                <% }) %>
+            </table>
+       </div>
+    </div>
+</div>
+
+<%- include('../includes/footer') %>

@@ -1,0 +1,31 @@
+<%- include('../includes/header') %>
+
+<div class="container" style="min-height: 600px;">
+    <form action="/demo" method="post">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="my-3">
+                <label>Name</label>
+                <input name="name" type="text" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label>Salary</label>
+                <input name="salary" type="text" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label>City</label>
+                <select name="city" class="form-control" >
+                    <option>Select</option>
+                    <option>Indore</option>
+                    <option>Ujjain</option>
+                    <option>Dewas</option>
+                </select>
+            </div>
+            <br />
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </div>
+    </form>
+</div>
+
+<%- include('../includes/footer') %>

@@ -1,0 +1,40 @@
+<%- include('../include/header') %>
+
+<div class="container" style="min-height: 600px;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-5">
+            <table class="table table-bordered table-striped table-hover table-dark">
+            <tr>
+                <th>S.no.</th>
+                <th>Name</th>
+                <th>Age Category</th>
+                <th>Contact</th>
+                <th>City</th>
+                <th>Salary</th>
+            </tr>
+            <% data1.forEach((value, index)=>{ %>
+                <tr>
+                    <td><%= index+1 %></td>
+                    <td><%= value.fullname %></td>
+                    <td><%= value.age %></td>
+                    <td>+91 <%= value.contact %></td>
+                    <td><%= value.city %></td>
+                    <td> &#8377; <%= value.salary %></td>
+                </tr>
+            <% }) %>
+            </table> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <%- include('../include/myteam') %>
+
+        </div>
+    </div>
+</div>
+
+
+<%- include('../include/termination') %> 
+
+<%- include('../include/footer') %>
