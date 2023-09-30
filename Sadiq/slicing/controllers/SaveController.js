@@ -1,6 +1,7 @@
 const Route = require("express").Router();
+let ordermodel = require("../models/order");
 
-Route.post("/save", async (req, res)=>{
+Route.post("/", async (req, res)=>{
     await ordermodel.create(req.body);
     res.redirect("/adding")
 })

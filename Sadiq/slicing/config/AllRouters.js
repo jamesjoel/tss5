@@ -9,13 +9,13 @@ const Route = require("express").Router();
 // const TeamsController = Route.use("../controllers/TeamsController");
 
 Route.use("/", require("../controllers/HomeController"));
-Route.use("/About", require("../controllers/AboutController"));
-Route.use("/Adding", require("../controllers/AddingController"));
-Route.use("/Data", require("../controllers/DataController"));
-Route.use("/Teams", require("../controllers/TeamsController"));
+Route.use("/about", require("../controllers/AboutController"));
+Route.use("/adding", require("../controllers/AddingController"));
+Route.use("/data", require("../controllers/DataController"));
+Route.use("/teams", require("../controllers/TeamsController"));
 
-//Route.use("/Save", require("../controllers/SaveController"));
-//Route.use("/Store", require("../controllers/StoreController"));
+Route.use("/save", require("../controllers/SaveController"));
+Route.use("/store", require("../controllers/StoreController"));
 
 
 module.exports = Route;

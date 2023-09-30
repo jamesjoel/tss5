@@ -1,6 +1,7 @@
 const Route = require("express").Router();
+let employemodel = require("../models/employee");
 
-Route.post("/store", async (req, res)=>{
+Route.post("/", async (req, res)=>{
     await employemodel.create(req.body);
     res.redirect("/about")
 })
