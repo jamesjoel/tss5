@@ -2,20 +2,25 @@
 <div class="container my-5" style="min-height: 600px;">
     <div class="row">
         <div class="col-md-12">
+            <!-- <a href="/teacher/info/amar/25">Click Here</a> -->
             <h3>Teacher-List Page</h3>
             <table class="table table-info">
                 <tr>
                     <th>S.No.</th>
                     <th>Name</th>
-                    <th>Class</th>
+                    
                     <th>Education</th>
+                    <th>View</th>
+                    <th>Delete</th>
                 </tr>
                 <% list.forEach((obj, index)=>{ %>
                     <tr>
                         <td><%= index+1 %></td>
                         <td><%= obj.fullname %></td>
-                        <td><%= obj.class %></td>
+                        
                         <td><%= obj.education %></td>
+                        <td><a class="btn btn-info btn-sm" href="/teacher/view/<%= obj._id %>">View</a></td>
+                        <td><a class="btn btn-danger btn-sm" href="/teacher/delete/<%= obj._id %>">Delete</a></td>
                     </tr>
                 <% }) %>
 

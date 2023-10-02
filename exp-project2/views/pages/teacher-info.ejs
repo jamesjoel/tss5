@@ -1,7 +1,29 @@
 <%- include("../includes/header") %>
 <div class="container" style="min-height: 600px;">
     <div class="row">
-        <h3>Teacher-Info Page</h3>
+        <div class="col-md-6 offset-md-3 my-4">
+            <h3 class="text-center">Teacher Information</h3>
+            <table class="table table-info">
+                <tr>
+                    <td>Full Name</td>
+                    <Td><%= data.fullname %></Td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <Td><%= data.salary %></Td>
+                </tr>
+                <tr>
+                    <td>Class</td>
+                    <Td><%= data.class %></Td>
+                </tr>
+                <tr>
+                    <td>Education</td>
+                    <Td><%= data.education %></Td>
+                </tr>
+                ></Td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <%- include("../includes/footer") %>
