@@ -16,4 +16,21 @@ route.post("/save", async (req, res)=>{
     res.redirect("/teacher")
 })
 
+route.get("/delete/:a", async (req, res)=>{
+    let dlt = req.params.a;
+    await teacher.deleteMany({ _id : dlt});
+    res.redirect("/teacher/list")
+})
+
+route.get("/view/:a",  async (req, res)=>{
+    let x = req.params.a
+    let result = await teacher.find({ _id : x })
+    let pagedata = {data : result[0]}
+    res.render("pages/teacher-info", pagedata)
+})
+
+route.get("/info/:a", (req, res)=>{
+    let x = req.params.a;
+})
+
 module.exports = route;
