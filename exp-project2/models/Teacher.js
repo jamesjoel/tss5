@@ -6,7 +6,8 @@ const TeacherSchema = mongoose.Schema({
     fullname : String,
     class : Number,
     salary : Number,
-    education : String
+    education : String,
+    gender : String
 })
 
 let TeacherModel = mongoose.model("teacher", TeacherSchema);

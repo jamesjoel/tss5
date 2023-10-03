@@ -13,6 +13,7 @@ routes.get("/list", async (req, res)=>{
     res.render("pages/teacher-list", teacher);
 })
 routes.post("/save", async (req, res)=>{
+    
     await Teacher.create(req.body);
     res.redirect("/teacher/list");
 })
@@ -29,6 +30,19 @@ routes.get("/view/:a", async(req, res)=>{
     let result = await Teacher.find({ _id : x });
     let pagedata = { data : result[0] };
     res.render("pages/teacher-info", pagedata)
+})
+
+routes.get("/edit/:id", async(req, res)=>{
+    let id = req.params.id;
+    let result = await Teacher.find({ _id : id });
+    let pagedata = { data : result[0] }
+    res.render("pages/teacher-edit", pagedata);
+})
+
+routes.post("/update/:id", async(req, res)=>{
+    let id = req.params.id;
+    await Teacher.updateMany({_id : id }, req.body);
+    res.redirect("/teacher/list")
 })
 
 
