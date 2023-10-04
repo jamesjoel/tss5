@@ -1,4 +1,5 @@
 const route = require("express").Router();
+const { json } = require("express");
 const account = require("../model/account");
 const teacher = require("../model/teacher");
 
@@ -38,10 +39,20 @@ route.get("/delete/:a/:b", async (req ,res)=>{
     res.redirect("/account/list")
 })
 
-route.post("/authentication/:a", (req, res)=>{
-    let x = req.params.a;
-    
+route.get("/authentication/:number", async (req, res)=>{
+    let number = req.params.number;
+    let accountdata = await account.find({number : number})
+    let teacherdata = await teacher.find({ number : number})
+    let pagedata = { account : accountdata[0], data : teacherdata[0] }
+    res.render("pages/account-authentication", pagedata)
+})
 
+route.post("/signup", async (req, res)=>{
+    req.body = jason.Parse(req.body)
+    const pass = await account.find({password : req.body})
+    if(pass.length > 0){
+        res.redirect("/account/view");
+    }
 })
 
 module.exports = route;

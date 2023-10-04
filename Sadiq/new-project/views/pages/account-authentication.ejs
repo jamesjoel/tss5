@@ -1,0 +1,31 @@
+<%- include("../includes/header") %>
+
+<div class="container" style="min-height: 600px;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header text-center bg-primary"><h3 class="text-light">LOGIN</h3></div>
+                <div class="card-body">
+                        <div class="my-3">
+                            <label>GMAIL ID</label>
+                            <input type="text" name="name" value="<%= account.gmail %>" class="form-control" placeholder="Create User Name" />
+                        </div>
+                    <form action="/account/signup" method="post">
+                        <div class="my-3">
+                            <label>PASSWORD</label>
+                            <input type="text" name="password"  class="form-control" placeholder="Enter Password" />
+                        </div>
+                        <div class="card-footer">
+                            <input type="submit" value="LOGIN" class="btn btn-info" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../includes/testimonial") %>
+<%- include("../includes/footer") %>
