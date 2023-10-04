@@ -16,8 +16,7 @@
                             <tr>
                                 <td><%= index+1 %></td>
                                 <td><%= value.gmail %></td>
-                                <td><a class="btn btn-outline-info btn-sm" href="/account/authentication/<%= value.number %>">View</a></td>
-                            
+                                <td><a class="btn btn-outline-info btn-sm" href="/account/view/<%= value._id %>">View</a></td>
                             </tr>
                         <% }) %>
                     </table>
