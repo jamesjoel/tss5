@@ -7,7 +7,7 @@ const teacherSchema = mongoose.Schema({
     class : Number,
     salary : Number,
     education : String,
-    id : { type : String, default : "651d15c9afaacf2696360bd7" }
+    id : { type : String }
 })
 
 const teacherModel = mongoose.model("teacher", teacherSchema);
