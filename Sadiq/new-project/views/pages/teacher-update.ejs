@@ -3,21 +3,21 @@
 <div class="container" style="min-height: 600px;">
     <div class="row">
         <div class="col-md-6 offset-3">
-            <form action="/teacher/save" method="post">
+            <form action="/teacher/update/<%= update.id %>" method="post">
             <div class="card my-4">
-                <div class="card-header bg-primary text-center"><h3 class="text-light">Enter Teacher's Data</h3></div>
+                <div class="card-header bg-primary text-center"><h3 class="text-light">Update Teacher's Data</h3></div>
                 <div class="card-body">
                     <div class="my-3">
-                    <label>Enter ID</label>
-                    <input type="text" name="id" class="form-control" placeholder="Enter Your ID" />
+                    <label>YOUR ID</label>
+                    <input type="text" name="id" class="form-control" value="<%= update.id %>" placeholder="Enter Your ID" />
                     </div>
                     <div class="my-3">
                     <label>Full Name</label>
-                    <input type="text" name="fullname" class="form-control" placeholder="Enter Your Name" />
+                    <input type="text" name="fullname" value="<%= update.fullname %>" class="form-control" placeholder="Enter Your Name" />
                     </div>
                     <div class="my-3">
                     <label>Salary</label>
-                    <input type="number" name="salary" class="form-control" placeholder="Enter Salary" />
+                    <input type="number" name="salary" value="<%= update.salary %>" class="form-control" placeholder="Enter Salary" />
                     </div>
                     <div class="my-3">
                     <label>Class</label>
@@ -30,11 +30,11 @@
                     </div>
                     <div class="my-3">
                     <label>Education</label>
-                    <input type="text" name="education" class="form-control" placeholder="Enter Your Education" />
+                    <input type="text" name="education" value="<%= update.education %>" class="form-control" placeholder="Enter Your Education" />
                     </div>
                 </div>
                 <div class="card-footer">
-                    <input type="submit" class="btn btn-outline-primary form-control"  value="ADD TEACHER" />
+                    <input type="submit" class="btn btn-outline-primary form-control"  value="UPDATE DATA" />
                 </div>
             </div>
             </form>

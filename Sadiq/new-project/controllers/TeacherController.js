@@ -6,17 +6,19 @@ route.get("/", (req, res)=>{
 })
 
 route.post("/save", async (req, res)=>{
-    // const id = localStorage.getItem("id");
-    // req.body.id = id;
     await teacher.create(req.body)
     res.redirect("/teacher")
 })
 
-route.use("/list", require("./sub-controller/teacher-listController"));
-
-
-route.get("/info/:a", (req, res)=>{
-    let x = req.params.a;
+route.post("/update/:id", async (req, res)=>{
+    let update = req.params.id;
+    await teacher.updateMany({ id : update }, { $set : req.body } )
+    res.redirect("/teacher")
 })
+
+
+
+route.use("/data", require("./sub-controller/teacher-dataController"));
+
 
 module.exports = route;

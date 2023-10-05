@@ -7,8 +7,7 @@ route.get("/", (req, res)=>{
 })
 
 route.post("/save", async (req, res)=>{
-    let id = await account.create(req.body);
-    localStorage.setItem("id", id._id)
+    await account.create(req.body);
     res.redirect("/account");
 })
 

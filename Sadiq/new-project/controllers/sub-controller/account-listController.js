@@ -11,12 +11,11 @@ route.get("/", async (req, res)=>{
 
 route.get("/view/:id", async (req, res)=>{
     let id = req.params.id;
-    let accountdata = await account.find({_id : id})
-    let teacherdata = await teacher.find({ id : id})
+    let accountdata = await account.find({ id : id })
+    let teacherdata = await teacher.find({ id : id })
     let pagedata = { account : accountdata[0], data : teacherdata[0] }
     res.render("pages/account-login", pagedata)
 })
-
 
 
 module.exports = route;

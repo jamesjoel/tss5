@@ -10,18 +10,12 @@ route.get("/:id", async (req, res)=>{
     res.render("pages/account-authentication", pagedata)
 })
 
-route.get("/delete/:id", async (req ,res)=>{
-    let x = req.params.id;
-    await account.deleteMany({ _id : x })
-    res.redirect("/account/list")
-})
-
 route.post("/signup", async (req, res)=>{
-    // req.body = JSON.parse(req.body)
-    // const pass = await account.find({password : req.body})
-    // if(pass.length > 0){
-    //     res.redirect("/account/list/view");
-    // }
+    req.body = JSON.parse(req.body)
+    const pass = await account.find({password : req.body})
+    if(pass.length > 0){
+        res.redirect("/account/list/view");
+    }
 })
 
 module.exports = route;

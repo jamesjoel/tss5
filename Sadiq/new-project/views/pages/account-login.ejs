@@ -4,23 +4,17 @@
 <div class="container p-5" style="min-height: 600px;">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="card my-4">
-                <div class="card-header bg-primary"><h3 class="text-light" style="display: inline;">WELCOME  <span class="text-warning"><%= account.name %></span></h3>
-                <h3 style="display: inline; float: right;" class="text-right"><a href="/account/authentication/delete/<%= account._id %>" class="btn btn-danger">DELETE ACCOUNT</a></h3>
-                </div>
-                <div class="card-body">
-                <table class="table table-info table-hover">
-                    <tr>
-                        <th>GMAIL</th>
-                        <td><%= account.gmail %></td>
-                    </tr>
-                    <tr>
-                        <th>CONTACT NUMBER</th>
-                        <td><%= account.number %></td>
-                    </tr>
-                </table>
-                </div>
-            </div>
+            <table class="table table-info table-hover text-center">
+                <tr>
+                    <th><a href="/teacher" >ENTER TEACHER DATA</a></th>
+                </tr>
+                <tr>
+                    <th><a href="/teacher/data/view/<%= account.id %>" >VIEW TEACHER DATA</a></th>
+                </tr>
+                <tr>
+                    <th><a href="/teacher/data/update/<%= data.id %>" >UPDATE TEACHER DATA</a></th>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
