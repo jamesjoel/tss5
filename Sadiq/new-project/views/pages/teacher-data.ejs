@@ -1,0 +1,44 @@
+<%- include("../includes/blackheader") %>
+
+
+<div class="container p-5" style="min-height: 600px;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card my-4">
+                <div class="card-header bg-primary"><h3 class="text-light" style="display: inline;">WELCOME  <span class="text-warning"><%= account.name %></span></h3>
+                <h3 style="display: inline; float: right;" class="text-right"><a href="/teacher/data/delete/<%= account.id %>" class="btn btn-danger">DELETE ACCOUNT</a></h3>
+                </div>
+                <div class="card-body">
+                <table class="table table-info table-hover">
+                    <tr>
+                        <th>YOUR ID</th>
+                        <td><%= account.id %></td>
+                    </tr>
+                    <tr>
+                        <th>FULL NAME</th>
+                        <td><%= data.fullname %></td>
+                    </tr>
+                    <tr>
+                        <th>CONTACT NUMBER</th>
+                        <td><%= account.number %></td>
+                    </tr>
+                    <tr>
+                        <th>EDUCATION</th>
+                        <td><%= data.education %></td>
+                    </tr>
+                    <tr>
+                        <th>SALARY</th>
+                        <td><%= data.salary %></td>
+                    </tr>
+                    <tr>
+                        <th>CLASS</th>
+                        <td><%= data.class %></td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../includes/footer") %>

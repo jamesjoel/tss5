@@ -1,52 +1,130 @@
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="/css/bootstrap.css" />
-        <script src="/js/bootstrap.bundle.js"></script>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/about">about</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.css"/>
+    
+    <script src="/js/bootstrap.bundle.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crochet website</title>
+</head>
+<body>
+    <!--Header image-->
+    <div class="container-fluid" id="header-image">
+
+        <div class="container-fluid">
+            <div class="container">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a href="#" data-bs-target="#login-box" data-bs-toggle="modal" class="nav-link" id="nav-top-text">Login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" data-bs-target="#signup-box" data-bs-toggle="modal" class="nav-link">Signup</a>
+                        </li>
                     </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
-        <div class="container bg-warning">
-            <div class="row">
-                <div class="col-md-12">
-                  <h1>Home page</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita numquam, error sapiente quo velit possimus tenetur ea totam sunt fuga. Quasi sint provident fugiat eum, consequatur impedit ipsa minima veniam!</p>
                 </div>
             </div>
         </div>
-    </body>
+
+        <!--Modal Login-->
+
+        <div class="modal fade" id="login-box">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Login</h3>
+                    </div>
+
+                        <div class="modal-body">
+                            <div>
+                                <label>Username</label>
+                                <input type="text" placeholder="Type your username here" class="form-control"/> 
+                            </div>
+
+                            <div>
+                                <label>Password</label>
+                                <input type="password" placeholder="Create a strong password" class="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-danger d-grid">Login</button>
+                            <button class="btn btn-danger d-grid" data-bs-dismiss="modal">cancle</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+        <!--Modal signup-->
+        <div class="modal fade" id="signup">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                     <div class="modal-header">
+                        <h3>Signup</h3>
+                     </div>
+
+                     <div class="modal-body">
+                        <div>
+                            <label></label>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--navbar-->
+        <div class=" container navbar-expand-sm  sticky-top display-content-center">
+            <ul class="nav" id="navbar">
+                <li class="nav-item">
+                    <a href="#" class="nav-link navbar-text">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link navbar-text">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link navbar-text">Contact</a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link navbar-text">Cals</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link navbar-text">Vlogs</a>
+                </li>
+               
+               
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+            <div class="card-img-top col-md-3">
+                <img src="images/fabric.jpg"  style="height : 250px;"/>
+            </div>
+
+            <div class= "col-md-3">
+                <img src="images/fabric.jpg"  style="height : 250px;"/>
+            </div>
+
+            <div class="col-md-3">
+                <img src="images/fabric.jpg"  style="height : 250px;"/>
+            </div>
+            
+            <div class="col-md-3">
+                <img src="images/fabric.jpg"  style="height : 250px;"/>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
 </html>

@@ -1,7 +1,6 @@
-const mongoose = require ("mongoose")
+require("../config/Database")
 
-//connect to mongoose
-mongoose.connect("mongodb://0.0.0.0:27017/sadiq");
+const mongoose = require ("mongoose")
 
 
 
