@@ -11,10 +11,18 @@ route.get("/:id", async (req, res)=>{
 })
 
 route.post("/signup", async (req, res)=>{
-    req.body = JSON.parse(req.body)
-    const pass = await account.find({password : req.body})
-    if(pass.length > 0){
-        res.redirect("/account/list/view");
+    const gmail = req.body.gmail;
+    const password = req.body.password;
+    let beta = await account.find({ gmail : gmail });
+    if( beta.length != 0 ){
+        if( beta[0].password == password.trim() ){
+            let token = beta[0]._id;
+            res.status(200).render("/pages/account-login", { status : 200, success : true, errType : 0, token : token })
+        }else{
+            res.status(402).render("pages/home", { status : 402, success : false, errType : 2 });
+        }
+    }else{
+        res.status(403).render("pages/home", { status : 403, success : false, errType : 1 });
     }
 })
 

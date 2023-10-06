@@ -6,8 +6,7 @@ const accountSchema = mongoose.Schema({
     gmail : String,
     number : Number,
     password : String,
-    name : String,
-    id : String
+    name : String
 });
 
 const accountModel = mongoose.model("account_info", accountSchema);

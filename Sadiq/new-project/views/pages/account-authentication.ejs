@@ -6,11 +6,27 @@
             <div class="card">
                 <div class="card-header text-center bg-primary"><h3 class="text-light">LOGIN</h3></div>
                 <div class="card-body">
+                    <% if (typeof status !== 'undefined' && status !== null){ %>
+                        <% if(status == 200 && typeof token !== 'undefined'){ %>
+                            <input type="hidden" id="token" value="<%= token %>" />
+                            <div class="alert alert-success" role="alert">
+                                Valid User
+                            </div>
+                        <% }else if(status == 403){ %>
+                            <div class="alert alert-danger" role="alert">
+                                Incorrect Gmail ID
+                            </div>
+                        <% }else if(status == 402){ %>
+                            <div class="alert alert-danger" role="alert">
+                                Incorrect Password
+                            </div>
+                        <% } %>
+                    <% } %>
+                    <form action="/account/authentication/signup" method="post"></form>
                         <div class="my-3">
                             <label>GMAIL ID</label>
-                            <input type="text" name="name" value="<%= account.gmail %>" class="form-control" placeholder="Create User Name" />
+                            <input type="text" name="gmail" value="<%= account.gmail %>" class="form-control" placeholder="Create User Name" />
                         </div>
-                    <form action="/account/authentication/signup" method="post">
                         <div class="my-3">
                             <label>PASSWORD</label>
                             <input type="text" name="password"  class="form-control" placeholder="Enter Password" />
@@ -29,3 +45,21 @@
 
 <%- include("../includes/testimonial") %>
 <%- include("../includes/footer") %>
+
+<script>
+    window.addEventListener( 'DOMContentLoaded', (event)=>{
+        const statusElement = document.getElementById('status');
+        const tokenElement = document.getElementById('token');
+
+        if( token ){
+            localStorage.setItem('token', tokenElement.value);
+        }
+        if( statusElement && tokenElement ){
+            const status = parseInt(statusElement.value);
+            const token = tokenElement.value;
+            if( status == 200 ){
+                localStorage.setItem('token', token);
+            }
+        }
+    } )
+</script>
