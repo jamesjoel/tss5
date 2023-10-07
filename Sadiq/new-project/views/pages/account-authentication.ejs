@@ -9,6 +9,7 @@
                     <% if (typeof status !== 'undefined' && status !== null){ %>
                         <% if(status == 200 && typeof token !== 'undefined'){ %>
                             <input type="hidden" id="token" value="<%= token %>" />
+                            <input type="hidden" id="status" value="<%= status %>" />
                             <div class="alert alert-success" role="alert">
                                 Valid User
                             </div>
@@ -22,17 +23,17 @@
                             </div>
                         <% } %>
                     <% } %>
-                    <form action="/account/authentication/signup" method="post"></form>
+                    <form action="/account/authentication/signup" method="post">
                         <div class="my-3">
                             <label>GMAIL ID</label>
                             <input type="text" name="gmail" value="<%= account.gmail %>" class="form-control" placeholder="Create User Name" />
                         </div>
                         <div class="my-3">
                             <label>PASSWORD</label>
-                            <input type="text" name="password"  class="form-control" placeholder="Enter Password" />
+                            <input type="password" name="password"  class="form-control" placeholder="Enter Password" />
                         </div>
                         <div class="card-footer">
-                            <input type="submit" value="LOGIN" class="btn btn-info" />
+                            <input type="submit" value="LOGIN" class="btn btn-outline-info" />
                         </div>
                     </form>
                 </div>
@@ -49,8 +50,8 @@
 <script>
     window.addEventListener( 'DOMContentLoaded', (event)=>{
         const statusElement = document.getElementById('status');
-        const tokenElement = document.getElementById('token');
-
+        const tokenElement = document.getElementById("token");
+        console.log(statusElement);
         if( token ){
             localStorage.setItem('token', tokenElement.value);
         }

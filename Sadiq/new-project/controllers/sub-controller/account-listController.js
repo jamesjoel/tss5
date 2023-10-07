@@ -13,7 +13,7 @@ route.get("/view", async (req, res)=>{
     let accountdata = await account.find({})
     let teacherdata = await teacher.find({})
     let pagedata = { account : accountdata[0], teacher : teacherdata[0] }
-    res.render("pages/account-login")
+    res.render("pages/account-login", pagedata)
 })
 
 
