@@ -10,17 +10,6 @@
                         <% if(status == 200 && typeof token !== 'undefined'){ %>
                             <input type="hidden" id="token" value="<%= token %>" />
                             <input type="hidden" id="status" value="<%= status %>" />
-                            <div class="alert alert-success" role="alert">
-                                Valid User
-                            </div>
-                        <% }else if(status == 403){ %>
-                            <div class="alert alert-danger" role="alert">
-                                Incorrect Gmail ID
-                            </div>
-                        <% }else if(status == 402){ %>
-                            <div class="alert alert-danger" role="alert">
-                                Incorrect Password
-                            </div>
                         <% } %>
                     <% } %>
                     <form action="/account/authentication/signup" method="post">
@@ -50,8 +39,7 @@
 <script>
     window.addEventListener( 'DOMContentLoaded', (event)=>{
         const statusElement = document.getElementById('status');
-        const tokenElement = document.getElementById("token");
-        console.log(statusElement);
+        const tokenElement = document.getElementById('token');
         if( token ){
             localStorage.setItem('token', tokenElement.value);
         }

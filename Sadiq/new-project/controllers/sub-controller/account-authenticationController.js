@@ -19,7 +19,7 @@ route.post("/signup", async (req, res)=>{
     if( beta.length != 0 ){
         if( beta[0].password == password.trim() ){
             let token = beta[0]._id;
-            res.status(200).render("pages/account-authentication", { status : 200, success : true, errType : 0, token : token, account : accountdata[0], teacher : teacherdata[0]  })
+            res.status(200).render("pages/account-login", { status : 200, success : true, errType : 0, token : token, account : accountdata[0], teacher : teacherdata[0] })
         }else{
             res.status(402).render("pages/home", { status : 402, success : false, errType : 2 });
         }
