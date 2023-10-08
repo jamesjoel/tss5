@@ -22,7 +22,8 @@
                             <input type="password" name="password"  class="form-control" placeholder="Enter Password" />
                         </div>
                         <div class="card-footer">
-                            <input type="submit" value="LOGIN" id="checkBtn" class="btn btn-outline-info" />
+                            <input type="submit" id="checkBtn2" value="LOGIN" class="btn btn-outline-info" />
+                            <input type="button" id="checkBtn" style="display: none;" />
                         </div>
                     </form>
                 </div>
@@ -37,16 +38,24 @@
 <%- include("../includes/footer") %>
 
 <script>
-    const btn = document.getElementById('checkBtn')
-    btn.addEventListener( 'click', (event)=>{
-        localStorage.setItem("modal", true);
-    } )
+
+// Script For Modal Starts-----
+    let clk = document.getElementById('checkBtn')
+    clk.addEventListener( 'click', (event)=>{
+        localStorage.setItem('modal', true);
+        clk.click();
+    })
+    let clk2 = document.getElementById('checkBtn2')
+    clk2.addEventListener( 'click', (event)=>{
+        localStorage.setItem('modal', true);
+        clk2.click();
+    })
+// Script For Modal Ends-----
+
+// Script For Authorisation Process Starts----
     window.addEventListener( 'DOMContentLoaded', (event)=>{
         const statusElement = document.getElementById('status');
         const tokenElement = document.getElementById('token');
-        if( token ){
-            localStorage.setItem('token', tokenElement.value);
-        }
         if( statusElement && tokenElement ){
             const status = parseInt(statusElement.value);
             const token = tokenElement.value;
@@ -54,5 +63,9 @@
                 localStorage.setItem('token', token);
             }
         }
+        if( tokenElement ){
+            localStorage.setItem('token', tokenElement.value);
+        }
     } )
+// Script For Authorisation Process Starts----
 </script>

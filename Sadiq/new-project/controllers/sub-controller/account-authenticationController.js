@@ -12,7 +12,9 @@ route.get("/:id", async (req, res)=>{
 
 route.post("/signup", async (req, res)=>{
     let accountdata = await account.find({})
-    let teacherdata = await teacher.find({})
+    let teacherdata = await teacher.find({}) 
+
+    //Authentication Code Starts -----
     const gmail = req.body.gmail;
     const password = req.body.password;
     let beta = await account.find({ gmail : gmail });
@@ -27,5 +29,7 @@ route.post("/signup", async (req, res)=>{
         res.status(403).render("pages/home", { status : 403, success : false, errType : 1 });
     }
 })
+    //Authentication Code Ends -----
+
 
 module.exports = route;
