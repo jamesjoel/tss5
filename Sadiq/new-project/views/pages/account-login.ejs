@@ -57,10 +57,12 @@
     })
     window.addEventListener('DOMContentLoaded', (event)=>{
         let checkModal = localStorage.getItem('modal');
+       // let modalFalse = false;
         console.log(checkModal);
+        
         if ( checkModal ){
-            if( checkModal == true ){
             let runBtn = document.getElementById('modaltoggle');
+            if( checkModal != false ){
             runBtn.click();
             }
         }
