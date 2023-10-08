@@ -15,9 +15,43 @@
                     <th><a href="/teacher/data/update/<%= teacher.id %>" >UPDATE TEACHER DATA</a></th>
                 </tr>
             </table>
+<input type="button" data-bs-toggle="modal" style="display: none;" data-bs-target="#success" id="modaltoggle" />
+
         </div>
     </div>
 </div>
 
+
 <%- include("../includes/footer") %>
 
+    <div class="modal fade" id="success" tabindex="-1" aria-labelledby="success" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Login Success</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Now you can access your data <span class="text-info">SAFELY</span></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-outline-secondary" id="closeBtn" data-bs-dismiss="modal" value="close" />
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let checkModal = localStorage.getItem(modal);
+        if ( checkModal ){
+            let modal = document.getElementById('modaltoggle');
+            modal.click();
+        }
+    })
+    let checkbutton = getElementById("closeBtn")
+    checkbutton.addEventListener('click', ()=>{
+        localStorage.setItem("modal", false);
+    })
+</script>
