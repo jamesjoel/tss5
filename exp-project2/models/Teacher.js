@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+require("../config/db");
 
-mongoose.connect("mongodb://0.0.0.0:27017/tss5_new");
+const mongoose = require("mongoose");
 
 const TeacherSchema = mongoose.Schema({
     fullname : String,
