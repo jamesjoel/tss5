@@ -16,5 +16,12 @@ route.get("/view", async (req, res)=>{
     res.render("pages/account-login", pagedata)
 })
 
+route.get("/delete/:id", async (req, res)=>{
+    let dlt = req.params.id;
+    await teacher.deleteMany({ id : dlt});
+    await account.deleteMany({ _id : dlt});
+    res.redirect("/account/list")
+})
+
 
 module.exports = route;

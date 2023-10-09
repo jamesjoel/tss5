@@ -6,7 +6,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card my-4">
                 <div class="card-header bg-primary"><h3 class="text-light" style="display: inline;">WELCOME  <span class="text-warning"><%= account.name %></span></h3>
-                <h3 style="display: inline; float: right;" class="text-right"><a href="/teacher/data/delete/<%= account.id %>" class="btn btn-danger">DELETE ACCOUNT</a></h3>
+                <h3 style="display: inline; float: right;" class="text-right"><a href="/teacher/data/delete/<%= teacher.id %>" class="btn btn-danger">DELETE ACCOUNT</a></h3>
                 </div>
                 <div class="card-body">
                 <table class="table table-info table-hover">
@@ -16,7 +16,7 @@
                     </tr>
                     <tr>
                         <th>FULL NAME</th>
-                        <td><%= data.fullname %></td>
+                        <td><%= teacher.fullname %></td>
                     </tr>
                     <tr>
                         <th>CONTACT NUMBER</th>
@@ -24,15 +24,15 @@
                     </tr>
                     <tr>
                         <th>EDUCATION</th>
-                        <td><%= data.education %></td>
+                        <td><%= teacher.education %></td>
                     </tr>
                     <tr>
                         <th>SALARY</th>
-                        <td><%= data.salary %></td>
+                        <td><%= teacher.salary %></td>
                     </tr>
                     <tr>
                         <th>CLASS</th>
-                        <td><%= data.class %></td>
+                        <td><%= teacher.class %></td>
                     </tr>
                 </table>
                 </div>

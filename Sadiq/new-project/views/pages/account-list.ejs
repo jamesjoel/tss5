@@ -11,12 +11,14 @@
                             <th>S.No.</th>
                             <th>G-Mail</th>
                             <th>FULL DETAIL</th>
+                            <th>DELETE ACCOUNT</th>
                         </tr>
                         <% account.forEach((value, index)=>{ %>
                             <tr>
                                 <td><%= index+1 %></td>
                                 <td><%= value.gmail %></td>
                                 <td><a class="btn btn-outline-info btn-sm" href="/account/authentication/<%= value.id %>">View</a></td>
+                                <td><a class="btn btn-danger btn-sm" href="/account/list/delete/<%= value.id %>">Delete</a></td>
                             </tr>
                         <% }) %>
                     </table>
