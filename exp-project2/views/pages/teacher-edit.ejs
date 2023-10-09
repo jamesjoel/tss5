@@ -1,0 +1,47 @@
+<%- include("../includes/header") %>
+<div class="container" style="min-height: 600px;">
+    <form action="/teacher/update/<%= data._id %>" method="post">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Teacher Update Page</h3>
+            
+                
+            
+            <div class="my-3">
+                <label>Full Name</label>
+                <input type="text" value="<%= data.fullname %>" name="fullname" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label>Salary</label>
+                <input type="text" value="<%= data.salary %>" name="salary" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label>Gender</label>
+                <br />
+                Male<input value="male" <% if(data.gender=="male"){ %> checked <% } %> type="radio" name="gender"  />
+                Female<input value="female" <% if(data.gender=="female"){ %> checked <% } %> type="radio" name="gender"  />
+            </div>
+            <div class="my-3">
+                <label>Class</label>
+                <select class="form-control" name="class">
+                    <option>Select Teacher Class</option>
+                    <% for(var a = 1; a <= 12; a++){ %>
+                        <option <% if(data.class==a){ %> selected <% } %> ><%= a %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="my-3">
+                <label>Education</label>
+                <input type="text" value="<%= data.education %>" name="education" class="form-control" />
+            </div>
+            <br />
+            <Br />
+            <div class="d-grid">
+                <input type="submit" class="btn btn-primary" value="Update Teacher" />
+            </div>
+        </div>
+        
+    </div>
+    </form>
+</div>
+<%- include("../includes/footer") %>

@@ -1,0 +1,76 @@
+<%- include("../includes/blackheader") %>
+
+
+<div class="container p-5" style="min-height: 600px;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table table-info table-hover text-center">
+                <tr>
+                    <th><a href="/teacher" >ENTER TEACHER DATA</a></th>
+                </tr>
+                <tr>
+                    <th><a href="/teacher/data/view" >VIEW TEACHER DATA</a></th>
+                </tr>
+                <tr>
+                    <th><a href="/teacher/data/update" >UPDATE TEACHER DATA</a></th>
+                </tr>
+                <tr>
+                    <th><a href="/games/guessgame" >PLAY GAMES</a></th>
+                </tr>
+            </table>
+            <!-- Invisible Button For Triggering Modal -->
+            <input type="button" data-bs-toggle="modal" style="display: none;" data-bs-target="#success"  id="modaltoggle" />
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../includes/footer") %>
+
+<!-- Modal for Successfully Login Starts------ -->
+    <div class="modal fade" id="success" tabindex="-1" aria-labelledby="success" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Login Success</h3>
+                    <button type="button" class="btn-close" id="closeBtnIcon" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Now you can access your data <span class="text-info">SAFELY</span></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-outline-primary" id="closeBtn" data-bs-dismiss="modal" value="close" />
+                </div>
+            </div>
+        </div>
+    </div>    
+<!-- Modal for Successfully Login Ends------ -->
+
+
+<!-- Script For Modal Starts------- -->
+<script>
+    
+    let checkBtn = document.getElementById('closeBtn')
+    let checkBtnIcon = document.getElementById('closeBtnIcon')
+    checkBtn.addEventListener('click', ()=>{
+        localStorage.setItem('modal', false);
+    })
+    checkBtnIcon.addEventListener('click', ()=>{
+        localStorage.setItem('modal', false);
+    })
+    window.addEventListener('DOMContentLoaded', (event)=>{
+        let checkModal = localStorage.getItem('modal');
+       // let modalFalse = false;
+        console.log(checkModal);
+        
+        if ( checkModal ){
+            let runBtn = document.getElementById('modaltoggle');
+            if( checkModal != false ){
+            runBtn.click();
+            }
+        }
+    })
+</script>
+<!-- Script For Modal Ends------- -->
+

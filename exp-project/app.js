@@ -1,29 +1,14 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://0.0.0.0:27017/tss5_new");
+const abc = require("express").Router();
 
-const mySchema = mongoose.Schema({
-    contact : String,
-    fullname : String,
-    email : String,
-    fee : Number,
-    gender : String,
-    address : String,
-    city : String,
-    hobby : []
-});
+console.log(abc);
 
-const myModel = mongoose.model("student", mySchema);
 
-const demoSchema = mongoose.Schema({
-    name : String,
-    salary : Number,
-    city : String
-})
 
-const demoModal = mongoose.model("demo", demoSchema);
+
+const XYZ = require("./models/Student");
 
 
 app.use(express.static(__dirname+"/assets"));
@@ -32,15 +17,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 
 
-app.post("/demo", (req, res)=>{
-    demoModal.create(req.body);
-    res.redirect("/");
+
+
+app.get("/view-student", async (req, res)=>{
+
+    let result = await XYZ.find();
+
+    let pagedata = { data : result }
+    
+    res.render("pages/view-student", pagedata);
 })
 
 
-app.post("/save", (req, res)=>{
-    myModel.create(req.body);
-    res.redirect("/");
+app.post("/save", async (req, res)=>{
+    await XYZ.create(req.body);
+    res.redirect("/view-student");
 })
 
 app.get("/", (req, res)=>{

@@ -1,11 +1,32 @@
 <%- include("../includes/header") %>
+
 <div class="container">
+    <form action="/demo" method="post">
 <div class="row">
-    <div class="col-md-12">
-        <h2>about page</h2>
+    <div class="col-md-6 offset-md-3">
+        <div class="my-3">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name"/>
+        </div>
+        <div class="my-3">
+            <label>Salary</label>
+            <input type="text" class="form-control" name="Salary"/>
+        </div>
+        <div class="my-3">
+            <label>City</label>
+            <select class="form-control" name="City">
+                <option>Select</option>
+                <option>Indore</option>
+                <option>Dewas</option>
+                <option>Ujjain</option>
+                <option>Mhow</option>
+            </select>
+        </div>
+        <br/>
+    <input type="submit" value="Save" class="btn btn-success"/>
     </div>
 </div>
-
+</form>
 </div>
 
 
