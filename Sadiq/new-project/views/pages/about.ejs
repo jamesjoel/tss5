@@ -2,7 +2,24 @@
 
 <div class="container" style="min-height: 600px;">
     <div class="row">
-        
+        <div class="col-md-10 offset-md-1">
+            <table class="table text-center table-hover table-primary">
+                <tr>
+                    <th>S.no.</th>
+                    <th>User ID</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                </tr>
+                <% data.forEach(( value, index )=>{ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= value.userId %></td>
+                        <td><%= value.id %></td>
+                        <td><%= value.title %></td>
+                    </tr>
+                <% }) %>
+            </table>
+        </div>
     </div>
 </div>
 
