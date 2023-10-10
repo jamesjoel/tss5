@@ -1,0 +1,30 @@
+<%- include('../includes/header') %>
+<div class="container" style="min-height: 600px;">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <table class="table table-dark table-hover table-striped table-bordered">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                    
+
+                </tr>
+                <% data.forEach((value, index)=>{ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= value.name %></td>
+                        <td><%= value.age %></td>
+                        <td><a href="/patients/delete/<%= value._id %>" class="btn btn-sm btn-danger">Delete</a></td>
+                        <td><a href="/patients/edit/<%= value._id %>" class="btn btn-sm btn-info">Edit</a></td>
+                        
+                    </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
