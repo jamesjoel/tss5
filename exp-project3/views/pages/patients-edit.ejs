@@ -1,0 +1,27 @@
+<%- include('../includes/header') %>
+<div class="container" style="min-height: 600px;">
+    <h2>Edit Page</h2>
+    <form action="/patients/update/<%= data._id %>" method="post">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="my-3">
+                <label for="">Name</label>
+                <input name="name" value="<%= data.name %>" type="text" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label for="">Age</label>
+                <input type="text" value="<%= data.age %>" name="age" class="form-control" />
+            </div>
+            <div class="my-3">
+                <label for="">Address</label>
+                <textarea name="address" class="form-control" ><%= data.address %></textarea>
+            </div>
+            <br />
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </div>
+    </form>
+
+</div>
+</body>
+</html>
