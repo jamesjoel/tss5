@@ -1,18 +1,16 @@
 const express = require("express");
 const app = express();
 
+const allRoutes = require("./config/allRoutes")
+
 app.use(express.static(__dirname+"/assets"));
 app.set("view engine", "ejs");
+app.use(express.json());
+app.use(express.urlencoded({ extended : true}));
 
-app.get("/", (req, res)=>{
-    res.render("pages/index");
-})
-app.get("/about", (req, res)=>{
-    res.render("/pages/about");
-})
-
+app.use(allRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=>{
-    console.log("Server Running With Port ", port);
+    console.log("Server Running with port ", port);
 })
