@@ -1,0 +1,29 @@
+<%- include("../includes/header.ejs") %>
+<%- include("../includes/bgimg.ejs") %>
+
+<form action="/menu/save" method="post">
+<div class="container" id="header">
+<div class="row" >
+<div class="col-md-6 offset-md-3" >
+        <div class="my-3">
+            <h2 style="color:yellowgreen">menu add page </h2>
+            <div class="row">
+                <div class="container col-md-6 offset-md-3">
+                    <div class="my-3">
+                        <label for="">Name</label>
+                        <input name="dish" type="text" class="form-controll"/>
+                    </div>
+                    <div class="my-3">
+                        <label for="">Ingredients</label>
+                        <input name="ingredients" type="text" class="form-controll"/>
+                    </div>
+                    <div class="my-3">
+                        <label for="">Price</label>
+                        <input name="price" type="number" class="form-controll"/>
+                    </div>
+                    <br>
+                    <input type="submit" value="add" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+</form>    

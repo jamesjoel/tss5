@@ -1,0 +1,27 @@
+<%- include("../includes/header.ejs") %>
+<%- include("../includes/bgimg.ejs") %>
+<div class="container col-md-6 y-md5">
+<h2 style="color:yellow">menu list</h2>
+</div>
+<div class="container" style="min-height: 600px;">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table table-darl table-hover table-stripped table-bordered">
+            <tr>
+                <th>S.no</th>
+                <th>Dish</th>
+                <th>Ingredients</th>
+                <th>Price</th>
+            </tr>
+            <% data.forEach((value, index)={ %>
+                <tr>
+                    <td><%= index+1 %></td>
+                    <td><%= value.dish %></td>
+                    <td><%= value.ingredients %></td>
+                    <td><%= value.price %></td>
+                </tr>
+            <% })  %>
+        </table>
+    </div>
+  </div>
+</div>
