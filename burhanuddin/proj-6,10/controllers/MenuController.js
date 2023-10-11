@@ -5,6 +5,7 @@ const menu = require("../models/menu")
 routes.get("/", async(req , res)=>{
     let result = await menu.find();
     let pagedata = { data : result};
+    // console.log(pagedata)
     res.render("pages/menu-list", pagedata);
 })
 
