@@ -2,7 +2,10 @@ const route = require("express").Router();
 const data = require("../model/data");
 
 route.get("/", async (req, res)=>{
-    let dataModel = await data.find({});
+    // let value = req.params.value;
+    let limit = 10;
+    // limit += value;
+    let dataModel = await data.find({}).skip(0).limit(limit);
     let pagedata = { data : dataModel }
     res.render("pages/about", pagedata);
 })
