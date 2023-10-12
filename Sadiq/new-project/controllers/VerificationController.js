@@ -8,7 +8,7 @@ route.get("/", (req, res)=>{
 route.post("/otp", async (req, res)=>{
    let response = await req.body;
    console.log(response)
-   res.redirect(`/verification/OTP-verification/`+response)
+   res.redirect(`/verification/OTP-verification/`+response.otp)
 })
 
 route.get("/otp-verification", (req, res)=>{
@@ -23,7 +23,7 @@ route.get("/OTP-verification/:response", (req, res)=>{
     let response = req.params.response;
     // console.log(otp)
     console.log(response)
-    let pagedata = { status : 200, response : "hello" }
+    let pagedata = { status : 200, response : response }
     res.status(200).render("pages/OTPverification-match", pagedata)
 })
 

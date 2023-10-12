@@ -5,7 +5,7 @@
         <div class="col-md-6 my-4 offset-md-3">
             <form action="/verification/otp" method="post">
             <div class="card bg-primary">
-                <div class="card-header text-center"><h3 class="text-light">Verify Mobile Number</h3><h4><%= response.otp %></h4></div>
+                <div class="card-header text-center"><h3 class="text-light">Verify Mobile Number</h3><h4><%= response %></h4></div>
                 <div class="card-body">
                     <!-- <div class="my-3 text-light">
                         <label>Enter Mobile Number</label>
@@ -27,12 +27,3 @@
 
 <%- include("../includes/testimonial") %>
 <%- include("../includes/footer") %>
-
-<script>
-    let clsBtn = document.getElementById("cls");
-    setTimeout(() => {
-    clsBtn.addEventListener('click', (event)=>{
-            clsBtn.click();
-        })
-    }, 4000);
-</script>

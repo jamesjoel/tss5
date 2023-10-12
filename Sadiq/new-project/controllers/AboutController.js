@@ -10,4 +10,13 @@ route.get("/", async (req, res)=>{
     res.render("pages/about", pagedata);
 })
 
+route.get("/page/:number", async (req, res)=>{
+    let PgNumber = req.params.number;
+    let limit = 10;
+    limit = limit + PgNumber;
+    let dataModel = await data.find({}).skip(0).limit(limit);
+    let pagedata = { data : dataModel }
+    res.render("pages/about", pagedata);
+})
+
 module.exports = route;
