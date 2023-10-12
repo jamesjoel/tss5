@@ -12,6 +12,7 @@ route.get("/", async (req, res)=>{
 
 route.get("/page/:number", async (req, res)=>{
     let PgNumber = req.params.number;
+    PgNumber = parseInt(PgNumber, 10);
     let limit = 10;
     limit = limit + PgNumber;
     let dataModel = await data.find({}).skip(0).limit(limit);
