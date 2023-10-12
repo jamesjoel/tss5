@@ -5,7 +5,9 @@ const mongoose = require("mongoose")
 const PatientsSchema = mongoose.Schema({
     name : String,
     age : Number,
-    address : String
+    address : String,
+    status : Number,
+    // gender : { type : String, default : ""}
 }) 
 
 const PatientsModel = mongoose.model("patient", PatientsSchema);
