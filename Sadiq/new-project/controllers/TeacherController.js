@@ -2,12 +2,18 @@ const route = require("express").Router();
 const teacher = require("../model/teacher")
 const account = require("../model/account")
 
-route.get("/", (req, res)=>{
-    res.render("pages/teacher")
+route.get("/", async (req, res)=>{
+    let accountdata = await account.find({});
+    let pagedata = { account : accountdata }
+    res.render("pages/teacher", pagedata)
 })
 
-route.post("/save", async (req, res)=>{
-    await teacher.create(req.body)
+route.post("/save/:id", async (req, res)=>{
+    let account_id = req.params.id;
+    await teacher.create(req.body);
+    let teacher_id = req.body._id;
+    console.log(teacher_id);
+    await account.updateOne({ _id : account_id }, { $push : { teachers : teacher_id }  })
     res.redirect("/account/list/view")
 })
 

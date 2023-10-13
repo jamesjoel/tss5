@@ -21,11 +21,11 @@ route.post("/signup", async (req, res)=>{
     if( beta.length != 0 ){
         if( beta[0].password == password.trim() ){
             let token = beta[0]._id;
-            console.log(beta[0])
-            if( beta[0].data.length != 0 )
+            // console.log(beta[0])
+            if( beta[0].teachers.length != 0 )
                 res.status(200).render("pages/account-login", { status : 200, success : true, errType : 0, token : token, account : accountdata, teacher : teacherdata })
             else
-                res.status(200).render("pages/teacher", { status : 200, success : true, errType : 0, token : token, account : accountdata, teacher : teacherdata })
+                res.status(200).render("pages/teacher", { status : 200, success : true, errType : 0, token : token, account : beta[0], teacher : teacherdata })
         }else{
             res.status(402).render("pages/home", { status : 402, success : false, errType : 2 });
         }

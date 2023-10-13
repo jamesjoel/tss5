@@ -3,9 +3,9 @@
 <div class="container" style="min-height: 600px;">
     <div class="row">
         <div class="col-md-6 offset-3">
-            <form action="/teacher/save" method="post">
+            <form action="/teacher/save/<%= account._id %>" method="post">
             <div class="card my-4">
-                <div class="card-header bg-primary text-center"><h3 class="text-light">Enter Teacher's Data</h3></div>
+                <div class="card-header bg-primary text-center"><h3 class="text-light">Enter Teacher's Data</h3><h4><%= account._id %></h4></div>
                 <div class="card-body">
                     <div class="my-3">
                     <label>Full Name</label>
