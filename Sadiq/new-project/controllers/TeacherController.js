@@ -12,8 +12,8 @@ route.post("/save/:id", async (req, res)=>{
     let account_id = req.params.id;
     let teacher_id = await teacher.create(req.body);
     // let teacherData = await teacher.find({});
-    console.log(teacher_id);
-    await account.updateOne({ _id : account_id }, { $push : { teachers : teacher_id }  })
+    console.log(teacher_id._id);
+    await account.updateOne({ _id : account_id }, { $push : { teachers : teacher_id._id }  })
     res.redirect("/account/list/view")
 })
 
