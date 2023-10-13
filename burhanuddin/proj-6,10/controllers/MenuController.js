@@ -24,4 +24,17 @@ routes.get("/delete/:id", async(req , res)=>{
     res.redirect("/menu");
 })
 
+routes.get("/edit/:id", async(req , res)=>{
+    let id = req.params.id; 
+    let results = await menu.find({_id: id});
+    let pagedata = {data : results[0]};
+    res.render("pages/menu-edit", pagedata);
+})
+
+routes.post("/update/:id", async (req , res)=>{
+    let id = req.params.id;
+    await menu.updateMany({_id : id}, req.body);
+    res.redirect("/menu");
+   })
+
 module.exports = routes;
