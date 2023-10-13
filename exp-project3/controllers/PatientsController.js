@@ -33,6 +33,7 @@ routes.get("/edit/:id", async(req, res)=>{
 routes.post("/update/:id", async(req, res)=>{
     let id = req.params.id;
     await Patients.updateMany({_id : id}, req.body);
+    let x = 100;
     res.redirect("/patients");
 })
 
