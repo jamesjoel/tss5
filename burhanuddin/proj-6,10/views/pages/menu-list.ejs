@@ -12,13 +12,16 @@
                 <th>Dish</th>
                 <th>Ingredients</th>
                 <th>Price</th>
+                <th>delete</th>
+
             </tr>
-            <% data.forEach((value, index)={ %>
+            <% data.forEach((value, index)=>{ %>
                 <tr>
                     <td><%= index+1 %></td>
                     <td><%= value.dish %></td>
                     <td><%= value.ingredients %></td>
                     <td><%= value.price %></td>
+                    <td><a href="/menu/delete/<%= value._id %> " class="btn btn-sm btn-danger">Delete</a></td>
                 </tr>
             <% })  %>
         </table>

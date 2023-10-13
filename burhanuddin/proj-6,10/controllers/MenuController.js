@@ -17,4 +17,10 @@ routes.post("/save", async (req , res)=>{
  res.redirect("/menu");
 })
 
+routes.get("/delete/:id", async(req , res)=>{
+    let id = req.params.id;
+    await menu.deleteMany({_id: id});
+    res.redirect("/menu");
+})
+
 module.exports = routes;
