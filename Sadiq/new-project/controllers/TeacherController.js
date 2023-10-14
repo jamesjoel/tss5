@@ -2,7 +2,8 @@ const route = require("express").Router();
 const teacher = require("../model/teacher")
 const account = require("../model/account")
 
-route.get("/", async (req, res)=>{
+route.get("/:acccountid", async (req, res)=>{
+    let account_id = req.params.acccountid;
     let accountdata = await account.find({});
     let pagedata = { account : accountdata }
     res.render("pages/teacher", pagedata)

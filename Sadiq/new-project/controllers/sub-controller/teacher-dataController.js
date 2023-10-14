@@ -19,7 +19,7 @@ route.get("/delete/:id", async (req, res)=>{
 route.get("/view/:teacherid",  async (req, res)=>{
     let teacher_id = req.params.teacherid;
     let teacherdata = await teacher.find({ _id : teacher_id })
-    let accountdata = await account.find({ teacher : { $elemMatch : { $eq : teacher_id } } })
+    let accountdata = await account.find({ teacher : teacher_id })
     // let accountdata = await account.find({ _id : account_id })
     let pagedata = {teacher : teacherdata[0], account : accountdata}
     res.render("pages/teacher-data", pagedata)

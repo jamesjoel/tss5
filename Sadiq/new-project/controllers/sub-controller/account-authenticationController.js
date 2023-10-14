@@ -11,7 +11,7 @@ route.get("/:id", async (req, res)=>{
 })
 
 route.post("/signup", async (req, res)=>{
-    let accountdata = await account.find({})
+    // let accountdata = await account.find({})
     let teacherdata = await teacher.find({}) 
 
     //Authentication Code Starts -----
@@ -23,7 +23,7 @@ route.post("/signup", async (req, res)=>{
             let token = beta[0]._id;
             // console.log(beta[0])
             if( beta[0].teachers.length != 0 )
-                res.status(200).render("pages/account-login", { status : 200, success : true, errType : 0, token : token, account : accountdata, teacher : teacherdata })
+                res.status(200).render("pages/account-login", { status : 200, success : true, errType : 0, token : token, account : beta[0], teacher : teacherdata })
             else
                 res.status(200).render("pages/teacher", { status : 200, success : true, errType : 0, token : token, account : beta[0], teacher : teacherdata })
         }else{
