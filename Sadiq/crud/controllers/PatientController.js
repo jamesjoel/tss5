@@ -29,6 +29,13 @@ route.get("/update/:id", async (req, res)=>{
     res.render("pages/patients-update", pagedata)
 })
 
+route.get("/view/:id", async (req, res)=>{
+    let id = req.params.id;
+    let patientdata = await patient.find({ _id : id })
+    let pagedata = { patient : patientdata[0] }
+    res.render("pages/patients-data", pagedata)
+})
+
 route.post("/update/add/:id", async (req, res)=>{
     let id = req.params.id;
     await patient.updateMany({ _id : id }, req.body)
