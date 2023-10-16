@@ -2,7 +2,8 @@ const route = require("express").Router();
 const teacher = require("../model/teacher")
 const account = require("../model/account")
 
-route.get("/", async (req, res)=>{
+route.get("/:acccountid", async (req, res)=>{
+    let account_id = req.params.acccountid;
     let accountdata = await account.find({});
     let pagedata = { account : accountdata }
     res.render("pages/teacher", pagedata)
@@ -10,10 +11,10 @@ route.get("/", async (req, res)=>{
 
 route.post("/save/:id", async (req, res)=>{
     let account_id = req.params.id;
-    await teacher.create(req.body);
-    let teacher_id = req.body._id;
-    console.log(teacher_id);
-    await account.updateOne({ _id : account_id }, { $push : { teachers : teacher_id }  })
+    let teacher_id = await teacher.create(req.body);
+    // let teacherData = await teacher.find({});
+    console.log(teacher_id._id);
+    await account.updateOne({ _id : account_id }, { $push : { teachers : teacher_id._id }  })
     res.redirect("/account/list/view")
 })
 

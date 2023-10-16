@@ -7,13 +7,13 @@
         <div class="col-md-8 offset-md-2">
             <table class="table table-info table-hover text-center">
                 <tr>
-                    <th><a href="/teacher" >ENTER TEACHER DATA</a></th>
+                    <th><a href="/teacher/<%= account._id %>" >ENTER TEACHER DATA</a></th>
                 </tr>
                 <tr>
-                    <th><a href="/teacher/data/view/<%= teacher.id %>" >VIEW TEACHER DATA</a></th>
+                    <th><a href="/teacher/data/view/<%= teacher._id %>" >VIEW TEACHER DATA</a></th>
                 </tr>
                 <tr>
-                    <th><a href="/teacher/data/update/<%= teacher.id %>" >UPDATE TEACHER DATA</a></th>
+                    <th><a href="/teacher/data/update/<%= teacher._id %>" >UPDATE TEACHER DATA</a></th>
                 </tr>
                 <tr>
                     <th><a href="/games/guessgame" >PLAY GAMES</a></th>
