@@ -16,11 +16,12 @@ route.get("/delete/:id", async (req, res)=>{
     res.redirect("/account/list/view")
 })
 
-route.get("/view/:id",  async (req, res)=>{
-    let x = req.params.id
-    let teacherdata = await teacher.find({ id : x })
-    let accountdata = await account.find({ _id : x })
-    let pagedata = {teacher : teacherdata[0], account : accountdata[0]}
+route.get("/view/:teacherid",  async (req, res)=>{
+    let teacher_id = req.params.teacherid;
+    let teacherdata = await teacher.find({ _id : teacher_id })
+    let accountdata = await account.find({ teacher : teacher_id })
+    // let accountdata = await account.find({ _id : account_id })
+    let pagedata = {teacher : teacherdata[0], account : accountdata}
     res.render("pages/teacher-data", pagedata)
 })
 

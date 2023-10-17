@@ -1,8 +1,9 @@
 const routes = require("express").Router();
 const Patients = require("../models/Patients")
+const TempPatients = require("../models/TempPatients");
 
 routes.get("/", async(req, res)=>{
-    let result = await Patients.find();
+    let result = await Patients.find({ status : 1  });
     let pagedata = { data : result }
     res.render("pages/patients-list", pagedata);
     
@@ -12,13 +13,30 @@ routes.get("/add", (req, res)=>{
     
 })
 routes.post("/save", async(req, res)=>{
+
+    req.body.status = 1;
+
     await Patients.create(req.body);
     res.redirect("/patients");
 })
 
 routes.get("/delete/:id", async(req, res)=>{
     let id = req.params.id;
-    await Patients.deleteMany({ _id : id });
+    // let result = await Patients.find({_id : id});
+
+    // let obj = {
+    //     name : result[0].name,
+    //     age : result[0].age,
+    //     address : result[0].address
+    // }
+    
+    
+    
+    // await TempPatients.create(obj);
+
+
+    // await Patients.deleteMany({ _id : id });
+    await Patients.updateMany({ _id : id }, {status : 0});
     res.redirect("/patients");
 })
 
@@ -38,3 +56,10 @@ routes.post("/update/:id", async(req, res)=>{
 })
 
 module.exports = routes;
+
+/*
+
+    var obj = { name : rohit, age : 25}
+    obj.gender = "male"
+
+*/

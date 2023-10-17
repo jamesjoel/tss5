@@ -7,7 +7,7 @@ const accountSchema = mongoose.Schema({
     number : Number,
     password : String,
     name : String,
-    data : Array
+    teachers : Array
 });
 
 const accountModel = mongoose.model("account_info", accountSchema);
