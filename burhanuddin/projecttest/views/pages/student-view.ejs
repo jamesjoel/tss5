@@ -1,0 +1,33 @@
+
+<%- include("../includes/header") %>
+<div class="container" style="min-height: 600px;">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 my-2">
+
+<table class="table table-bordered table stripped table-dark">
+    
+    <tr>
+    <th> Name </th>
+        <td><%= data.name %></td>
+        </tr>
+
+        <tr>
+        <th> Address </th>
+        <td><%= data.address %></td>
+    </tr>
+
+<tr>
+    <th> Fees </th>
+    <td><%= data.fee %></td>
+</tr>
+       
+
+    
+        
+        
+</table>
+</div>
+    </div>
+    </div>
+
+    <%- include("../includes/footer") %>
