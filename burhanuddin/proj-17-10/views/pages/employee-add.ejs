@@ -1,4 +1,4 @@
-<%- include("../includes/header.ejs") %>
+<%- include("../includes/header") %>
 
 <form action="/info/save" method="post">
     <div class="container" id="header">
@@ -14,8 +14,8 @@
                 </div>
                 <div class="my-3">
                     <label for="">gender</label>
-                    Male<input type="radio" name="gender" value="female" class="form-controll">
-                    Female<input type="radio" name="gender" value="male" class="form-controll">
+                    Male<input type="radio" name="gender" id="gender" value="male" class="form-controll">
+                    Female<input type="radio" name="gender" id="gender" value="female" class="form-controll">
                 </div>
                 <div class="my-3">
                     <label for="">position</label>
@@ -23,8 +23,9 @@
                 </div>
                 <br>
                 <br>
-                <input type="submit" value="add" class="btn btn-primary">
+                <input type="submit" value="Add" class="btn btn-primary">
             </div>
         </div>
         </div>
 </form>
+<%- include("../includes/footer") %>
