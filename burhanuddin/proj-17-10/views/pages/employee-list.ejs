@@ -1,4 +1,13 @@
-<%- include("../includes/header.ejs") %>
+<%- include("../includes/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-5 my-2">
+            <a class="btn btn-info btn-sm" href="/info/add">Add <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+
+        </div>
+    </div>
+</div>
 
 <div class="container" style="min-height: 600px;">
     <div class="row">
@@ -9,24 +18,29 @@
         <th>Age</th>
         <th>Gender</th>
         <th>Position</th>
+        <th>Delete</th>
+        <th>Edit</th>
+
     </tr>
 
     
-    <!-- <% data.forEach((value , index)=>{ %>
+    <% data.forEach((value , index)=>{ %>
        
         <tr>
             <td><%= value.name %></td>
             <td><%= value.age %></td>
             <td><%= value.gender %></td>
             <td><%= value.position %></td>
+            <td><a class="btn btn-sm btn-danger" href="/info/employee/delete/<%= value._id %>">Delete</a></td>
+            <td><a class="btn btn-sm btn-info" href="/info/employee/edit/<%= value._id %>">Edit</a></td>
            
         </tr>
 
 
-    <& }) %> -->
+    <% }) %>
 </table>
 </div>
     </div>
 </div>
 
-
+<%- include("../includes/footer") %>

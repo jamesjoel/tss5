@@ -13,4 +13,23 @@ routes.get("/", async(req , res)=>{
 //     res.redirect(/info/employee);
 // })
 
+routes.get("/delete/:id", async(req , res)=>{
+    let id = req.params.id;
+    await employee.deleteMany({_id : id});
+    res.redirect("/info/employee")
+})
+
+routes.get("/edit/:id", async(req , res)=>{
+    let id = req.params.id;
+    let result = await employee.find({_id : id});
+    let pagedata = {data : result[0]};
+    res.render("pages/employee-edit", pagedata)
+})
+
+routes.post("/update/:id", async(req , res)=>{
+    let id = req.params.id;
+    await employee.updateMany({_id : id}, req.body());
+})
+
+
 module.exports = routes ; 
