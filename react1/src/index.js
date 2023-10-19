@@ -5,11 +5,11 @@ import Home from './Home'
 import Box from './Box';
 import MiniBox from './MiniBox';
 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-   <Home />  
-   <Box />  
-   <MiniBox />
+   <Home />
   </>
 );
