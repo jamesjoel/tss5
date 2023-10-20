@@ -1,4 +1,4 @@
-import Header from './components/shared/Header1'
+import Header from './components/shared/Header'
 import Footer from './components/shared/Footer';
 import AllRoutes from './config/AllRoutes.js';
 
