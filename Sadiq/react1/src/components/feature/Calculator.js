@@ -36,11 +36,24 @@ let Calculator = ()=>{
         setNum1(0)
     }
 
+    let Result = (operation)=>{
+        operation += Num
+        setNum1(operation)
+    }
+
+    let backSpace = ()=>{
+        let newNum = Num.toString().split("");
+        newNum.splice(newNum.length-1,1);
+        newNum = parseInt(newNum.join(""));
+        setNum1(newNum)
+    }
+
     let addition =()=>{
-        let add = Num
+        let addCase1 = Num.toString().split("");
+        let addCase2 = [...addCase1]
+        let addCase3 = parseInt(addCase2.join(""))
         setNum1(0)
-        add += Num
-        console.log(add)
+        console.log(addCase3)
     }
 
 
@@ -80,8 +93,8 @@ let Calculator = ()=>{
                                         </div>
                                         <div className="col-md-2 text-center">
                                             <div className="btn-group">
-                                                <button className="btn btn-outline-success text-light" style={{fontSize : "20px"}}>=</button>
-                                                <button className="btn btn-outline-success text-light" style={{fontSize : "20px"}}>BackSpace</button>
+                                                <button onClick={Result} className="btn btn-outline-success text-light" style={{fontSize : "20px"}}>=</button>
+                                                <button onClick={backSpace} className="btn btn-outline-success text-light" style={{fontSize : "20px"}}>BackSpace</button>
                                                 <button onClick={Clear} className="btn btn-outline-danger text-light" style={{fontSize : "20px"}}>Clear</button>
                                             </div>
                                         </div>
