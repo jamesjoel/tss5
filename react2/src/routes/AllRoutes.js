@@ -6,6 +6,8 @@ import Help from '../components/feature/Help'
 import Comp2 from '../components/feature/Comp2'
 import Comp3 from '../components/feature/Comp3'
 import Comp4 from '../components/feature/Comp4'
+import Comp5 from '../components/feature/Comp5'
+import Comp6 from '../components/feature/Comp6'
 let AllRoutes = ()=>{
     return(
     <Routes>
@@ -16,6 +18,8 @@ let AllRoutes = ()=>{
         <Route path='comp2' element={<Comp2 />} />
         <Route path='comp3' element={<Comp3 />} />
         <Route path='comp4' element={<Comp4 />} />
+        <Route path='comp5' element={<Comp5 />} />
+        <Route path='comp6' element={<Comp6 />} />
     </Routes>
     );
 }
