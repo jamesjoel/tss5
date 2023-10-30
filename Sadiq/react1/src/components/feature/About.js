@@ -69,7 +69,7 @@ let About = () =>{
                     <div className="card">
                 <div style={{backgroundColor : color}} className="card-header text-center"><h3 style={{color : fontColor}}>Teacher's Data</h3></div>
                 <div className="card-body">
-                    <table className="table table-hover table-striped">
+                    <table className={`table table-hover table-striped ${color ==='red'&&'table-danger'} ${color ==='blue'&&'table-primary'} ${color ==='yellow'&&'table-warning'} ${color ==='green'&&'table-success'}`}>
                         <thead>
                             <tr>
                                 <th>S.No.</th>
