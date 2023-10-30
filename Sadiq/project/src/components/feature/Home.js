@@ -63,7 +63,7 @@ const Home = () => {
             <div className="row product__filter">
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                        <div className="product__item__pic" style={{backgroundImage : "url('/assets/img/product/product-1.jpg')"}}>
                             <span className="label">New</span>
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
@@ -98,7 +98,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-2.jpg">
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
                                 <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
@@ -132,7 +132,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div className="product__item sale">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-3.jpg">
                             <span className="label">Sale</span>
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
@@ -167,7 +167,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-4.jpg">
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
                                 <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
@@ -201,7 +201,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-5.jpg">
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
                                 <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
@@ -235,7 +235,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div className="product__item sale">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-6.jpg">
                             <span className="label">Sale</span>
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
@@ -270,7 +270,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-7.jpg">
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
                                 <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
@@ -304,7 +304,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
+                        <div className="product__item__pic set-bg" data-setbg="/assets/img/product/product-8.jpg">
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
                                 <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
