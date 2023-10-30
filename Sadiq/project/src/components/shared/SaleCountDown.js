@@ -13,7 +13,7 @@ const SaleCountDown = () => {
                 </div>
                 <div className="col-lg-4">
                     <div className="categories__hot__deal">
-                        <img src="img/product-sale.png" alt="" />
+                        <img src="/assets/img/product-sale.png" alt="" />
                         <div className="hot__deal__sticker">
                             <span>Sale Of</span>
                             <h5>$29.99</h5>

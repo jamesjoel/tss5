@@ -36,7 +36,7 @@ const Header = () => {
             <div className="row">
                 <div className="col-lg-3 col-md-3">
                     <div className="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt="" /></a>
+                        <a href="./index.html"><img src="/assets/img/logo.png" alt="" /></a>
                     </div>
                 </div>
                 <div className="col-lg-6 col-md-6">
@@ -61,8 +61,8 @@ const Header = () => {
                 <div className="col-lg-3 col-md-3">
                     <div className="header__nav__option">
                         <a href="#" className="search-switch"><img src="img/icon/search.png" alt="" /></a>
-                        <a href="#"><img src="img/icon/heart.png" alt="" /></a>
-                        <a href="#"><img src="img/icon/cart.png" alt="" /> <span>0</span></a>
+                        <a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a>
+                        <a href="#"><img src="/assets/img/icon/cart.png" alt="" /> <span>0</span></a>
                         <div className="price">$0.00</div>
                     </div>
                 </div>

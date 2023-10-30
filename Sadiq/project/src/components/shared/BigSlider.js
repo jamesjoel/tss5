@@ -5,7 +5,7 @@ const BigSlider = () => {
     <>
         <section className="hero">
         <div className="hero__slider owl-carousel">
-            <div className="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
+            <div className="hero__items set-bg" data-setbg="/assets/img/hero/hero-1.jpg">
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-5 col-lg-7 col-md-8">
@@ -26,7 +26,7 @@ const BigSlider = () => {
                     </div>
                 </div>
             </div>
-            <div className="hero__items set-bg" data-setbg="img/hero/hero-2.jpg">
+            <div className="hero__items set-bg" data-setbg="/assets/img/hero/hero-2.jpg">
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-5 col-lg-7 col-md-8">

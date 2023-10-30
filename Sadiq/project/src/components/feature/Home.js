@@ -1,17 +1,21 @@
 /* eslint-disable */
 import React from 'react'
+import BigSlider from '../shared/BigSlider'
+import Instagram from '../shared/Instagram'
+import SaleCouter from '../shared/SaleCountDown'
 
 
 const Home = () => {
   return (
     <>
+    <BigSlider />
         <section className="banner spad">
         <div className="container">
             <div className="row">
                 <div className="col-lg-7 offset-lg-4">
                     <div className="banner__item">
                         <div className="banner__item__pic">
-                            <img src="img/banner/banner-1.jpg" alt="" />
+                            <img src="/assets/img/banner/banner-1.jpg" alt="" />
                         </div>
                         <div className="banner__item__text">
                             <h2>Clothing Collections 2030</h2>
@@ -22,7 +26,7 @@ const Home = () => {
                 <div className="col-lg-5">
                     <div className="banner__item banner__item--middle">
                         <div className="banner__item__pic">
-                            <img src="img/banner/banner-2.jpg" alt="" />
+                            <img src="/assets/img/banner/banner-2.jpg" alt="" />
                         </div>
                         <div className="banner__item__text">
                             <h2>Accessories</h2>
@@ -33,7 +37,7 @@ const Home = () => {
                 <div className="col-lg-7">
                     <div className="banner__item banner__item--last">
                         <div className="banner__item__pic">
-                            <img src="img/banner/banner-3.jpg" alt="" />
+                            <img src="/assets/img/banner/banner-3.jpg" alt="" />
                         </div>
                         <div className="banner__item__text">
                             <h2>Shoes Spring 2030</h2>
@@ -62,9 +66,9 @@ const Home = () => {
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
                             <span className="label">New</span>
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -96,9 +100,9 @@ const Home = () => {
                     <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -131,9 +135,9 @@ const Home = () => {
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
                             <span className="label">Sale</span>
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -165,9 +169,9 @@ const Home = () => {
                     <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -199,9 +203,9 @@ const Home = () => {
                     <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -234,9 +238,9 @@ const Home = () => {
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
                             <span className="label">Sale</span>
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -268,9 +272,9 @@ const Home = () => {
                     <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -302,9 +306,9 @@ const Home = () => {
                     <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
                             <ul className="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="/assets/img/icon/search.png" alt="" /></a></li>
                             </ul>
                         </div>
                         <div className="product__item__text">
@@ -335,6 +339,8 @@ const Home = () => {
             </div>
         </div>
     </section>
+    <SaleCouter />
+    <Instagram />
     </>
   )
 }
