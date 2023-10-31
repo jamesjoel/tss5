@@ -31,7 +31,8 @@ let Calculator = ()=>{
                         <div className="card">
                             <div className="card-header bg-success text-center"><h2 className="text-light">CALCULATOR</h2></div>
                             <div className="card-body bg-dark">
-                                <input type="number" value={Num} placeholder="0" className=" text-center form-control" />
+                                {/* <input type="number" value={Num} readOnly={true} className=" text-center form-control" /> */}
+                                <div style={{backgroundColor : "white"}}>{Num}</div>
                                 <br />
                                 <div className="container p-0">
                                     <div className="row">
