@@ -16,13 +16,12 @@ const App = () => {
       <div className="search-wrap">
         <div className="close-button position-absolute">
           <svg className="close" style={{width:"22", height:"22"}} >
-            <use xlink:href="#close"></use>
-          </svg>
+                      </svg>
         </div>
         <form id="search-form" className="text-center pt-3" action="" method="">
           <input type="text" className="search-input fs-5 p-4 bg-transparent" placeHolder="Search..." />
           <svg className="search" style={{width:"22", height:"22"}}>
-            <use xlink:href="#search"></use>
+            
           </svg>
         </form>
       </div>
@@ -36,7 +35,7 @@ const App = () => {
           </a>
           <button className="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" dataBsToggle="offcanvas" dataBsTarget="#bdNavbar" ariaControls="bdNavbar" ariaExpanded="false" ariaLabel="Toggle navigation">
             <svg className="navbar-icon" style={{width:"50", height:"50"}} >
-              <use xlink:href="#navbar-icon"></use>
+              
             </svg>
           </button>
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
@@ -133,21 +132,19 @@ const App = () => {
                     <ul className="d-flex justify-content-end list-unstyled">
                       <li className="search-item pe-3" dataBsToggle="collapse" dataBsTarget="#search-box" ariaControls="search-box" ariaExpanded="false" ariaLabel="Toggle navigation">
                         <svg className="search" style={{width:"18", height:"18"}}>
-                          <use xlink:href="#search"></use>
+                          
                         </svg>
                       </li>
                       <li className="pe-3">
                         <a href="#">
                           <svg className="user" style={{width:"18", height:"18"}}>
-                            <use xlink:href="#user"></use>
-                          </svg>
+                                                     </svg>
                         </a>
                       </li>
                       <li>
                         <a href="cart.html">
                           <svg className="cart" style={{width:"18", height:"18"}}>
-                            <use xlink:href="#cart"></use>
-                          </svg>
+                                                     </svg>
                         </a>
                       </li>
                     </ul>
@@ -174,7 +171,7 @@ const App = () => {
                       <a href="shop.html" className="btn btn-medium btn-arrow position-relative mt-5">
                         <span className="text-uppercase">Shop Now</span>            
                         <svg className="arrow-right position-absolute" style={{width:"18", height:"20"}}>
-                          <use xlink:href="#arrow-right"></use>
+                          
                         </svg>
                       </a>   
                     </div>
@@ -195,7 +192,7 @@ const App = () => {
                       <a href="shop.html" className="btn btn-medium btn-arrow position-relative mt-5">
                         <span className="text-uppercase">Shop Now</span>            
                         <svg className="arrow-right position-absolute" width="18" height="20">
-                          <use xlink:href="#arrow-right"></use>
+
                         </svg>
                       </a>   
                     </div>
@@ -216,7 +213,7 @@ const App = () => {
             <div className="icon-box d-flex align-items-center">
               <div className="icon-box-icon pt-3 pe-3 pb-3 ps-3">
                 <svg className="shipping-fast">
-                  <use xlink:href="#shipping-fast" />
+                   
                 </svg>
               </div>
               <div className="icon-box-content ps-3">
@@ -228,7 +225,7 @@ const App = () => {
             <div className="icon-box d-flex align-items-center">
               <div className="icon-box-icon pt-3 pe-3 pb-3 ps-3">
                 <svg className="shopping-cart">
-                  <use xlink:href="#shopping-cart" />
+                   
                 </svg>
               </div>
               <div className="icon-box-content ps-3">
@@ -240,8 +237,7 @@ const App = () => {
             <div className="icon-box d-flex align-items-center">
               <div className="icon-box-icon pt-3 pe-3 pb-3 ps-3">
                 <svg className="gift">
-                  <use xlink:href="#gift" />
-                </svg>
+                             </svg>
               </div>
               <div className="icon-box-content ps-3">
                 <h3 className="card-title text-uppercase text-dark">Special Packaging</h3>
@@ -252,8 +248,7 @@ const App = () => {
             <div className="icon-box d-flex align-items-center">
               <div className="icon-box-icon pt-3 pe-3 pb-3 ps-3">
                 <svg className="return">
-                  <use xlink:href="#return" />
-                </svg>
+                               </svg>
               </div>
               <div className="icon-box-content ps-3">
                 <h3 className="card-title text-uppercase text-dark">Return & refund policy</h3>
@@ -281,7 +276,7 @@ const App = () => {
                 <a href="about-us.html" className="btn btn-medium btn-arrow outline-dark position-relative mt-3">
                   <span className="text-uppercase">About us</span>            
                   <svg className="arrow-right position-absolute" width="18" height="20">
-                    <use xlink:href="#arrow-right"></use>
+                   
                   </svg>
                 </a>  
               </div>
@@ -299,7 +294,7 @@ const App = () => {
             <a href="shop.html" className="btn btn-medium btn-arrow btn-normal position-relative">
               <span className="text-uppercase">Shop All</span>            
               <svg className="arrow-right position-absolute" width="18" height="20">
-                <use xlink:href="#arrow-right"></use>
+               
               </svg>
             </a>
           </div>
@@ -422,14 +417,13 @@ const App = () => {
           <div className="review-content position-relative">
             <div className="swiper-icon swiper-arrow swiper-arrow-prev position-absolute d-flex align-items-center justify-content-center">
               <svg className="icon-arrow" style={{width:"25", height:"25"}}>
-                <use xlink:href="#arrow-left" />
+                
               </svg>
             </div>
             <div className="swiper testimonial-swiper">
               <div className="quotation text-center">
                 <svg className="quote">
-                  <use xlink:href="#quote" />
-                </svg>
+                              </svg>
               </div>
               <div className="swiper-wrapper">
                 <div className="swiper-slide text-center d-flex justify-content-center">
@@ -454,7 +448,7 @@ const App = () => {
             </div>
             <div className="swiper-icon swiper-arrow swiper-arrow-next position-absolute d-flex align-items-center justify-content-center">
               <svg className="icon-arrow" style={{width:"25", height:"25"}}>
-                <use xlink:href="#arrow-right" />
+                
               </svg>
             </div>
           </div>
@@ -604,7 +598,7 @@ const App = () => {
                 <h2 className="display-4">Get offers & discounts by subscribing us</h2>
               </div>
               <form id="form">
-                <input type="text" name="email" placeholder="Enter Your Email Addresss" className="w-100 bg-light border-0 ps-5 fst-italic" />
+                <input type="text" name="email" placeHolder="Enter Your Email Addresss" className="w-100 bg-light border-0 ps-5 fst-italic" />
                 <button className="btn btn-full btn-black text-uppercase">Subscribe Now</button>
               </form>
             </div>
@@ -621,7 +615,7 @@ const App = () => {
             <a href="shop.html" className="btn btn-medium btn-arrow btn-normal position-relative">
               <span className="text-uppercase">Shop all</span> 
               <svg className="arrow-right position-absolute" style={{width:"18", height:"20"}}>
-                <use xlink:href="#arrow-right"></use>
+                
               </svg>
             </a>
           </div>
@@ -745,7 +739,7 @@ const App = () => {
               <a href="blog.html" className="btn btn-medium btn-arrow btn-normal position-relative">
                 <span className="text-uppercase">See all articles</span>            
                 <svg className="arrow-right position-absolute" style={{width:"18", height:"20"}}>
-                  <use xlink:href="#arrow-right"></use>
+                 
                 </svg>
               </a>
             </div>
