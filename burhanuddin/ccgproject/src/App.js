@@ -6,11 +6,7 @@ const App = () => {
    <>
    
 
-    <div id="preloader">
-      <span className="loader">
-        <span className="loader-inner"></span>
-      </span>
-    </div>
+    
 
     <div className="search-box position-relative overflow-hidden w-100">
       <div className="search-wrap">
@@ -18,12 +14,7 @@ const App = () => {
           <svg className="close" style={{width:"22", height:"22"}} >
                       </svg>
         </div>
-        <form id="search-form" className="text-center pt-3" action="" method="">
-          <input type="text" className="search-input fs-5 p-4 bg-transparent" placeHolder="Search..." />
-          <svg className="search" style={{width:"22", height:"22"}}>
-            
-          </svg>
-        </form>
+        
       </div>
     </div> 
 
@@ -31,25 +22,25 @@ const App = () => {
       <nav id="header-nav" className="navbar navbar-expand-lg px-3 mb-3">
         <div className="container-fluid">
           <a className="navbar-brand" href="index.html">
-            <img src="images/main-logo.png" className="logo" />
+            <img src="/assets/images/main-logo.png" className="logo" />
           </a>
-          <button className="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" dataBsToggle="offcanvas" dataBsTarget="#bdNavbar" ariaControls="bdNavbar" ariaExpanded="false" ariaLabel="Toggle navigation">
+          <button className="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" >
             <svg className="navbar-icon" style={{width:"50", height:"50"}} >
               
             </svg>
           </button>
-          <div className="offcanvas offcanvas-end" tabIndex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+          <div className="offcanvas offcanvas-end" tabIndex="-1" id="bdNavbar" >
             <div className="offcanvas-header px-4 pb-0">
               <a className="navbar-brand" href="index.html">
-                <img src="images/main-logo.png" className="logo" />
+                <img src="/assets/images/main-logo.png" className="logo" />
               </a>
-              <button type="button" className="btn-close btn-close-black" dataBsDismiss="offcanvas" ariaLabel="Close" dataBsTarget="#bdNavbar"></button>
+              <button type="button" className="btn-close btn-close-black" data-bs-dismiss="offcanvas"  data-bs-target="#bdNavbar"></button>
             </div>
             <div className="offcanvas-body">
               <ul id="navbar" className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <li className="nav-item dropdown">
-                  <a className="nav-link me-4 active dropdown-toggle" href="#billboard" id="dropdownPages" dataBsToggle="dropdown"
-                  ariaHaspopup="true" ariaExpanded="false">Home</a><ul className="dropdown-menu list-unstyled" ariaLabelledBy="dropdownPages">
+                  <a className="nav-link me-4 active dropdown-toggle" href="#billboard" id="dropdownPages" data-bs-toggle="dropdown"
+                  >Home</a><ul className="dropdown-menu list-unstyled" >
                     <li>
                       <a href="index.html" className="dropdown-item item-anchor">Homepage 1</a>
                     </li>
@@ -62,9 +53,9 @@ const App = () => {
                   <a className="nav-link me-4" href="#about-us">About Us</a>
                 </li>
                 <li className="nav-item dropdown me-4">
-                  <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" dataBsToggle="dropdown"
-                  ariaHaspopup="true" ariaExpanded="false">Shop</a>
-                  <ul className="dropdown-menu list-unstyled" ariaLabelledby="dropdownPages">
+                  <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
+                  >Shop</a>
+                  <ul className="dropdown-menu list-unstyled">
                     <li>
                       <a href="shop-sidebar.html" className="dropdown-item item-anchor">Shop Sidebar <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
                     </li>
@@ -74,9 +65,9 @@ const App = () => {
                   </ul>
                 </li>
                 <li className="nav-item dropdown me-4">
-                  <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" dataBsToggle="dropdown"
-                  ariaHaspopup="true" ariaExpanded="false">Blog</a>
-                  <ul className="dropdown-menu list-unstyled" ariaLabelledby="dropdownPages">
+                  <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
+                  >Blog</a>
+                  <ul className="dropdown-menu list-unstyled">
                     <li>
                       <a href="blog-classNameic.html" className="dropdown-item item-anchor">Blog classNameic <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
                     </li>
@@ -89,9 +80,9 @@ const App = () => {
                   </ul>
                 </li>
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" dataBsToggle="dropdown"
-                  ariaHaspopup="true" ariaExpanded="false">Pages</a>
-                  <ul className="dropdown-menu list-unstyled" ariaLabelledby="dropdownPages">
+                  <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
+                  >Pages</a>
+                  <ul className="dropdown-menu list-unstyled" >
                     <li>
                       <a href="about-us.html" className="dropdown-item item-anchor">About <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
                     </li>
@@ -130,7 +121,7 @@ const App = () => {
                 <li className="nav-item">
                   <div className="user-items ps-5">
                     <ul className="d-flex justify-content-end list-unstyled">
-                      <li className="search-item pe-3" dataBsToggle="collapse" dataBsTarget="#search-box" ariaControls="search-box" ariaExpanded="false" ariaLabel="Toggle navigation">
+                      <li className="search-item pe-3" data-bs-toggle="collapse" data-bs-target="#search-box" >
                         <svg className="search" style={{width:"18", height:"18"}}>
                           
                         </svg>
@@ -313,7 +304,7 @@ const App = () => {
                         <a href="single-product.html" className="text-primary">Black Sofa Set</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART"><span>$200</span></a>
+                        <a className="pseudo-text-effect" href="#" ><span>$200</span></a>
                       </div>
                     </div>
                   </div>
@@ -328,7 +319,7 @@ const App = () => {
                         <a href="single-product.html" className="text-primary">Circle Dining Table</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -345,7 +336,7 @@ const App = () => {
                         <a href="single-product.html" className="text-primary">Minimal Sofa</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -362,7 +353,7 @@ const App = () => {
                         <a href="single-product.html" className="text-primary">Pattern Tea Table</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -379,7 +370,7 @@ const App = () => {
                         <a href="single-product.html" className="text-primary">Black Sofa Set</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -396,7 +387,7 @@ const App = () => {
                         <a href="single-product.html" className="text-primary">Minimal Sofa</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -598,7 +589,7 @@ const App = () => {
                 <h2 className="display-4">Get offers & discounts by subscribing us</h2>
               </div>
               <form id="form">
-                <input type="text" name="email" placeHolder="Enter Your Email Addresss" className="w-100 bg-light border-0 ps-5 fst-italic" />
+                <input type="text" name="email"  className="w-100 bg-light border-0 ps-5 fst-italic" />
                 <button className="btn btn-full btn-black text-uppercase">Subscribe Now</button>
               </form>
             </div>
@@ -632,7 +623,7 @@ const App = () => {
                         <a href="single-product.html">Black Sofa Set</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART"><span>$200</span></a>
+                        <a className="pseudo-text-effect" href="#"><span>$200</span></a>
                       </div>
                     </div>
                   </div>
@@ -647,7 +638,7 @@ const App = () => {
                         <a href="single-product.html">Circle Dining Table</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -664,7 +655,7 @@ const App = () => {
                         <a href="single-product.html">Minimal Sofa</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -681,7 +672,7 @@ const App = () => {
                         <a href="single-product.html">Pattern Tea Table</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -698,7 +689,7 @@ const App = () => {
                         <a href="single-product.html">Black Sofa Set</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -708,14 +699,14 @@ const App = () => {
                 <div className="swiper-slide">
                   <div className="product-card image-zoom-effect link-effect d-flex flex-wrap">
                     <div className="image-holder">
-                      <img src="images/product-item6.jpg" alt="product-item" className="product-image img-fluid" />
+                      <img src="/assets/images/product-item6.jpg" alt="product-item" className="product-image img-fluid" />
                     </div>
                     <div className="cart-concern">
                       <h3 className="card-title text-uppercase pt-3 text-primary">
                         <a href="single-product.html">Minimal Sofa</a>
                       </h3>
                       <div className="cart-info">
-                        <a className="pseudo-text-effect" href="#" dataAfter="ADD TO CART">
+                        <a className="pseudo-text-effect" href="#" >
                           <span>$200</span>
                         </a>
                       </div>
@@ -820,7 +811,7 @@ const App = () => {
           <div className="row d-flex flex-wrap justify-content-between">
             <div className="col-lg-3 col-sm-6 pb-3 pe-4">
               <div className="footer-menu">
-                <img src="images/main-logo.png" alt="logo" className="pb-3" />
+                <img src="/assets/images/main-logo.png" alt="logo" className="pb-3" />
                 <p>Mi facilisis facilisis orci vitae. Cum nisi morbi integer tincidunt ornare ac praesent in. Dolor tempus arcu sit quis nunc arcu facilisis quis eget nisi morbi integer.</p>
               </div>
               <div className="copyright">

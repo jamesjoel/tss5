@@ -3,10 +3,11 @@ import React from 'react'
 const ProductCard = (props) => {
   return (
     <>
-        
+        <div className="col-md-4">
+                    <div className=" product__filter">
                 <div className="mix new-arrivals">
                     <div className="product__item">
-                        <div className="product__item__pic" style={{backgroundImage : `url('/assets/img/product/'${ + props.data.img})`}}>
+                        <div className="product__item__pic" style={{backgroundImage : `url("/assets/img/product/${props.data.img}")`}}>
                             <span className="label">New</span>
                             <ul className="product__hover">
                                 <li><a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a></li>
@@ -38,6 +39,8 @@ const ProductCard = (props) => {
                             </div>
                         </div>
                     </div>
+                </div>
+                </div>
                 </div>
     </>
   )

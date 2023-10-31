@@ -107,15 +107,13 @@ const Home = () => {
                 </div>
             </div>
             <div className='row'>
-                <div className="col-md-4">
-                    <div className=" product__filter">
+                
             {
                 productData.map((value, index)=>{
                     return <ProductCard key={index} data={value} />
                 })
             }
-                    </div>
-                </div>
+                    
             </div>
         </div>
     </section>
