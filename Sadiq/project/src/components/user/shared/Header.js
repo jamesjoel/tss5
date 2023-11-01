@@ -42,7 +42,7 @@ const Header = () => {
                 <div className="col-lg-6 col-md-6">
                     <nav className="header__menu mobile-menu">
                         <ul>
-                            <li className=""><NavLink to="/">Home</NavLink></li>
+                            <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/about">About</NavLink></li>
                             <li><a href="#">Pages</a>
                                 <ul className="dropdown">

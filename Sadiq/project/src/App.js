@@ -1,10 +1,12 @@
 import React from 'react'
-import AllRoutes from './config/AllRoutes';
+import UserRoutes from './config/UserRoutes';
+import AdminRoutes from './config/AdminRoutes';
 
 const App = () => {
   return (
     <>
-        <AllRoutes />      
+        <UserRoutes />    
+        <AdminRoutes />  
     </>
   )
 }
