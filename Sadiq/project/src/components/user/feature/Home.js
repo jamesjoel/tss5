@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react'
 import BigSlider from '../shared/BigSlider'
-import Instagram from '../shared/Instagram'
 import SaleCouter from '../shared/SaleCountDown'
 import NewTrend from '../shared/NewTrend'
 import ProductCard from '../shared/ProductCard'
@@ -106,19 +105,16 @@ const Home = () => {
                     </ul>
                 </div>
             </div>
-            <div className='row'>
-                
+            <div className='row'>   
             {
                 productData.map((value, index)=>{
                     return <ProductCard key={index} data={value} />
                 })
             }
-                    
             </div>
         </div>
     </section>
     <SaleCouter />
-    <Instagram />
     <NewTrend />
     </>
   )

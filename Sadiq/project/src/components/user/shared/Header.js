@@ -42,8 +42,8 @@ const Header = () => {
                 <div className="col-lg-6 col-md-6">
                     <nav className="header__menu mobile-menu">
                         <ul>
-                            <li className="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <li className=""><NavLink to="/">Home</NavLink></li>
+                            <li><NavLink to="/about">About</NavLink></li>
                             <li><a href="#">Pages</a>
                                 <ul className="dropdown">
                                     <li><a href="./about.html">About Us</a></li>
@@ -53,7 +53,7 @@ const Header = () => {
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><NavLink to="/login">Login</NavLink></li>
                             <li><a href="./contact.html">Contacts</a></li>
                         </ul>
                     </nav>

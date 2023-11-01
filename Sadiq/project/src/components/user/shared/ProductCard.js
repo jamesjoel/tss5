@@ -3,8 +3,8 @@ import React from 'react'
 const ProductCard = (props) => {
   return (
     <>
-        <div className="col-md-4">
-                    <div className=" product__filter">
+        <div className="col-md-3">
+            <div className=" product__filter">
                 <div className="mix new-arrivals">
                     <div className="product__item">
                         <div className="product__item__pic" style={{backgroundImage : `url("/assets/img/product/${props.data.img}")`}}>
@@ -40,8 +40,8 @@ const ProductCard = (props) => {
                         </div>
                     </div>
                 </div>
-                </div>
-                </div>
+            </div>
+        </div>
     </>
   )
 }
