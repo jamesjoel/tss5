@@ -8,6 +8,7 @@ import UserModule from '../modules/UserModule'
 import AdminModule from '../modules/AdminModule'
 import Dashboard from '../components/admin/feature/Dashboard'
 import Product from '../components/admin/feature/Product'
+import Teacher from '../components/admin/feature/Teacher'
 const AllRoutes = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const AllRoutes = () => {
             <Route path='admin' element={<AdminModule />}>
                 <Route path="" element={<Dashboard />} />
                 <Route path="product" element={<Product />} />
+                <Route path="teacher" element={<Teacher />} />
             </Route>
 
 
