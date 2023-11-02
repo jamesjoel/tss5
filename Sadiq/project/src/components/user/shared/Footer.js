@@ -9,10 +9,10 @@ const Footer = () => {
                 <div className="col-lg-3 col-md-6 col-sm-6">
                     <div className="footer__about">
                         <div className="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt="" /></a>
+                            <a href="#"><img src="/assets/img/footer-logo.png" alt="" /></a>
                         </div>
                         <p>The customer is at the heart of our unique business model, which includes design.</p>
-                        <a href="#"><img src="img/payment.png" alt="" /></a>
+                        <a href="#"><img src="/assets/img/payment.png" alt="" /></a>
                     </div>
                 </div>
                 <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
