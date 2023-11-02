@@ -9,6 +9,7 @@ import AdminModule from '../modules/AdminModule'
 import Dashboard from '../components/admin/feature/Dashboard'
 import Product from '../components/admin/feature/Product'
 import Teacher from '../components/admin/feature/Teacher'
+import Signup from '../components/user/feature/Signup'
 const AllRoutes = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const AllRoutes = () => {
                   <Route path='about' element={<About />} />
                   <Route path='login' element={<Login />} />
                   <Route path='contact' element={<Contact />} />
+                  <Route path='signup' element={<Signup />} />
             </Route>  
             <Route path='admin' element={<AdminModule />}>
                 <Route path="" element={<Dashboard />} />
