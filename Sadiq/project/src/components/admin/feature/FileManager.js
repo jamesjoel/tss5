@@ -2,7 +2,7 @@ import React from 'react'
 
 const FileManager = () => {
   return (
-    <div>FileManager</div>
+    <h3>FileManager</h3>
   )
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 import BigSlider from '../shared/BigSlider'
 import SaleCouter from '../shared/SaleCountDown'
 import NewTrend from '../shared/NewTrend'
-import ProductCard from '../shared/ProductCard'
+import ProductCard from '../shared/props/ProductCard'
 
 
 const Home = () => {
