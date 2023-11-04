@@ -138,13 +138,13 @@ const SideBar = ({ children }) => {
             <AnimatePresence>
               {isOpen && (
                 <motion.h1
-                  variants={showAnimation}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  className="logo"
+                variants={showAnimation}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                className="logo"
                 >
-                  DoSomeCoding
+                <NavLink to='/' className='text-light' style={{float : "left"}} ><i class="fa fa-sign-out" aria-hidden="true"></i> Exit</NavLink>
                 </motion.h1>
               )}
             </AnimatePresence>

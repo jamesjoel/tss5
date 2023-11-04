@@ -39,7 +39,7 @@ const Login = () => {
                   </div>
               </div>
               <div className='card-footer bg-primary'>
-                <button type='submit' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</button> 
+                <NavLink to='/admin' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</NavLink> 
                 <NavLink  to='/signup' className='btn btn-primary' style={{display:"inline", float:"right"}}>create account</NavLink>
               </div>
             </div>

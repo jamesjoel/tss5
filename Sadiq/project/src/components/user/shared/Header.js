@@ -43,10 +43,10 @@ const Header = () => {
                     <nav className="header__menu mobile-menu">
                         <ul>
                             <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/about">About</NavLink></li>
+                            <li><NavLink to="/shop">Shop</NavLink></li>
                             <li><a href="#">Pages</a>
                                 <ul className="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
+                                    <li><NavLink to="/about">About Us</NavLink></li>
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
@@ -60,7 +60,7 @@ const Header = () => {
                 </div>
                 <div className="col-lg-3 col-md-3">
                     <div className="header__nav__option">
-                        <a href="#" className="search-switch"><img src="img/icon/search.png" alt="" /></a>
+                        <a href="#" id='close' className="search-switch"><img src="/assets/img/icon/search.png" alt="" /></a>
                         <a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a>
                         <a href="#"><img src="/assets/img/icon/cart.png" alt="" /> <span>0</span></a>
                         <div className="price">$0.00</div>
