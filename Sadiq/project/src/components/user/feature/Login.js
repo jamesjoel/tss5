@@ -1,9 +1,11 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import { useState } from 'react'
+import Modal from '../shared/props/Modal'
 
 const Login = () => {
 
+  // password seen un-seen section starts
   let [value, setValue] = useState('password')
   let [count, setCount] = useState(1)
 
@@ -18,6 +20,10 @@ const Login = () => {
         setValue('password')
       }
   }
+  // password seen un-seen section ends
+
+  let [modalOpen, setModalOpen] = useState(false)
+
   return (
     <>
       <div className='container my-5' style={{minHeight:"700px"}}>
@@ -40,7 +46,14 @@ const Login = () => {
               </div>
               <div className='card-footer bg-primary'>
                 <NavLink to='/admin' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</NavLink> 
-                <NavLink  to='/signup' className='btn btn-primary' style={{display:"inline", float:"right"}}>create account</NavLink>
+                <button className="btn openModalBtn text-light" style={{display:"inline", float:"right"}}
+                  onClick={() => {
+                  setModalOpen(true);
+                  }}
+                >
+                  create account
+                </button>
+                {modalOpen && <Modal setOpenModal={setModalOpen} />}
               </div>
             </div>
           </div>

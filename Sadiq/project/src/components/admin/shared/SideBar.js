@@ -79,6 +79,11 @@ const routes = [
         icon: <FaMoneyBill />,
       },
     ],
+  },
+  {
+    path: "/",
+    name: "Exit",
+    icon: <i class="fa fa-sign-out" aria-hidden="true"></i>
   }
 ];
 
@@ -144,7 +149,7 @@ const SideBar = ({ children }) => {
                 exit="hidden"
                 className="logo"
                 >
-                <NavLink to='/' className='text-light' style={{float : "left"}} ><i class="fa fa-sign-out" aria-hidden="true"></i> Exit</NavLink>
+                <h5 className="text-light">Admin Panel</h5>
                 </motion.h1>
               )}
             </AnimatePresence>
