@@ -60,14 +60,14 @@ const Footer = () => {
         </div>
     </footer>
     
-    <div className="search-model">
+    {/* <div className="search-model" style={{display: "block"}}>
         <div className="h-100 d-flex align-items-center justify-content-center">
-            <div className="search-close-switch">+</div>
+            <div className="search-close-switch" data-bs-dismiss="close">+</div>
             <form className="search-model-form">
                 <input type="text" id="search-input" placeholder="Search here....." />
             </form>
         </div>
-    </div>
+    </div> */}
     </>
   )
 }

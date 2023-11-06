@@ -14,6 +14,7 @@ import Home from '../components/user/feature/Home';
 import About from '../components/user/feature/About';
 import UserModule from '../modules/UserModule';
 import Login from '../components/user/feature/Login'
+import Shop from '../components/user/feature/Shop';
 
 const AllRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const AllRoutes = () => {
                 <Route path='' element={<Home />} />
                 <Route path='about' element={<About />} />
                 <Route path='login' element={<Login />} />
+                <Route path='shop' element={<Shop />} />
             </Route>
             <Route path='admin' element={<AdminModule /> }>
                 <Route path='' element={<DashBoard />} />

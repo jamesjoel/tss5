@@ -11,74 +11,79 @@ import SidebarMenu from "./SidebarMenu";
 
 const routes = [
   {
-    path: "/",
+    path: "/admin",
     name: "Dashboard",
     icon: <FaHome />,
   },
   {
-    path: "/users",
+    path: "/admin/users",
     name: "Users",
     icon: <FaUser />,
   },
   {
-    path: "/messages",
+    path: "/admin/messages",
     name: "Messages",
     icon: <MdMessage />,
   },
   {
-    path: "/analytics",
+    path: "/admin/analytics",
     name: "Analytics",
     icon: <BiAnalyse />,
   },
   {
-    path: "/file-manager",
+    path: "/admin/file-manager",
     name: "File Manager",
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/settings/profile",
+        path: "/admin/settings/profile",
         name: "Profile ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
+        path: "/admin/settings/2fa",
         name: "2FA",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
+        path: "/admin/settings/billing",
         name: "Billing",
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
-    path: "/order",
+    path: "/admin/order",
     name: "Order",
     icon: <BsCartCheck />,
   },
   {
-    path: "/settings",
+    path: "/admin/settings",
     name: "Settings",
     icon: <BiCog />,
     exact: true,
     subRoutes: [
       {
-        path: "/settings/profile",
+        path: "/admin/settings/profile",
         name: "Profile ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
+        path: "/admin/settings/2fa",
         name: "2FA",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
+        path: "/admin/settings/billing",
         name: "Billing",
         icon: <FaMoneyBill />,
       },
     ],
+  },
+  {
+    path: "/",
+    name: "Exit",
+    icon: <i class="fa fa-sign-out" aria-hidden="true"></i>
   }
 ];
 
@@ -138,13 +143,13 @@ const SideBar = ({ children }) => {
             <AnimatePresence>
               {isOpen && (
                 <motion.h1
-                  variants={showAnimation}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  className="logo"
+                variants={showAnimation}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                className="logo"
                 >
-                  DoSomeCoding
+                <h5 className="text-light">Admin Panel</h5>
                 </motion.h1>
               )}
             </AnimatePresence>
