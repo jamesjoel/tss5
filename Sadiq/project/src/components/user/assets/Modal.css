@@ -1,13 +1,17 @@
  .modalBackground {
     height: 100px;
     position:static;
+    top: 30%;
+    left: 0;
+    right: 0;
+    bottom: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
   } 
   
   .modalContainer {
-    /* width: 500px;  */
+    width: 600px;
     min-height: 500px;
     border-radius: 12px;
     background-color: white;
