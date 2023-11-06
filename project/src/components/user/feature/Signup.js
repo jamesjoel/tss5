@@ -4,13 +4,26 @@ import axios from 'axios'
 const Signup = () => {
 
     let [city, setCity] = useState([]); 
+    let [state, setState] = useState([]);
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/api/city").then(responose=>{
-            //console.log(responose.data);
-            setCity(responose.data);
+        // axios.get("http://localhost:8080/api/city").then(responose=>{
+        //     //console.log(responose.data);
+        //     setCity(responose.data);
+        // })
+        axios.get("http://localhost:8080/api/city/state").then(response=>{
+            setState(response.data);
         })
     }, [])
+
+    let getCity = (event)=>{
+        
+        let x = event.target.value;
+        // console.log(x);
+        axios.get("http://localhost:8080/api/city/"+x).then(response=>{
+            setCity(response.data);
+        })
+    }
 
   return (
     <>
@@ -42,6 +55,16 @@ const Signup = () => {
                                 <label>Address</label>
                                 <textarea className='form-control' ></textarea>
                             </div>
+                            <div className='my-3'>
+                                <label>State</label>
+                                <select className='form-control' onChange={(event)=>getCity(event)}>
+                                    <option>Select</option>
+                                    {
+                                        state.map((value, index)=><option key={index}>{value}</option>)
+                                    }
+                                </select>
+                            </div>
+
                             <div className='my-3'>
                                 <label>City</label>
                                 <select className='form-control' >
