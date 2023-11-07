@@ -1,8 +1,41 @@
-import React from 'react'
+import React from "react";
+import "../../assets/Modal.css";
+import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import OpenEye from '../eyeButton/OpenEye'
+import CloseEye from '../eyeButton/CloseEye'
 
-const ModalHeader = (props, {setOpenModal}) => {
-  return (
+function Modal({ setOpenModal }) {
+
+    //take data from API for INDIA cities and states
+    let [indiaCity, setIndiaCity] = useState([]);
+    let [indiaState, setIndiaState] = useState([]);
+
+    let State = async()=>{
+        let response = await axios.get("http://localhost:8080/api/indiacity/state")
+        setIndiaState(response.data)  
+    }
+
+    useEffect(()=>{
+        State()
+    }, [])
+
+    let City = async(event) =>{
+        let state = event.target.value;
+        let response = await axios.get("http://localhost:8080/api/indiacity/"+state)
+        setIndiaCity(response.data)
+    }
+    // -----------------<<END>>-------------------------
+
+    // password seen un-seen section starts
+    let [count, setCount] = useState(false)
+  // password seen un-seen section ends
+
+return (
     <>
+        <div className="modalBackground">
+        <div className="modalContainer container">
         <div className="card">
                 <div className="card-header ">
                 <div className="row  p-0">
@@ -41,7 +74,14 @@ const ModalHeader = (props, {setOpenModal}) => {
                         <input type="email" className="form-control"  placeholder="email address" />
                     </div>
                     <div className="my-2">
-                        <input type="password" className="form-control"  placeholder="Create Password" />
+                        <div className="input-group">
+                        <input type={count == true ? "text" : "password"} className="form-control"  placeholder="Create Password" aria-describedby="basic" />
+                        <span className="bg-light input-group-text" id="basic">
+                            {
+                                count == true ? <span onClick={()=>{setCount(false)}}><OpenEye /></span> : <span onClick={()=>{setCount(true)}}><CloseEye /></span> 
+                            }
+                        </span>
+                        </div>
                     </div>
                     <div className="row">
                         <div className="col-md-6">
@@ -94,8 +134,10 @@ const ModalHeader = (props, {setOpenModal}) => {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
     </>
-  )
+  );
 }
 
-export default ModalHeader
+export default Modal;
