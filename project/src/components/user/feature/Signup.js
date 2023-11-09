@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useFormik } from 'formik'
+import { API_URL } from '../../../util/API'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
 
+    let navigate = useNavigate();
     let [city, setCity] = useState([]); 
     let [state, setState] = useState([]);
 
@@ -20,8 +23,8 @@ const Signup = () => {
             contact : ""
         },
         onSubmit : (data)=>{
-            axios.post("http://localhost:8080/api/user/signup", data).then(response=>{
-                console.log(response.data);
+            axios.post(`${API_URL}/user/signup`, data).then(response=>{
+                navigate("/login");
             })
         }
     });
@@ -32,7 +35,7 @@ const Signup = () => {
         //     //console.log(responose.data);
         //     setCity(responose.data);
         // })
-        axios.get("http://localhost:8080/api/city/state").then(response=>{
+        axios.get(`${API_URL}/city/state`).then(response=>{
             setState(response.data);
         })
     }, [])
@@ -41,7 +44,7 @@ const Signup = () => {
         
         let x = event.target.value;
         // console.log(x);
-        axios.get("http://localhost:8080/api/city/"+x).then(response=>{
+        axios.get(`${API_URL}/city/${x}`).then(response=>{
             setCity(response.data);
         })
     }

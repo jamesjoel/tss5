@@ -3,17 +3,27 @@ import Subscribe from '../shared/Subscribe'
 import Box from '../shared/Box'
 import { useFormik } from 'formik'
 import axios from 'axios'
+import * as YUP from 'yup';
+
+let abc = YUP.object({
+  fullname : YUP.string().required("Insert Your Full Name"),
+  salary : YUP.string().required("Insert Your Salary")
+});
+
+
 const About = () => {
  
   let form = useFormik({
+    validationSchema : abc,
     initialValues : {
       fullname : "",
       salary : ""
     },
     onSubmit : (formdata)=>{
-      axios.post("http://localhost:8080/api/teacher", formdata).then(response=>{
-        console.log(response.data);
-      })
+      console.log(formdata)
+      // axios.post("http://localhost:8080/api/teacher", formdata).then(response=>{
+      //   console.log(response.data);
+      // })
     }
   });
   
@@ -29,10 +39,16 @@ const About = () => {
                   <div className='my-3'>
                     <label>Full Name</label>
                     <input name='fullname' onChange={form.handleChange} type='text' className='form-control' />
+                    {
+                      form.errors.fullname ? <small className='text-danger'>{form.errors.fullname}</small> : ''
+                    }
                   </div>
                   <div className='my-3'>
                     <label>Salary</label>
                     <input name='salary' onChange={form.handleChange} type='text' className='form-control' />
+                    {
+                      form.errors.salary ? <small className='text-danger'>{form.errors.salary}</small> : ''
+                    }
                   </div>
                   <br />
                   <button type='submit' className='btn btn-primary'>Add</button>
