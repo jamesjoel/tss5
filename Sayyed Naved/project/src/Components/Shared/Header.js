@@ -68,7 +68,7 @@ const Header = () => {
                                 </ul>
                             <span className="dd-trigger"></span><span className="dd-arrow"></span></li>
                             
-                            <li><a href="blog.html">Blog</a></li>
+                            <li><NavLink to="/login">Login</NavLink></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -82,21 +82,17 @@ const Header = () => {
                     </form>
                 </div>
 
-
-                <div className="favourite-area">
-                    <a href="#"><img src="/assets//assets/img/core-img/heart.svg" alt=""/></a>
-                </div>
                 
                 <div className="user-login-info">
-                    <a href="#"><img src="/assets//assets/img/core-img/user.svg" alt=""/></a>
+                    <a href="#"><img src="/assets/img/core-img/user.svg" alt=""/></a>
                 </div>
               
                 <div className="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="/assets//assets/img/core-img/bag.svg" alt=""/> <span>3</span></a>
+                    <a href="#" id="essenceCartBtn"><img src="/assets/img/core-img/bag.svg" alt=""/> <span>3</span></a>
                 </div>
                 
                 <div className="user-login-info">
-                    <a href="#"><img src="/assets//assets/img/core-img/user.svg" alt="Login"/></a>
+                    <a href="#"><img src="/assets/img/core-img/user.svg" alt="Login"/></a>
                 </div>
             </div>
 
