@@ -4,10 +4,8 @@ const mongoose = require("mongoose");
 
 const TeacherSchema = mongoose.Schema({
     fullname : String,
-    class : Number,
-    education : String,
-    salary : Number,
-    gender : String
+    salary : Number
+    
 })
 
 const TeacherModel = mongoose.model("teacher", TeacherSchema);
