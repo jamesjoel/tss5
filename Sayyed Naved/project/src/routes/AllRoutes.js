@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes,Route } from 'react-router-dom'
-import Home from '../Feature/Home'
-import Login from '../Feature/Login'
+import Home from '../Components/Feature/Home'
+import Login from '../Components/Feature/Login'
 const AllRoutes = () => {
   return (
     <>

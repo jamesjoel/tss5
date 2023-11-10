@@ -7,6 +7,7 @@ import axios from "axios";
 import OpenEye from '../eyeButton/OpenEye'
 import CloseEye from '../eyeButton/CloseEye'
 import * as yup from 'yup'
+import {API_URL} from '../../../../util/API';
 
 // Validation part starts
 let Validation = yup.object({
@@ -26,7 +27,7 @@ let Modal = ({ setOpenModal }) =>{
     let [indiaState, setIndiaState] = useState([]);
 
     let State = async()=>{
-        let response = await axios.get("http://localhost:8080/api/indiacity/state")
+        let response = await axios.get(`${API_URL}/indiacity/state`)
         setIndiaState(response.data)  
     }
 
@@ -36,7 +37,7 @@ let Modal = ({ setOpenModal }) =>{
 
     let City = async(event) =>{
         let state = event.target.value;
-        let response = await axios.get("http://localhost:8080/api/indiacity/"+state)
+        let response = await axios.get(`${API_URL}/indiacity/${state}`)
         setIndiaCity(response.data)
     }
     // -----------------<<END>>-------------------------
@@ -59,7 +60,7 @@ let Modal = ({ setOpenModal }) =>{
         },
         onSubmit : async(formData)=>{
             console.log(formData)
-            await axios.post("http://localhost:8080/api/authentication/signup", formData).then(response =>{
+            await axios.post(`${API_URL}/authentication/signup`, formData).then(response =>{
                 console.log(response.data)
             })
         }
@@ -97,6 +98,9 @@ return (
                         <div className="col-md-6">
                             <div className="">
                                 <input type="text" name="firstname" className="form-control" onChange={signupForm.handleChange} placeholder="Enter Your First Name" />
+                                {
+                                    signupForm.errors.firstname ? <small className="text-danger"><i class="fa-solid fa-circle-exclamation fa-shake" style="color: #c43303;"></i></small> : ''
+                                }
                             </div>
                         </div>
                         <div className="col-md-6">
