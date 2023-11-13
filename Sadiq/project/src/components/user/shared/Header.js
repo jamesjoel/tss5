@@ -52,6 +52,11 @@ const Header = () => {
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
+                                {/* 
+                                    a{
+                                        background-color : "red"
+                                    }
+                                */}
                             </li>
                             <li><NavLink to="/login">Login</NavLink></li>
                             <li><a href="./contact.html">Contacts</a></li>

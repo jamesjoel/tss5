@@ -5,12 +5,13 @@ const routes = require("./routes/allRoutes");
 
 app.use(express.json());
 app.use(express.urlencoded( { extended : true}));
-app.use(cors());
+app.use(cors()); // CORS enable
 app.use(routes)
 
 
 
 const port = process.env.PORT || 8080;
 app.listen(port, ()=>{
-    console.log("Server Running with port ", port);
+    // console.log("Server Running with port "+ port);
+    console.log(`Server Running with port ${port}`);
 })

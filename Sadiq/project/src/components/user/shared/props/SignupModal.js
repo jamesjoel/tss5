@@ -1,19 +1,24 @@
 import React from "react";
 import "../../assets/Modal.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import {useFormik} from 'formik'
 import { useState, useEffect } from "react";
 import axios from "axios";
-import OpenEye from '../eyeButton/OpenEye'
-import CloseEye from '../eyeButton/CloseEye'
+import OpenEye from '../../assets/eyeButton/OpenEye'
+import CloseEye from '../../assets/eyeButton/CloseEye'
+import {API_URL} from '../../../../util/API';
+import Validation from "../../../../schemas/SignupSchema";
 
-function Modal({ setOpenModal }) {
+
+let Modal = ({ setOpenModal }) =>{
 
     //take data from API for INDIA cities and states
+    let navigate = useNavigate();
     let [indiaCity, setIndiaCity] = useState([]);
     let [indiaState, setIndiaState] = useState([]);
 
     let State = async()=>{
-        let response = await axios.get("http://localhost:8080/api/indiacity/state")
+        let response = await axios.get(`${API_URL}/indiacity/state`)
         setIndiaState(response.data)  
     }
 
@@ -23,19 +28,42 @@ function Modal({ setOpenModal }) {
 
     let City = async(event) =>{
         let state = event.target.value;
-        let response = await axios.get("http://localhost:8080/api/indiacity/"+state)
+        let response = await axios.get(`${API_URL}/indiacity/${state}`)
         setIndiaCity(response.data)
     }
     // -----------------<<END>>-------------------------
 
     // password seen un-seen section starts
     let [count, setCount] = useState(false)
-  // password seen un-seen section ends
+    // password seen un-seen section ends
+
+
+    // data post for signup section starts
+    let signupForm = useFormik({
+        validationSchema : Validation,
+        initialValues :{
+            firstname : "",
+            lastname : "",
+            email : "",
+            password : "",
+            dob : "",
+            state : "",
+            city : ""
+        },
+        onSubmit : async(formData)=>{
+            await axios.post(`${API_URL}/authentication/signup`, formData).then(response =>{
+                // useNavigate('/login')
+                console.log(response.data)
+            })
+        }
+    })
+    // data post for signup section ends
 
 return (
     <>
         <div className="modalBackground">
         <div className="modalContainer container">
+        <form onSubmit={signupForm.handleSubmit}>
         <div className="card">
                 <div className="card-header ">
                 <div className="row  p-0">
@@ -61,39 +89,51 @@ return (
                     <div className="row">
                         <div className="col-md-6">
                             <div className="">
-                                <input type="text" className="form-control"  placeholder="Enter Your First Name" />
+                                <input type="text" name="firstname" onChange={signupForm.handleChange} placeholder="Enter Your First Name" className={'form-control '+(signupForm.errors.firstname && signupForm.touched.firstname ? 'border border-danger' : '')} />
+                                {
+                                    signupForm.errors.firstname && signupForm.touched.firstname ? <small className="text-danger">{signupForm.errors.firstname} !</small> : ''
+                                }
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="">
-                                <input type="text" className="form-control" placeholder="Enter Your Second Name" />
+                                <input type="text" name="lastname" onChange={signupForm.handleChange} className="form-control" placeholder="Enter Your Last Name" />
                             </div>
                         </div>
                     </div>
                     <div className="my-2">
-                        <input type="email" className="form-control"  placeholder="email address" />
+                        <input type="email" name="email" onChange={signupForm.handleChange}  placeholder="email address" className={'form-control '+(signupForm.errors.email && signupForm.touched.email ? 'border border-danger' : '')} />
+                        {
+                            signupForm.errors.email && signupForm.touched.email ? <small className="text-danger">{signupForm.errors.email} !</small> : ''
+                        }
                     </div>
                     <div className="my-2">
                         <div className="input-group">
-                        <input type={count == true ? "text" : "password"} className="form-control"  placeholder="Create Password" aria-describedby="basic" />
+                        <input type={count === true ? "text" : "password"} name="password" onChange={signupForm.handleChange}  placeholder="Create Password" aria-describedby="basic" className={'form-control '+(signupForm.errors.password && signupForm.touched.password ? 'border border-danger' : '')} />
                         <span className="bg-light input-group-text" id="basic">
                             {
-                                count == true ? <span onClick={()=>{setCount(false)}}><OpenEye /></span> : <span onClick={()=>{setCount(true)}}><CloseEye /></span> 
+                                count === true ? <span onClick={()=>{setCount(false)}}><OpenEye /></span> : <span onClick={()=>{setCount(true)}}><CloseEye /></span> 
                             }
                         </span>
                         </div>
+                        {
+                            signupForm.errors.password && signupForm.touched.password ? <small className="text-danger">{signupForm.errors.password} !</small> : ''
+                        }
                     </div>
                     <div className="row">
                         <div className="col-md-6">
                             <div className="">
                                 <label>Date of Birth <i class="fa fa-question-circle"></i></label>
-                                <input type="date" className="form-control"  placeholder="Enter Your First Name" />
+                                <input type="date" name="dob" onChange={signupForm.handleChange} placeholder="Enter Your First Name" className={'form-control '+(signupForm.errors.dob && signupForm.touched.dob ? 'border border-danger' : '')} />
+                                {
+                                    signupForm.errors.dob && signupForm.touched.dob ? <small className="text-danger">{signupForm.errors.dob} !</small> : ''
+                                }
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="">
                         <label>Select Your State</label>
-                        <select onChange={(event)=>City(event)} className="form-control" >
+                        <select name="state" onChange={(event)=>{signupForm.handleChange(event); City(event)}} className={'form-control '+(signupForm.errors.state && signupForm.touched.state ? 'border border-danger' : '')} >
                             <option>Select</option>
                             {
                                 indiaState.map((value)=>{
@@ -103,12 +143,15 @@ return (
                                 })
                             }
                         </select>
+                        {
+                            signupForm.errors.state && signupForm.touched.state ? <small className="text-danger">{signupForm.errors.state} !</small> : ''
+                        }
                             </div>
                         </div>
                     </div>
                     <div className="my-2">
                         <label>Select Your State</label>
-                        <select className="form-control">
+                        <select name="city" onChange={signupForm.handleChange} className={'form-control '+(signupForm.errors.city && signupForm.touched.city ? 'border border-danger' : '')}>
                             <option>Select</option>
                             {
                                 indiaCity.map((value)=>{
@@ -118,6 +161,9 @@ return (
                                 })
                             }
                         </select>
+                        {
+                            signupForm.errors.city && signupForm.touched.city ? <small className="text-danger">{signupForm.errors.city} !</small> : ''
+                        }
                     </div>
                     <div className=" my-0 text-center">
                         <p style={{fontSize :"14px", fontFamily : "inherit"}}> By clicking Sign Up, you agree to our
@@ -125,15 +171,16 @@ return (
                         <NavLink to="/" className=" text-primary">Privacy Policy </NavLink> and 
                         <NavLink to="/" className=" text-primary"> Cookies Policy</NavLink>.
                         You may receive SMS notifications from us and can opt out at any time.</p>
-                    <NavLink to="/admin" onClick={()=>setOpenModal(false)}
-                        className="btn for"
+                    <button type="submit" 
+                        className="btn"
                         style={{backgroundColor : "#00a400"}}
                     >
                         <h6 className="text-light" style={{fontWeight : "bolder"}}>SignUp</h6>
-                    </NavLink>
+                    </button>
                     </div>
                 </div>
-            </div>
+        </div>
+        </form>
         </div>
     </div>
     </>

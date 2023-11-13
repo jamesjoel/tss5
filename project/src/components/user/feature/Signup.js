@@ -1,17 +1,41 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useFormik } from 'formik'
+import { API_URL } from '../../../util/API'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
 
+    let navigate = useNavigate();
     let [city, setCity] = useState([]); 
     let [state, setState] = useState([]);
+
+    let signupForm = useFormik({
+        initialValues : {
+            name : "",
+            email : "",
+            password : "",
+            repassword : "",
+            gender : "",
+            address : "",
+            state : "",
+            city : "",
+            contact : ""
+        },
+        onSubmit : (data)=>{
+            axios.post(`${API_URL}/user/signup`, data).then(response=>{
+                navigate("/login");
+            })
+        }
+    });
+
 
     useEffect(()=>{
         // axios.get("http://localhost:8080/api/city").then(responose=>{
         //     //console.log(responose.data);
         //     setCity(responose.data);
         // })
-        axios.get("http://localhost:8080/api/city/state").then(response=>{
+        axios.get(`${API_URL}/city/state`).then(response=>{
             setState(response.data);
         })
     }, [])
@@ -20,7 +44,7 @@ const Signup = () => {
         
         let x = event.target.value;
         // console.log(x);
-        axios.get("http://localhost:8080/api/city/"+x).then(response=>{
+        axios.get(`${API_URL}/city/${x}`).then(response=>{
             setCity(response.data);
         })
     }
@@ -28,6 +52,7 @@ const Signup = () => {
   return (
     <>
         <div className='container' style={{marginTop : "150px", minHeight : "650px"}}>
+            <form onSubmit={signupForm.handleSubmit}>
             <div className='row'>
                 <div className='col-md-8 offset-md-2'>
                     <div className='card'>
@@ -37,27 +62,27 @@ const Signup = () => {
                         <div className="card-body">
                             <div className='my-3'>
                                 <label>Full Name</label>
-                                <input type='text' className='form-control' />
+                                <input name='name' onChange={signupForm.handleChange} type='text' className='form-control' />
                             </div>
                             <div className='my-3'>
                                 <label>Email/Username</label>
-                                <input type='text' className='form-control' />
+                                <input name='email' onChange={signupForm.handleChange} type='text' className='form-control' />
                             </div>
                             <div className='my-3'>
                                 <label>Password</label>
-                                <input type='password' className='form-control' />
+                                <input name='password' onChange={signupForm.handleChange} type='password' className='form-control' />
                             </div>
                             <div className='my-3'>
                                 <label>Re-Password</label>
-                                <input type='password' className='form-control' />
+                                <input name='repassword' onChange={signupForm.handleChange} type='password' className='form-control' />
                             </div>
                             <div className='my-3'>
                                 <label>Address</label>
-                                <textarea className='form-control' ></textarea>
+                                <textarea name='address' onChange={signupForm.handleChange} className='form-control' ></textarea>
                             </div>
                             <div className='my-3'>
                                 <label>State</label>
-                                <select className='form-control' onChange={(event)=>getCity(event)}>
+                                <select name='state' onChange={(event)=>{signupForm.handleChange(event); getCity(event)}} className='form-control'>
                                     <option>Select</option>
                                     {
                                         state.map((value, index)=><option key={index}>{value}</option>)
@@ -67,7 +92,7 @@ const Signup = () => {
 
                             <div className='my-3'>
                                 <label>City</label>
-                                <select className='form-control' >
+                                <select name='city' onChange={signupForm.handleChange} className='form-control' >
                                     <option>Select</option>
                                     {
                                         city.map(value=><option key={value._id}>{value.name}</option>)
@@ -77,22 +102,22 @@ const Signup = () => {
                             <div className='my-3'>
                                 <label>Gender</label>
                                 <br />
-                                Male <input type='radio' />
-                                Female <input type='radio' />
+                                Male <input name='gender' onChange={signupForm.handleChange} value="male" type='radio' />
+                                Female <input name="gender" onChange={signupForm.handleChange} value="female" type='radio' />
                             </div>
                             <div className='my-3'>
                                 <label>Contact</label>
-                                <input type='text' className='form-control' />
+                                <input name='contact' onChange={signupForm.handleChange} type='text' className='form-control' />
                             </div>
                             
                         </div>
                         <div className="card-footer">
-                            <button className='btn btn-primary'>Singup</button>
+                            <button type='submit' className='btn btn-primary'>Singup</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+            </form>
         </div>
     </>
   )
