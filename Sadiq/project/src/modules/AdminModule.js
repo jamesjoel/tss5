@@ -5,7 +5,7 @@ import SideBar from '../components/admin/shared/SideBar';
 const AdminModule = () => {
   return (
     <>
-      <SideBar>
+      <SideBar >
       <Outlet />
       </SideBar>
     </>

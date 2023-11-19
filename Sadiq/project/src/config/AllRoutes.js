@@ -1,7 +1,6 @@
 import React from 'react'
 import '../components/admin/assets/Sidebar.css'
 import {Routes, Route} from 'react-router-dom';
-import SideBar from '../components/admin/shared/SideBar';
 import AdminModule from '../modules/AdminModule';
 import DashBoard from '../components/admin/feature/DashBoard';
 import Users from '../components/admin/feature/Users';
@@ -9,12 +8,12 @@ import Messages from '../components/admin/feature/Messages';
 import Analytics from '../components/admin/feature/Analytics';
 import FileManager from '../components/admin/feature/FileManager';
 import Order from '../components/admin/feature/Order';
-import Setting from '../components/admin/feature/Setting';
 import Home from '../components/user/feature/Home';
 import About from '../components/user/feature/About';
 import UserModule from '../modules/UserModule';
 import Login from '../components/user/feature/Login'
 import Shop from '../components/user/feature/Shop';
+import SettingProfile from '../components/admin/feature/SettingProfile';
 
 const AllRoutes = () => {
   return (
@@ -33,7 +32,9 @@ const AllRoutes = () => {
                 <Route path='analytics' element={<Analytics />} />
                 <Route path='file-manager' element={<FileManager />} />
                 <Route path='order' element={<Order />} />
-                <Route path='setting' element={<Setting />} />
+                <Route path='settings' element={<SettingProfile />}>
+                  <Route path='profile' element={<SettingProfile />} />
+                </Route>
                 <Route path='*' element={<>Not Found</>} />
             </Route>
         </Routes>

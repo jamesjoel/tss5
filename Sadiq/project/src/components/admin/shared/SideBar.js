@@ -3,91 +3,95 @@ import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
+import { AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 
-const routes = [
-  {
-    path: "/admin",
-    name: "Dashboard",
-    icon: <FaHome />,
-  },
-  {
-    path: "/admin/users",
-    name: "Users",
-    icon: <FaUser />,
-  },
-  {
-    path: "/admin/messages",
-    name: "Messages",
-    icon: <MdMessage />,
-  },
-  {
-    path: "/admin/analytics",
-    name: "Analytics",
-    icon: <BiAnalyse />,
-  },
-  {
-    path: "/admin/file-manager",
-    name: "File Manager",
-    icon: <AiTwotoneFileExclamation />,
-    subRoutes: [
-      {
-        path: "/admin/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/admin/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
-      },
-      {
-        path: "/admin/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
-  },
-  {
-    path: "/admin/order",
-    name: "Order",
-    icon: <BsCartCheck />,
-  },
-  {
-    path: "/admin/settings",
-    name: "Settings",
-    icon: <BiCog />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/admin/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/admin/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
-      },
-      {
-        path: "/admin/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
-  },
-  {
-    path: "/",
-    name: "Exit",
-    icon: <i class="fa fa-sign-out" aria-hidden="true"></i>
-  }
-];
 
 const SideBar = ({ children }) => {
+
+  // Admin Panel Paths
+  const routes = [
+    {
+      path: `/admin`,
+      name: "Dashboard",
+      icon: <FaHome />,
+    },
+    {
+      path: "/admin/users",
+      name: "Users",
+      icon: <FaUser />,
+    },
+    {
+      path: "/admin/messages",
+      name: "Messages",
+      icon: <MdMessage />,
+    },
+    {
+      path: "/admin/analytics",
+      name: "Analytics",
+      icon: <BiAnalyse />,
+    },
+    {
+      path: "/admin/file-manager",
+      name: "File Manager",
+      icon: <AiTwotoneFileExclamation />,
+      subRoutes: [
+        {
+          path: "/admin/settings/profile",
+          name: "Profile ",
+          icon: <FaUser />,
+        },
+        {
+          path: "/admin/settings/2fa",
+          name: "2FA",
+          icon: <FaLock />,
+        },
+        {
+          path: "/admin/settings/billing",
+          name: "Billing",
+          icon: <FaMoneyBill />,
+        },
+      ],
+    },
+    {
+      path: "/admin/order",
+      name: "Order",
+      icon: <BsCartCheck />,
+    },
+    {
+      path: "/admin/settings",
+      name: "Settings",
+      icon: <BiCog />,
+      exact: true,
+      subRoutes: [
+        {
+          path: "/admin/settings/profile",
+          name: "Profile ",
+          icon: <FaUser />,
+        },
+        {
+          path: "/admin/settings/2fa",
+          name: "2FA",
+          icon: <FaLock />,
+        },
+        {
+          path: "/admin/settings/billing",
+          name: "Billing",
+          icon: <FaMoneyBill />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      name: "Exit",
+      icon: <i class="fa fa-sign-out" aria-hidden="true"></i>
+    }
+  ];
+  // Admin Panel Paths
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const inputAnimation = {

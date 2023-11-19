@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from '../shared/props/SignupModal'
 import LoginCheck from '../../../schemas/LoginSchema';
@@ -20,7 +20,7 @@ const Login = () => {
     let preCount = 1;
     preCount += count;
     console.log(preCount)
-      if(preCount % 2 == 0){
+      if(preCount % 2 === 0){
         setValue('text')
       }else{
         setValue('password')
@@ -39,11 +39,10 @@ const Login = () => {
     },
     onSubmit : async(formData)=>{
       await axios.post(`${API_URL}/authentication/login`, formData).then(response =>{
-            // console.log(response.data.status)
-            // console.log(response.data.errType)
+          // let ID = response.data.address
             if(response.data.status === 200){
-              navigate('/admin')
-            }else if(response.data.status == 403){
+              navigate(`/admin`)
+            }else if(response.data.status === 403){
               if(response.data.errType === 1){
                 setAlert(1);
               }else if(response.data.errType === 2){
@@ -85,7 +84,7 @@ const Login = () => {
                   </div>
                   <div className='my-3'>
                   <label>Password</label>
-                  <input type={value} name='password' style={{display:"inline", float:"right"}} onChange={loginForm.handleChange} placeholder='Enter Your Password' className={'form-control '+(loginForm.errors.password && loginForm.touched.password ? 'is-invalid' : '')} />
+                  <input type={value} name='password'  onChange={loginForm.handleChange} placeholder='Enter Your Password' className={'form-control '+(loginForm.errors.password && loginForm.touched.password ? 'is-invalid' : '')} />
                   <button type='button' className=' btn text-primary'  onClick={()=>password(1)} style={{ display:"inline", float:"right"}}>see password</button>
                   </div>
                   {
@@ -94,7 +93,7 @@ const Login = () => {
               </div>
               <div className='card-footer bg-primary'>
                 <button type='submit' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</button>
-                <button className="btn openModalBtn text-light" 
+                <button className="btn text-light" 
                   style={{display:"inline", float:"right"}}
                   data-toggle="modal" data-target="#Open"
                   type='button'

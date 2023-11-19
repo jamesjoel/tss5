@@ -19,8 +19,9 @@ route.post("/login", async(req, res)=>{
     let Gmail = req.body.email
     let account = await signup.find({ email : Gmail })
     if(account.length != 0){
+        let ID = sha(account[0]._id)
         if(account[0].password == Password.trim()){
-            res.send({status : 200 , errType : 0})
+            res.send({status : 200 , errType : 0, address : ID })
         }else{
             res.send({status : 403 ,errType : 1})
         }
