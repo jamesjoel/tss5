@@ -13,79 +13,80 @@ import SidebarMenu from "./SidebarMenu";
 const SideBar = ({ children }) => {
 
   // Admin Panel Paths
+  let ID = localStorage.getItem('Token')
   const routes = [
     {
-      path: `/admin`,
+      path: `/admin/${ID}`,
       name: "Dashboard",
       icon: <FaHome />,
     },
     {
-      path: "/admin/users",
+      path: `/admin/users/${ID}`,
       name: "Users",
       icon: <FaUser />,
     },
     {
-      path: "/admin/messages",
+      path: `/admin/messages/${ID}`,
       name: "Messages",
       icon: <MdMessage />,
     },
     {
-      path: "/admin/analytics",
+      path: `/admin/analytics/${ID}`,
       name: "Analytics",
       icon: <BiAnalyse />,
     },
     {
-      path: "/admin/file-manager",
+      path: `/admin/file-manager/${ID}`,
       name: "File Manager",
       icon: <AiTwotoneFileExclamation />,
       subRoutes: [
         {
-          path: "/admin/settings/profile",
+          path: `/admin/settings/profile/${ID}`,
           name: "Profile ",
           icon: <FaUser />,
         },
         {
-          path: "/admin/settings/2fa",
+          path: `/admin/settings/2fa/${ID}`,
           name: "2FA",
           icon: <FaLock />,
         },
         {
-          path: "/admin/settings/billing",
+          path: `/admin/settings/billing/${ID}`,
           name: "Billing",
           icon: <FaMoneyBill />,
         },
       ],
     },
     {
-      path: "/admin/order",
+      path: `/admin/order/${ID}`,
       name: "Order",
       icon: <BsCartCheck />,
     },
     {
-      path: "/admin/settings",
+      path: `/admin/settings/${ID}`,
       name: "Settings",
       icon: <BiCog />,
       exact: true,
       subRoutes: [
         {
-          path: "/admin/settings/profile",
+          path: `/admin/settings/profile/${ID}`,
           name: "Profile ",
           icon: <FaUser />,
         },
         {
-          path: "/admin/settings/2fa",
+          path: `/admin/settings/2fa/${ID}`,
           name: "2FA",
           icon: <FaLock />,
         },
         {
-          path: "/admin/settings/billing",
+          path: `/admin/settings/billing/${ID}`,
           name: "Billing",
           icon: <FaMoneyBill />,
         },
       ],
     },
     {
-      path: "/",
+      path: "/login",
       name: "Exit",
       icon: <i class="fa fa-sign-out" aria-hidden="true"></i>
     }
@@ -127,6 +128,10 @@ const SideBar = ({ children }) => {
       },
     },
   };
+
+  let Logout = () =>{
+    localStorage.clear();
+  }
 
   return (
     <>
@@ -199,7 +204,7 @@ const SideBar = ({ children }) => {
                   className="link"
                   activeClassName="active"
                 >
-                  <div className="icon">{route.icon}</div>
+                  <div onClick={route.name === 'Exit' ? Logout : null } className="icon">{route.icon}</div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div

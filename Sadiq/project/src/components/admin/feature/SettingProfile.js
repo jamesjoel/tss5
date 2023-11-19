@@ -1,12 +1,79 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
+import axios from 'axios'
+import { API_URL } from '../../../util/API'
 
 const SettingProfile = () => {
+
+  let [userData, setUserData] = useState()
+let IDPost = async() =>{
+  let ID = localStorage.getItem('Token')
+  let response = await axios.get(`${API_URL}/authentication/accounts/${ID}`)
+  console.log(response.data)
+  setUserData(response.data)
+}
+  useEffect(()=>{
+    IDPost()
+  }, [])
+
+  let pageData = [
+    {
+      name : "First Name",
+      data : userData.firstname
+    },
+    {
+      name : "Last Name",
+      data : userData.lastname
+    },
+    {
+      name : "Contact",
+      data : userData.contact
+    },
+    {
+      name : "email ID",
+      data : userData.email
+    },
+    {
+      name : "Date of Birth",
+      data : userData.dob
+    },
+    {
+      name : "State",
+      data : userData.state
+    },
+    {
+      name : "City",
+      data : userData.city
+    },
+    {
+      name : "Address",
+      data : userData.address
+    }
+  ]
+
   return (
     <>
       <div className='container'>
         <div className='row'>
-          <div className='col-md-8 offset-md-2'>
-            <h3>Profile</h3>
+          <div className='col-md-12 '>
+            <div className='card'>
+              <div className='card-header'>
+                <h4>Profile</h4>
+              </div>
+              <div className='card-body'>
+                <table className='table table-hover table-striped'>
+                  {
+                    pageData.map((value, index)=>{
+                      return(
+                        <thead>
+                          <th>{value.name}</th>
+                          <td>{value.data}</td>
+                        </thead>
+                      )
+                    })
+                  }
+                </table> 
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import {useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from '../shared/props/SignupModal'
@@ -10,6 +10,9 @@ import axios from "axios";
 const Login = () => {
 
   let navigate = useNavigate();
+  useEffect(()=>{
+    localStorage.clear();
+  }, [])
 
   // password seen un-seen section starts
   let [value, setValue] = useState('password')
@@ -39,9 +42,10 @@ const Login = () => {
     },
     onSubmit : async(formData)=>{
       await axios.post(`${API_URL}/authentication/login`, formData).then(response =>{
-          // let ID = response.data.address
+          let ID = response.data.Token
             if(response.data.status === 200){
-              navigate(`/admin`)
+              localStorage.setItem('Token', ID)
+              navigate(`/admin/${ID}`)
             }else if(response.data.status === 403){
               if(response.data.errType === 1){
                 setAlert(1);

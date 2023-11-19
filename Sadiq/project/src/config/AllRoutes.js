@@ -26,14 +26,14 @@ const AllRoutes = () => {
                 <Route path='shop' element={<Shop />} />
             </Route>
             <Route path='admin' element={<AdminModule /> }>
-                <Route path='' element={<DashBoard />} />
-                <Route path='users' element={<Users />} />
-                <Route path='messages' element={<Messages />} />
-                <Route path='analytics' element={<Analytics />} />
-                <Route path='file-manager' element={<FileManager />} />
-                <Route path='order' element={<Order />} />
+                <Route path=':id' element={<DashBoard />} />
+                <Route path='users/:id' element={<Users />} />
+                <Route path='messages/:id' element={<Messages />} />
+                <Route path='analytics/:id' element={<Analytics />} />
+                <Route path='file-manager/:id' element={<FileManager />} />
+                <Route path='order/:id' element={<Order />} />
                 <Route path='settings' element={<SettingProfile />}>
-                  <Route path='profile' element={<SettingProfile />} />
+                  <Route path='profile/:id' element={<SettingProfile />} />
                 </Route>
                 <Route path='*' element={<>Not Found</>} />
             </Route>
