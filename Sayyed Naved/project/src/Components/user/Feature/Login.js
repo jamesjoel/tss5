@@ -18,17 +18,11 @@ const Login = () => {
                   <div className='my-3'>
                   <label>Password</label>
                   <input type ="Password"   style={{display:"inline", float:"right"}} className='form-control' placeholder='Enter Your Password' />
-                  <button className=' btn text-primary' style={{ display:"inline", float:"right"}}>see password</button>
                   </div>
               </div>
               <div className='card-footer bg-primary'>
                 <NavLink to='/admin' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</NavLink> 
-                <button className="btn openModalBtn text-light" style={{display:"inline", float:"right"}}
-                
-                >
-                  create account
-                </button>
-                
+                <NavLink to='/signup' className='btn text-light' style= {{display:"inline", float:"right"}}>Create account</NavLink>
               </div>
             </div>
           </div>
