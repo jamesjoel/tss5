@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import ProductBox from '../shared/props/ProductBox';
 import Breadcrumb from '../shared/props/Breadcrumb';
+import { API_URL } from '../../../util/API';
 
 
 const Shop = () => {
@@ -11,7 +12,7 @@ const Shop = () => {
   let [productCategory , setProductCategory] = useState([]);
 
   let productData = async() =>{
-    let response = await axios.get("http://localhost:8080/api/category")
+    let response = await axios.get(`${API_URL}/category`)
     setProductCategory(response.data)
   }
 
@@ -20,14 +21,10 @@ const Shop = () => {
   }, [])
 
   let getCategory = async(event) =>{
-    let x = event
-    let Response = await axios.get("http://localhost:8080/api/product/"+x)
+    let city = event
+    let Response = await axios.get(`${API_URL}/product/${city}`)
     setProduct(Response.data)
     
-  }
-
-  let demo = async(event) =>{
-    console.log(event)
   }
 
   return (
@@ -207,12 +204,12 @@ const Shop = () => {
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
-                                    <p>Sort by Price:</p>
+                                    <p>Sort by Price: </p>
                                     <select style={{display: "none"}}>
                                         <option value="">Low To High</option>
                                         <option value="">$0 - $55</option>
                                         <option value="">$55 - $100</option>
-                                    </select><div className="nice-select" tabindex="0"><span className="current">Low To High</span><ul className="list"><li data-value="" className="option selected focus">Low To High</li><li data-value="" className="option">$0 - $55</li><li data-value="" className="option">$55 - $100</li></ul></div>
+                                    </select><div className="nice-select" tabindex="0"><span className="current"> Low To High</span><ul className="list"><li data-value="" className="option selected focus">Low To High</li><li data-value="" className="option">$0 - $55</li><li data-value="" className="option">$55 - $100</li></ul></div>
                                 </div>
                             </div>
                         </div>
