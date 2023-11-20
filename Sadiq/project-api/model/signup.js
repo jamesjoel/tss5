@@ -11,7 +11,7 @@ let signupSchema = mongoose.Schema({
     city : String,
     status : {type : Number, default : "3"},
     address : {type : String, default : ""},
-    contact : {type : Number, default : ""}
+    contact : {type : String, default : ""}
 }, { collection : "signup" })
 
 let signupModel = mongoose.model("signup", signupSchema);
