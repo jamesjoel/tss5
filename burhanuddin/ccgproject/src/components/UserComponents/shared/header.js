@@ -44,45 +44,10 @@ const Header = () => {
               <li className="nav-item">
                 <a className="nav-link me-4" href="/blog">Our Blogs</a>
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
-                >Pages</a>
-                <ul className="dropdown-menu list-unstyled" >
-                  <li>
-                    <a href="about-us.html" className="dropdown-item item-anchor">About <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="cart.html" className="dropdown-item item-anchor">Cart <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="checkout.html" className="dropdown-item item-anchor">Checkout <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="contact.html" className="dropdown-item item-anchor">Contact <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="error-page.html" className="dropdown-item item-anchor">Error Page <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="faqs.html" className="dropdown-item item-anchor">FAQs <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="my-account.html" className="dropdown-item item-anchor">My Account <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="order-tracking.html" className="dropdown-item item-anchor">Order Tracking <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="wishlist.html" className="dropdown-item item-anchor">Wishlist <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="single-post.html" className="dropdown-item item-anchor">Single Post <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                  <li>
-                    <a href="single-product.html" className="dropdown-item item-anchor">Single Product <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
-                  </li>
-                </ul>
+              <li className="nav-item">
+                <a className="nav-link me-4" href="/signup">LogIn/SignUp</a>
               </li>
+              
               <li className="nav-item">
                 <div className="user-items ps-5">
                   <ul className="d-flex justify-content-end list-unstyled">
