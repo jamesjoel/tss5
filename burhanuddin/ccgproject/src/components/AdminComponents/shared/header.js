@@ -12,10 +12,10 @@ const header = () => {
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
         <ul className="navbar-nav">
             <li className="nav-item">
-            <a className="nav-link" href="/admin">Dashboard</a>
+            <a className="nav-link" href="/admin" style={{color: "white"}} >Dashboard</a>
             </li>
             <li className="nav-item">
-            <a className="nav-link" href="/admin/stock">Link</a>
+            <a className="nav-link" href="/admin/stock" style={{color: "white"}}>stock</a>
             </li>
             
         </ul>
