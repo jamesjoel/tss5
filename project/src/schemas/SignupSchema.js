@@ -9,7 +9,7 @@ let SingupSchema = YUP.object({
     address : YUP.string().required("Insert Your Address"),
     state : YUP.string().required("Select Your State"),
     city : YUP.string().required("Select Your City"),
-    contact : YUP.string().required("Insert Your Contact Number")
+    contact : YUP.number().typeError("Please Insert Number Only").min(1000000, "Min 7 digit").max(9999999999, "Max 10 digit").required("Insert Your Contact Number")
 })
 
 export default SingupSchema;

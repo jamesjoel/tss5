@@ -33,7 +33,7 @@ const Login = () => {
               <div className='card-header text-center bg-primary'>
                 <h2 className='text-light'>Login Form</h2>
               </div>
-              <div className='card-body'>
+              {/* <div className='card-body'>
                   <div className='my-3'>
                   <label>Gmail ID</label>
                   <input type='email' className='form-control' placeholder='Enter Your G-mail' />
@@ -43,7 +43,7 @@ const Login = () => {
                   <input type={value} style={{display:"inline", float:"right"}} className='form-control' placeholder='Enter Your Password' />
                   <button className=' btn text-primary'  onClick={()=>password(1)} style={{ display:"inline", float:"right"}}>see password</button>
                   </div>
-              </div>
+              </div> */}
               <div className='card-footer bg-primary'>
                 <NavLink to='/admin' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</NavLink> 
                 <button className="btn openModalBtn text-light" style={{display:"inline", float:"right"}}

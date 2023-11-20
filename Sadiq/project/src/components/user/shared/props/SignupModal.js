@@ -61,6 +61,7 @@ let Modal = ({ setOpenModal }) =>{
         onSubmit : async(formData)=>{
             console.log(formData)
             await axios.post(`${API_URL}/authentication/signup`, formData).then(response =>{
+                
                 console.log(response.data)
             })
         }
@@ -84,6 +85,7 @@ return (
                     </div>
                     <div className="col-md-2">
                         <button
+                        
                         onClick={()=>setOpenModal(false)}
                         className="btn"
                         style={{display : "inline", float : "right"}}
@@ -164,7 +166,7 @@ return (
                         <NavLink to="/" className=" text-primary">Privacy Policy </NavLink> and 
                         <NavLink to="/" className=" text-primary"> Cookies Policy</NavLink>.
                         You may receive SMS notifications from us and can opt out at any time.</p>
-                    <button type="submit" onClick={()=>setOpenModal(false)}
+                    <button type="submit"
                         className="btn for"
                         style={{backgroundColor : "#00a400"}}
                     >
