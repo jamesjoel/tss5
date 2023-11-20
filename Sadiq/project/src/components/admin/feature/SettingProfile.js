@@ -58,6 +58,11 @@ let IDPost = async() =>{
     navigate(`/admin/update/${ID}`)
   }
 
+  let updatePassword = () =>{
+  let ID = localStorage.getItem('Token')
+  navigate(`/admin/update/password/${ID}`)
+  }
+
   return (
     <>
       <div className='container'>
@@ -82,6 +87,9 @@ let IDPost = async() =>{
                   }
                   </tr>
                 </table> 
+              </div>
+              <div className='card-footer'>
+                <button className='btn btn-sm text-primary' onClick={updatePassword} style={{ display : "inline", float : "right" }}>Change password ?</button>
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ let IDPost = async() =>{
 
   let [contactLength, setContactLength] = useState(0)
   let updateForm = useFormik({
-    // validationSchema : UpdateValidation,
+    validationSchema : UpdateValidation,
     initialValues :{
       contact : "",
       address : ""
@@ -30,6 +30,7 @@ let IDPost = async() =>{
     onSubmit : async(formData)=>{
       let ID = localStorage.getItem('Token')
       await axios.post(`${API_URL}/authentication/update/${ID}`, formData).then(response =>{
+        // console.log(response.data)
         if(response.data.status == 200){
           navigate(`/admin/settings/profile/${ID}`)
         }else{
@@ -93,7 +94,11 @@ let IDPost = async() =>{
                     pageData.map((value)=>{
                       return(value.data === "" ? <thead>
                         <th>{value.name}</th>
-                        <td><input type='text' onChange={updateForm.handleChange} name={value.name.toLowerCase()} placeholder={`Enter Your ${value.name}`} className='form-control' /></td>
+                        <td><input type='text' onChange={updateForm.handleChange} name={value.name.toLowerCase()} placeholder={`Enter Your ${value.name}`} className={'form-control '+(updateForm.errors[value.name.toLowerCase()] && updateForm.touched[value.name.toLowerCase()] ? 'is-invalid' : '')} />
+                        {
+                          updateForm.errors[value.name.toLowerCase()] ? <small className='text-danger'>{updateForm.errors[value.name.toLowerCase()]} !</small> : ''
+                        }
+                        </td>
                       </thead> : null)
                     })
                   }

@@ -48,4 +48,22 @@ route.post("/update/:id", async(req, res)=>{
     }
 })
 
+route.post("/update/password/:id", async(req, res)=>{
+    let ID = req.params.id;
+    let Password = sha(req.body.currentpassword)
+    console.log(Password)
+    let userData = await signup.find({ _id : ID })
+    if( userData[0].length != 0){
+        if(Password == userData[0].password ){
+            let NewPassword = sha(req.body.changepassword)
+            await signup.updateMany({ _id : ID }, { password : NewPassword })
+            res.send({ status : 200, errType : 0 })
+        }else{
+            res.send({ status : 403, errType : 2 })
+        }
+    }else{
+        res.send({ status : 403, errType : 1 })
+    }
+})
+
 module.exports = route
