@@ -36,4 +36,16 @@ route.get("/accounts/:id" , async(req, res)=>{
     res.send(accounts[0])
 })
 
+route.post("/update/:id", async(req, res)=>{
+    let ID = req.params.id;
+    let contactLength = req.body.contact.split("")
+    console.log(contactLength)
+    if(contactLength.length == 10){
+        await signup.updateMany({ _id : ID }, { $set : req.body })
+        res.send({ status : 200, errType : 0 })
+    }else{
+        res.send({ status : 403, errType : 1 })
+    }
+})
+
 module.exports = route

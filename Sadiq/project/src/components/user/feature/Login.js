@@ -22,7 +22,7 @@ const Login = () => {
     setCount(count + x)
     let preCount = 1;
     preCount += count;
-    console.log(preCount)
+    // console.log(preCount)
       if(preCount % 2 === 0){
         setValue('text')
       }else{

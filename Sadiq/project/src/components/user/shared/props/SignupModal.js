@@ -53,11 +53,11 @@ let Modal = () =>{
         },
         onSubmit : async(formData)=>{
             await axios.post(`${API_URL}/authentication/signup`, formData).then(response =>{
-                console.log(response.data)
+                // console.log(response.data)
                 if(response.data.success === false){
                     setCheckEmail(1)
                 }else{
-                    navigate('/admin')
+                    navigate('/')
                 }
             })
         }
