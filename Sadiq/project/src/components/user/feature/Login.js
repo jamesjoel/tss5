@@ -78,7 +78,7 @@ const Login = () => {
               <div className='card-header text-center bg-primary'>
                 <h2 className='text-light'>Login Form</h2>
               </div>
-              {/* <div className='card-body'>
+              <div className='card-body'>
                   <div className='my-3'>
                   <label>Gmail ID</label>
                   <input type='email' name='email' onChange={loginForm.handleChange} placeholder='Enter Your G-mail' className={'form-control '+(loginForm.errors.email && loginForm.touched.email ? 'is-invalid' : '')} />
@@ -91,14 +91,10 @@ const Login = () => {
                   <input type={value} name='password'  onChange={loginForm.handleChange} placeholder='Enter Your Password' className={'form-control '+(loginForm.errors.password && loginForm.touched.password ? 'is-invalid' : '')} />
                   <button type='button' className=' btn text-primary'  onClick={()=>password(1)} style={{ display:"inline", float:"right"}}>see password</button>
                   </div>
-<<<<<<< HEAD
-              </div> */}
-=======
                   {
                     loginForm.errors.password && loginForm.touched.password ? <small className='text-danger' >{loginForm.errors.password} !</small> : ''
                   }
               </div>
->>>>>>> 42ab73ee84a2173b1652c82ea0fe925b8f2107cd
               <div className='card-footer bg-primary'>
                 <button type='submit' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</button>
                 <button className="btn text-light" 

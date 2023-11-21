@@ -1,4 +1,5 @@
 import React from 'react'
+// mongoimport --db Patients --collection city --file City.json --jsonArray
 
 
 const DashBoard = () => {

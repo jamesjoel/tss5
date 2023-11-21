@@ -14,6 +14,7 @@ import Login from '../components/user/feature/Login'
 import Shop from '../components/user/feature/Shop';
 import SettingProfile from '../components/admin/feature/SettingProfile';
 import Updation from '../components/admin/feature/Updation';
+import UpdatePassword from '../components/admin/feature/UpdatePassword';
 
 const AllRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AllRoutes = () => {
                 <Route path='messages/:id' element={<Messages />} />
                 <Route path='analytics/:id' element={<Analytics />} />
                 <Route path='update/:id' element={<Updation />} />
+                <Route path='update/password/:id' element={<UpdatePassword />} />
                 <Route path='order/:id' element={<Order />} />
                 <Route path='settings' element={<SettingProfile />}>
                   <Route path='profile/:id' element={<SettingProfile />} />

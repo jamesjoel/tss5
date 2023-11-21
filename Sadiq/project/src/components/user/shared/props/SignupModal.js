@@ -53,17 +53,12 @@ let Modal = () =>{
         },
         onSubmit : async(formData)=>{
             await axios.post(`${API_URL}/authentication/signup`, formData).then(response =>{
-<<<<<<< HEAD
-                
-                console.log(response.data)
-=======
                 // console.log(response.data)
                 if(response.data.success === false){
                     setCheckEmail(1)
                 }else{
                     navigate('/')
                 }
->>>>>>> 42ab73ee84a2173b1652c82ea0fe925b8f2107cd
             })
         }
     })
@@ -71,30 +66,6 @@ let Modal = () =>{
 
 return (
     <>
-<<<<<<< HEAD
-        <div className="modalBackground">
-        <div className="modalContainer container">
-        <form onSubmit={signupForm.handleSubmit}>
-        <div className="card">
-                <div className="card-header ">
-                <div className="row  p-0">
-                    <div className="col-md-10">
-                        <p style={{display : "inline"}} >
-                        <span style={{ fontSize : "30px", fontFamily : "SFProDisplay-Bold, Helvetica, Arial, sans-serif;" ,fontWeight : "bolder"}}>Create an Account</span>
-                    <br />
-                        <span style={{fontSize :"16px", fontFamily : "inherit"}}>It's quick and easy</span>
-                        </p>
-                    </div>
-                    <div className="col-md-2">
-                        <button
-                        
-                        onClick={()=>setOpenModal(false)}
-                        className="btn"
-                        style={{display : "inline", float : "right"}}
-                        >
-                            X
-                        </button>
-=======
     <div className="modal fade" id="Open" tabIndex="-1" >
         <div className="modal-dialog">
             <div className="modal-content">
@@ -220,96 +191,10 @@ return (
                                 </button>
                                 </div>
                             </div>
->>>>>>> 42ab73ee84a2173b1652c82ea0fe925b8f2107cd
                     </div>
                     </form>
                 </div>
-<<<<<<< HEAD
-                </div>
-                <div className="card-body">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="">
-                                <input type="text" name="firstname" className="form-control" onChange={signupForm.handleChange} placeholder="Enter Your First Name" />
-                                {
-                                    signupForm.errors.firstname ? <small className="text-danger"><i class="fa-solid fa-circle-exclamation fa-shake" style="color: #c43303;"></i></small> : ''
-                                }
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="">
-                                <input type="text" name="lastname" onChange={signupForm.handleChange} className="form-control" placeholder="Enter Your Second Name" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="my-2">
-                        <input type="email" name="email" onChange={signupForm.handleChange} className="form-control"  placeholder="email address" />
-                    </div>
-                    <div className="my-2">
-                        <div className="input-group">
-                        <input type={count === true ? "text" : "password"} name="password" className="form-control" onChange={signupForm.handleChange}  placeholder="Create Password" aria-describedby="basic" />
-                        <span className="bg-light input-group-text" id="basic">
-                            {
-                                count === true ? <span onClick={()=>{setCount(false)}}><OpenEye /></span> : <span onClick={()=>{setCount(true)}}><CloseEye /></span> 
-                            }
-                        </span>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="">
-                                <label>Date of Birth <i class="fa fa-question-circle"></i></label>
-                                <input type="date" name="dob" className="form-control" onChange={signupForm.handleChange} placeholder="Enter Your First Name" />
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="">
-                        <label>Select Your State</label>
-                        <select name="state" onChange={(event)=>{signupForm.handleChange(event); City(event)}} className="form-control" >
-                            <option>Select</option>
-                            {
-                                indiaState.map((value)=>{
-                                    return(
-                                        <option>{value}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="my-2">
-                        <label>Select Your State</label>
-                        <select name="city" onChange={signupForm.handleChange} className="form-control">
-                            <option>Select</option>
-                            {
-                                indiaCity.map((value)=>{
-                                    return(
-                                        <option>{value.name}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className=" my-0 text-center">
-                        <p style={{fontSize :"14px", fontFamily : "inherit"}}> By clicking Sign Up, you agree to our
-                        <NavLink to="/" className=" text-primary"> Terms </NavLink>, 
-                        <NavLink to="/" className=" text-primary">Privacy Policy </NavLink> and 
-                        <NavLink to="/" className=" text-primary"> Cookies Policy</NavLink>.
-                        You may receive SMS notifications from us and can opt out at any time.</p>
-                    <button type="submit"
-                        className="btn for"
-                        style={{backgroundColor : "#00a400"}}
-                    >
-                        <h6 className="text-light" style={{fontWeight : "bolder"}}>SignUp</h6>
-                    </button>
-                    </div>
-                </div>
-        </div>
-        </form>
-=======
             </div>
->>>>>>> 42ab73ee84a2173b1652c82ea0fe925b8f2107cd
         </div>
     </div>
     </>
