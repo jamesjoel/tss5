@@ -12,11 +12,17 @@ let IndiaState = async()=>{
   console.log(response.data)
   setState(response.data)
   // console.log(City)
+
 }
 useEffect (()=>{
   IndiaState()
-
 },[])
+let city = async(event)=>{
+  let State = event.target.value
+  let response= await axios.get(`http://localhost:8080/api/city/${State}`)
+  setCity(response.data)
+}
+
 return (
 <>
 <div className='container my-5' style={{minHeight : "700px"}}>
@@ -41,7 +47,7 @@ return (
                   </div>
                   <div className='my-3'>
                   <label>State</label>
-                  <select className='form-control'>
+                  <select onChange={(event)=>city(event)} className='form-control'>
                     <option>Select</option>
                     {
                       State.map((value)=>{
@@ -56,7 +62,7 @@ return (
                     <option>Select</option>
                   {
                     City.map((value)=>{
-                      return(<option>{value}</option>)
+                      return(<option>{value.name}</option>)
                     })
                   }
                   </select>

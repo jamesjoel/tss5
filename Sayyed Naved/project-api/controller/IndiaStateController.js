@@ -7,10 +7,11 @@ routes.get("/state",async(req,res)=>{
 
 })
 
-routes.get("/:state",async(req,res)=>{
-    let state = req.params.state
+routes.get("/city/:state",async(req,res)=>{
+    let State = req.params.state
+console.log(State)
 
-    let city = await citymodel.find({state : state})
+    let city = await citymodel.find({state : State})
 
     res.send(city)
 })
