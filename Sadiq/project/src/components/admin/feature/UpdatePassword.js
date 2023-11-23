@@ -4,10 +4,16 @@ import axios from 'axios'
 import { useFormik } from 'formik'
 import { API_URL } from '../../../util/API'
 import ChangePassword from '../../../schemas/UpdatePasswordSchema'
+import OpenEye from '../../user/assets/eyeButton/OpenEye'
+import CloseEye from '../../user/assets/eyeButton/CloseEye'
+import PassForgotModal from '../shared/PassForgotModal'
 
 const UpdatePassword = () => {
 
   let navigate = useNavigate();
+  let [ showAlert, setShowAlert ] = useState(false)
+  let [ alertMsg, setAlertMsg ] = useState("")
+  let [ eyeBtn, setEyeBtn ] = useState(false)
 
   let updatePass = useFormik({
     validationSchema : ChangePassword,
@@ -23,9 +29,11 @@ const UpdatePassword = () => {
         navigate(`/admin/settings/profile/${ID}`)
       }else{
         if(response.data.errType == 1){
-          console.log(response.data.errType)
-        }else if(response.data.errType == 2){
-          console.log(response.data.errType)
+          setShowAlert(true);
+          setAlertMsg("Your Current Password is Wrong");
+          setTimeout(()=>{
+            setShowAlert(false)
+          }, 2000);
         }
       }
     }
@@ -36,27 +44,56 @@ const UpdatePassword = () => {
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-md-12'>
+            {
+              showAlert === true ? <div class="alert alert-danger">
+              <strong>Invalid Password!</strong> { alertMsg } <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
+            </div> : null
+            }
             <form onSubmit={updatePass.handleSubmit}>
             <div className='card'>
               <div className='card-body'>
-                <div className='my-3'>
-                  <input type='text' name='currentpassword' onChange={updatePass.handleChange}  placeholder='Enter Current Password' className={ 'form-control '+(updatePass.errors.currentpassword && updatePass.touched.currentpassword ? 'is-invalid' : '') } />
+                <div className='my-3'>                  
+                <input type="text" name="currentpassword" onChange={updatePass.handleChange}  placeholder="Create Password"  className={ 'form-control '+(updatePass.errors.currentpassword && updatePass.touched.currentpassword ? 'is-invalid' : '') } />
+                  {
+                    updatePass.errors.currentpassword && updatePass.touched.currentpassword ? <small className='text-danger'>{updatePass.errors.currentpassword} !</small> : null
+                  }
                 </div>
                 <div className='my-3'>
-                  <input type='text' name='changepassword' onChange={updatePass.handleChange} className='form-control' placeholder='Enter New Password' />
+                  <div className="input-group">
+                    <input type={eyeBtn === true ? "text" : "password"} name="changepassword" onChange={updatePass.handleChange}  placeholder="Create Password" aria-describedby="basic" className={ 'form-control '+(updatePass.errors.changepassword && updatePass.touched.changepassword ? 'is-invalid' : '') } />
+                      <span className="bg-light input-group-text" id="basic">
+                    {
+                      eyeBtn === true ? <span onClick={()=>{setEyeBtn(false)}}><OpenEye /></span> : <span onClick={()=>{setEyeBtn(true)}}><CloseEye /></span> 
+                    }
+                      </span>
+                  </div>
+                  {
+                    updatePass.errors.changepassword && updatePass.touched.changepassword ? <small className='text-danger'>{updatePass.errors.changepassword} !</small> : null
+                  }
                 </div>
                 <div className='my-3'>
-                  <input type='text' name='rechangepassword' onChange={updatePass.handleChange} className='form-control' placeholder='Re-Enter New Password' />
+                  <input type={eyeBtn === true ? "text" : "password"} name="rechangepassword" onChange={updatePass.handleChange}  placeholder="Create Password" className={ 'form-control '+(updatePass.errors.rechangepassword && updatePass.touched.rechangepassword ? 'is-invalid' : '') } />
+                  {
+                    updatePass.errors.rechangepassword && updatePass.touched.rechangepassword ? <small className='text-danger'>{updatePass.errors.rechangepassword} !</small> : null
+                  }
                 </div>
               </div>
-              <div className='card-footer text-center'>
-                <button type='submit' className='btn btn-sm btn-primary'>Change Password</button>
+              <div className='card-footer'>
+                <button style={{ display : "inline", textAlign : "center", float : "left" }} type='submit' className='btn btn-sm btn-primary'>Change Password</button>
+                <button className="btn text-primary btn-sm" 
+                  style={{display:"inline", float:"right"}}
+                  data-toggle="modal" data-target="#PasswordForgot"
+                  type='button'
+                  >
+                  <small>Forgot Password?</small>
+                </button>
               </div>
             </div>
             </form>
           </div>
         </div>
       </div>
+      <PassForgotModal />
     </>
   )
 }

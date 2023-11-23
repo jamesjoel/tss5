@@ -33,7 +33,8 @@ const Login = () => {
 
    // data post for Login section starts
 
-  let [alert, setAlert] = useState(0)
+  let [alertMsg, setAlertMsg] = useState("")
+  let [showAlert, setShowAlert] = useState(false)
   let loginForm = useFormik({
     validationSchema : LoginCheck,
     initialValues :{
@@ -47,10 +48,18 @@ const Login = () => {
               localStorage.setItem('Token', ID)
               navigate(`/admin/${ID}`)
             }else if(response.data.status === 403){
-              if(response.data.errType === 1){
-                setAlert(1);
-              }else if(response.data.errType === 2){
-                setAlert(2);
+              if(response.data.errType === 2){
+                setShowAlert(true);
+                setAlertMsg("Enter a Valid Gmail ID")
+                setTimeout(()=>{
+                  setShowAlert(false)
+                }, 3000);
+              }else if(response.data.errType === 1){
+                setShowAlert(true);
+                setAlertMsg("Your Password is Incorrect")
+                setTimeout(()=>{
+                  setShowAlert(false)
+                }, 3000);
               }
             }
         })
@@ -64,13 +73,8 @@ const Login = () => {
         <div className='row'>
           <div className='col-md-8 offset-md-2'>
             {
-              alert === 2 ? <div class="alert alert-danger">
-              <strong>Invalid Email!</strong> Enter a Valid Gmail ID <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
-            </div> : ''
-            }
-            {
-              alert === 1 ? <div class="alert alert-danger">
-              <strong>Wrong Password!</strong> Your Password is Incorrect <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
+              showAlert === true ? <div class="alert alert-danger">
+                { alertMsg } <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
             </div> : ''
             }
             <form onSubmit={loginForm.handleSubmit}>
