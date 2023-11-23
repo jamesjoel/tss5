@@ -20,7 +20,8 @@ let IDPost = async() =>{
     IDPost()
   }, [])
 
-  let [contactLength, setContactLength] = useState(0)
+  let [alertMsg, setAlertMsg] = useState("")
+  let [showAlert, setShowAlert] = useState(false)
   let updateForm = useFormik({
     validationSchema : UpdateValidation,
     initialValues :{
@@ -34,7 +35,11 @@ let IDPost = async() =>{
         if(response.data.status == 200){
           navigate(`/admin/settings/profile/${ID}`)
         }else{
-          setContactLength(1)
+          setShowAlert(true)
+          setAlertMsg("A number must contain 10 Digits")
+          setTimeout(()=>{
+            setShowAlert(false)
+          }, 3000);
         }
       })
     }
@@ -84,8 +89,8 @@ let IDPost = async() =>{
             <div className='card'>
               <div className='card-body'>
                 {
-                  contactLength === 1 ? <div class="alert alert-danger">
-                  <strong>Invalid Number!</strong> A number must contain 10 Digits <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
+                  showAlert === true ? <div class="alert alert-danger">
+                  <strong>Invalid Number!</strong> { alertMsg } <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
                 </div> : null
                 }
                 <table className='table table-hover table-striped'>
@@ -96,7 +101,7 @@ let IDPost = async() =>{
                         <th>{value.name}</th>
                         <td><input type='text' onChange={updateForm.handleChange} name={value.name.toLowerCase()} placeholder={`Enter Your ${value.name}`} className={'form-control '+(updateForm.errors[value.name.toLowerCase()] && updateForm.touched[value.name.toLowerCase()] ? 'is-invalid' : '')} />
                         {
-                          updateForm.errors[value.name.toLowerCase()] ? <small className='text-danger'>{updateForm.errors[value.name.toLowerCase()]} !</small> : ''
+                          updateForm.errors[value.name.toLowerCase()] && updateForm.touched[value.name.toLowerCase()] ? <small className='text-danger'>{updateForm.errors[value.name.toLowerCase()]} !</small> : ''
                         }
                         </td>
                       </thead> : null)
