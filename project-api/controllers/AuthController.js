@@ -2,6 +2,7 @@ let routes = require("express").Router();
 let User = require("../models/User");
 let sha1 = require("sha1")
 let jwt = require("jsonwebtoken");
+let key = require("../config/token_key");
 
 routes.post("/", async(req, res)=>{
     let e = req.body.email;
@@ -12,7 +13,7 @@ routes.post("/", async(req, res)=>{
         if(result[0].password == sha1(p))
         {
             let obj = { id : result[0]._id };
-            let token = jwt.sign(obj, "tss5");
+            let token = jwt.sign(obj, key);
             res.send({ success : true, token : token });
         }
         else{

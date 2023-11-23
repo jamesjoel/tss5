@@ -1,7 +1,17 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+
+    let [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(()=>{
+        if(localStorage.getItem("access-token"))
+        {
+            setLoggedIn(true);
+        }
+    },[])
+
   return (
     <header className="main_menu home_menu">
         <div className="container">
@@ -23,15 +33,28 @@ const Header = () => {
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/about">About</NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/login">Login</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/signup">Signup</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/contact">Contact</NavLink>
-                                </li>
+                                {
+                                    loggedIn ? 
+                                        <>
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link" to="/my-account">My Account</NavLink>
+                                            </li>
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link" to="/logout">Logout</NavLink>
+                                            </li>
+                                        </>
+                                        :
+                                        <>
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link" to="/login">Login</NavLink>
+                                            </li>
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link" to="/signup">Signup</NavLink>
+                                            </li>
+                                        </>
+                                    
+                                }
+                                
                                 {/* <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

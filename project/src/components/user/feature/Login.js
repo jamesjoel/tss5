@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useFormik } from 'formik'
 import LoginSchema from '../../../schemas/LoginSchema'
 import axios from 'axios'
@@ -8,6 +8,14 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
     
     let navigate = useNavigate();
+
+    useEffect(()=>{
+        if(localStorage.getItem("access-token"))
+        {
+            navigate("/my-account");
+        }
+    }, [])
+
 
     let [errMsg, setErrMsg] = useState("");
     let [spinner, setSpinner] = useState(false);
@@ -34,8 +42,8 @@ const Login = () => {
                 }
                 if(response.data.success == true)
                 {
-                    localStorage.setItem("key", response.data.token);
-                    navigate("/");
+                    localStorage.setItem("access-token", response.data.token);
+                    navigate("/my-account");
                 }
             })
         }
