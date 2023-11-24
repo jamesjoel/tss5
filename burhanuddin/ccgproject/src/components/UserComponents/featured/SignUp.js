@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import {NavLink} from 'react-router-dom'
 import axios from 'axios';
 import {useFormik} from 'formik'
 import SignUpSchema from '../../../schemas/UserSchema'
+import ErrorModal from '../shared/props/ErrorModal';
 
 
 
@@ -63,9 +65,7 @@ const SignUp = () => {
                         <div className='my-3'>
                             <label>Full Name</label>
                             <input type='text' name='name' onChange={SignUpForm.handleChange} className='form-control'/>
-                            {/* {
-                               SignUpForm.errors.name ? 
-                            } */}
+                           
                         </div>
                         <div className='my-3'>
                             <label> Gender </label><br/>
@@ -74,7 +74,7 @@ const SignUp = () => {
                         </div>
                         <div className='my-3'>
                             <label>Mobile Number</label>
-                            <input type='number' name='number' className='form-control' onChange={SignUpForm.handleChange}/>
+                            <input type='text' name='number' className='form-control' onChange={SignUpForm.handleChange}/>
 
                         </div>
                         <div className='my-3'>
@@ -129,10 +129,12 @@ const SignUp = () => {
                         </div>
                         <div className='card-footer'>
 
-                            <button type='submit' className='btn btn-bordered' style={{color: "#D6C7AE"
-                        }} >Submit</button>  <br/> 
+                            <button type='submit' className='btn btn-primary my-3 offset-md-5' data-toggle="modal" data-target="#modal"style={{color: "white"
+                        }} >Sign Up</button>  <br/> 
 
-                            <label>Already a user?</label> <a href='/login'> <button className='btn btn-bordered'>LogIn</button> </a>
+                
+                        
+                            <label>Already a user?</label> <NavLink to='/login'> <button className='btn btn-bordered'>LogIn</button> </NavLink>
                         </div>
                     </div>
                     
@@ -140,6 +142,7 @@ const SignUp = () => {
             </div>
             </form> 
         </div>
+        <ErrorModal/>
     </>
   )
 }
