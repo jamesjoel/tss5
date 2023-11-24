@@ -57,12 +57,18 @@ let Modal = () =>{
                 if(response.data.success === false){
                     setCheckEmail(1)
                 }else{
-                    navigate('/')
+                    setTimeout(()=>{
+                        let clsBtn = document.getElementById('clsModalBtn')
+                        let resetBtn = document.getElementById('resetBtn')
+                        resetBtn.click();
+                        clsBtn.click();
+                    }, 1000);
                 }
             })
         }
     })
     // data post for signup section ends
+
 
 return (
     <>
@@ -79,11 +85,12 @@ return (
                                     <span style={{ fontSize : "30px", fontFamily : "SFProDisplay-Bold, Helvetica, Arial, sans-serif;" ,fontWeight : "bolder"}}>Create an Account</span>
                                 <br />
                                     <span style={{fontSize :"16px", fontFamily : "inherit"}}>It's quick and easy  </span> 
-                                    <button type="reset" className="btn btn-sm"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                                    <button type="reset" id="resetBtn" className="btn btn-sm"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                     </p>
                                 </div>
                                 <div className="col-md-2">
                                     <button
+                                    id="clsModalBtn"
                                     type="button"
                                     data-dismiss="modal"
                                     className="btn"

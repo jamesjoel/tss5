@@ -1,63 +1,47 @@
-import React, {useState} from 'react'
-import Subscribe from '../shared/Subscribe'
-import Box from '../shared/Box'
+import React from 'react'
 import { useFormik } from 'formik'
-import axios from 'axios'
+
 import * as YUP from 'yup';
 
-let abc = YUP.object({
-  fullname : YUP.string().required("Insert Your Full Name"),
-  salary : YUP.string().required("Insert Your Salary")
-});
+let mySchema = YUP.object({
+  a : YUP.string().required("*"),
+  b : YUP.string().required("*")
+})
 
 
 const About = () => {
- 
-  let form = useFormik({
-    validationSchema : abc,
+
+  let myForm = useFormik({
+    validationSchema : mySchema,
     initialValues : {
-      fullname : "",
-      salary : ""
+      a : "",
+      b : ""
     },
-    onSubmit : (formdata)=>{
-      console.log(formdata)
-      // axios.post("http://localhost:8080/api/teacher", formdata).then(response=>{
-      //   console.log(response.data);
-      // })
+    onSubmit : (data)=>{
+      console.log(data);
     }
   });
-  
- 
 
   return (
-    <>
-    <div className="container" style={{minHeight : "700px", marginTop : "150px"}}>
- 
-        <div className="row">
-            <div className="col-md-6 offset-md-3">
-                <form onSubmit={form.handleSubmit}>
-                  <div className='my-3'>
-                    <label>Full Name</label>
-                    <input name='fullname' onChange={form.handleChange} type='text' className='form-control' />
-                    {
-                      form.errors.fullname ? <small className='text-danger'>{form.errors.fullname}</small> : ''
-                    }
-                  </div>
-                  <div className='my-3'>
-                    <label>Salary</label>
-                    <input name='salary' onChange={form.handleChange} type='text' className='form-control' />
-                    {
-                      form.errors.salary ? <small className='text-danger'>{form.errors.salary}</small> : ''
-                    }
-                  </div>
-                  <br />
-                  <button type='submit' className='btn btn-primary'>Add</button>
-                </form>
-            </div>
+    <div className="container" style={{marginTop : "150px", minHeight : "700px"}}>
+      <div className="row">
+        <form onSubmit={myForm.handleSubmit}>
+        <div className="col-md-12">
+          <label>Full Name { myForm.errors.a && myForm.touched.a ? <span className='text-danger'>{myForm.errors.a}</span> : '' }</label>
+          <br />
+          <input type='text' className={myForm.errors.a && myForm.touched.a ? 'border border-danger' : ''} name="a" onChange={myForm.handleChange}/>
+          <br />
+          <br />
+          <label>Email {myForm.errors.b && myForm.touched.b ? <span className='text-danger'>{myForm.errors.b}</span> : ''}</label>
+          <br />
+          <input type='text' className={myForm.errors.b && myForm.touched.b ? 'border border-danger' : ''} name="b" onChange={myForm.handleChange}/>
+          <br />
+          <br />
+          <button type='submit'>OK</button>
         </div>
+        </form>
+      </div>
     </div>
-    <Subscribe />
-    </>
   )
 }
 
