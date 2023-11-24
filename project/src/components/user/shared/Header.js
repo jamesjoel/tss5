@@ -36,8 +36,12 @@ const Header = () => {
                                 {
                                     loggedIn ? 
                                         <>
-                                            <li className="nav-item">
-                                                <NavLink className="nav-link" to="/my-account">My Account</NavLink>
+                                            <li className="nav-item dropdown">
+                                                <NavLink className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="/my-account">My Account</NavLink>
+                                                <div className='dropdown-menu'>
+                                                    <NavLink to="/my-account/profile" className="dropdown-item">My Profile</NavLink>
+                                                </div>
+
                                             </li>
                                             <li className="nav-item">
                                                 <NavLink className="nav-link" to="/logout">Logout</NavLink>
