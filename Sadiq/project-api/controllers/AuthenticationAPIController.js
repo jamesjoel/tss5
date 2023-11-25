@@ -69,6 +69,23 @@ route.post("/update/password/:id", async(req, res)=>{
 
 route.post("/forgot/password/:id", async(req, res)=>{
     let ID = req.params.id;
+    delete req.body.rechangepassword;
+    let Password = sha(req.body.changepassword)
+    let userData = await signup.find({ _id : ID })
+    if( userData[0]?.length != 0){
+        if(userData[0]?.password == Password){
+            res.send({ status : 403, errType : 2 })
+        }else{
+            await signup.updateMany({ _id : ID }, { password : Password })
+            res.send({ status : 200, errType : 0 })
+        }
+    }else{
+        res.send({ status : 403, errType : 1 })
+    }
+})
+
+route.post("/number/verification/:id", async(req, res)=>{
+    let ID = req.params.id;
     let Number = req.body.contact;
     let NumberLength = req.body.contact.split("")
     let userData = await signup.find({ _id : ID })
@@ -86,6 +103,21 @@ route.post("/forgot/password/:id", async(req, res)=>{
         }else{
             res.send({ status : 403, errType : 1 })
         }
+    }
+})
+
+route.post("/otp/verification/:id", async(req, res)=>{
+    let ID = req.params.id;
+    let OTP = req.body.otp;
+    let userData = await signup.find({ _id : ID })
+    if(userData[0]?.length != 0){
+        if(userData[0]?.otp == OTP){
+            res.send({ status : 200, errType : 0 })
+        }else{
+            res.send({ status : 403, errType : 1 })
+        }
+    }else{
+        res.send({ status : 403, errType : 1 })
     }
 })
 

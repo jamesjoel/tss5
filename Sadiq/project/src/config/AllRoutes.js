@@ -15,6 +15,13 @@ import Shop from '../components/user/feature/Shop';
 import SettingProfile from '../components/admin/feature/SettingProfile';
 import Updation from '../components/admin/feature/Updation';
 import UpdatePassword from '../components/admin/feature/UpdatePassword';
+import Logout from '../components/admin/shared/Logout';
+import UserLogin from '../components/user/feature/UserLogin';
+import MyAccount from '../components/user/feature/MyAccount'
+import UserLoginModule from '../modules/UserLoginModule';
+import UserSignup from '../components/user/feature/UserSignup';
+import UpdateData from '../components/user/feature/UpdateData';
+import UserLogout from '../components/user/shared/Logout'
 
 const AllRoutes = () => {
   return (
@@ -22,6 +29,13 @@ const AllRoutes = () => {
         <Routes>
             <Route path='' element={<UserModule/>}>
                 <Route path='' element={<Home />} />
+              <Route path='user' element={<UserLoginModule />}>
+                <Route path='my-account' element={<MyAccount />} />
+                <Route path='update/data' element={<UpdateData />} />
+                <Route path='logout' element={<UserLogout />} />
+              </Route>
+                <Route path='userlogin' element={<UserLogin />} />
+                <Route path='usersignup' element={<UserSignup />} />
                 <Route path='about' element={<About />} />
                 <Route path='login' element={<Login />} />
                 <Route path='shop' element={<Shop />} />
@@ -34,6 +48,7 @@ const AllRoutes = () => {
                 <Route path='update/:id' element={<Updation />} />
                 <Route path='update/password/:id' element={<UpdatePassword />} />
                 <Route path='order/:id' element={<Order />} />
+                <Route path='logout' element={<Logout />} />
                 <Route path='settings' element={<SettingProfile />}>
                   <Route path='profile/:id' element={<SettingProfile />} />
                 </Route>
