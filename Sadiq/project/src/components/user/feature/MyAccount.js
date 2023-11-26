@@ -10,8 +10,8 @@ const MyAccount = () => {
   let [ showAlert, setShowAlert ] = useState(false);
   let [ alertMsg, setAlertMsg ] = useState("");
   useEffect(()=>{
-    let token = localStorage.getItem('Token')
-    axios.get(`${API_URL}/user/authentication/accounts`, {  headers : { Authorization : token }}).then(Response =>{
+    let ID = localStorage.getItem('Token')
+    axios.get(`${API_URL}/user/authentication/accounts`, {  headers : { Authorization : ID }}).then(Response =>{
       if(Response.data.status === 200){
         setUserData(Response.data.account)
       }else if(Response.data.status === 403){

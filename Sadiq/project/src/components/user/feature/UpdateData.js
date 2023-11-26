@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
-import UpdateValidation from '../../../schemas/UpdateSchema'
+import { UpdateIndividualVali} from '../../../schemas/UpdateSchema'
 import { API_URL } from '../../../util/API'
 
 const UpdateData = () => {
@@ -24,7 +24,7 @@ let IDPost = async() =>{
   let [alertMsg, setAlertMsg] = useState("")
   let [showAlert, setShowAlert] = useState(false)
   let updateForm = useFormik({
-    validationSchema : UpdateValidation,
+    validationSchema : UpdateIndividualVali,
     initialValues :{
       contact : "",
       address : ""

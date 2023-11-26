@@ -10,9 +10,6 @@ import axios from "axios";
 const UserLogin = () => {
 
   let navigate = useNavigate();
-  useEffect(()=>{
-    localStorage.clear();
-  }, [])
 
   // password seen un-seen section starts
   let [value, setValue] = useState('password')

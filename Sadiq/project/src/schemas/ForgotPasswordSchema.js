@@ -9,8 +9,8 @@ let OTPVerification = yup.object({
 })
 
 let ChangePassword = yup.object({
-    changepassword : yup.string().required("Re-Enter Your New Password"),
-    rechangepassword : yup.string().oneOf([yup.ref("changepassword")], "Password and Re-Password should be same").required("Enter Your New Password"),
+    changepassword : yup.string().required("Enter Your New Password"),
+    rechangepassword : yup.string().oneOf([yup.ref("changepassword")], "Password and Re-Password should be same").required("Re-Enter Your New Password"),
 })
 
 export {NumberVerification, OTPVerification, ChangePassword}
