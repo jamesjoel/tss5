@@ -10,9 +10,6 @@ import axios from "axios";
 const Login = () => {
 
   let navigate = useNavigate();
-  useEffect(()=>{
-    localStorage.clear();
-  }, [])
 
   // password seen un-seen section starts
   let [value, setValue] = useState('password')
@@ -79,7 +76,7 @@ const Login = () => {
             }
             <form onSubmit={loginForm.handleSubmit}>
             <div className='card'>
-              <div className='card-header text-center bg-primary'>
+              <div className='card-header text-center bg-dark'>
                 <h2 className='text-light'>Login Form</h2>
               </div>
               <div className='card-body'>
@@ -99,7 +96,7 @@ const Login = () => {
                     loginForm.errors.password && loginForm.touched.password ? <small className='text-danger' >{loginForm.errors.password} !</small> : ''
                   }
               </div>
-              <div className='card-footer bg-primary'>
+              <div className='card-footer bg-dark'>
                 <button type='submit' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</button>
                 <button className="btn text-light" 
                   style={{display:"inline", float:"right"}}

@@ -154,7 +154,7 @@ const SignUp = () => {
                         </div>
                         <div className='card-footer'>
 
-                            <button type='submit' className='btn btn-primary my-3 offset-md-5' data-toggle="modal" data-target="#modal"style={{color: "white"
+                            <button type='submit' className='btn btn-primary my-3 offset-md-5' data-bs-toggle="modal" data-bs-target="#modal"style={{color: "white"
                         }} >Sign Up</button>  <br/> 
 
                 

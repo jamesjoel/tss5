@@ -11,6 +11,7 @@ app.get("/", (req, res)=>{
 });
 
 app.get("/about", (req, res)=>{
+    console.log(req.headers);
     res.sendFile(__dirname+"/about.html");
 })
 
@@ -23,6 +24,6 @@ app.get("/terms", (req, res)=>{
 })
 
 
-app.listen(3000, ()=>{
+app.listen(3001, ()=>{
     console.log("server running");
 })

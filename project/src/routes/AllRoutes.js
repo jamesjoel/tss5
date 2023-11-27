@@ -12,6 +12,7 @@ import Teacher from '../components/admin/feature/Teacher'
 import Signup from '../components/user/feature/Signup'
 import Logout from '../components/user/feature/Logout'
 import MyAccount from '../components/user/feature/MyAccount'
+import MyProfile from '../components/user/feature/MyProfile'
 const AllRoutes = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const AllRoutes = () => {
                   
                   <Route path='signup' element={<Signup />} />
                   <Route path='my-account' element={<MyAccount />} />
+                  <Route path='my-account/profile' element={<MyProfile />} />
                   <Route path='logout' element={<Logout />} />
             </Route>  
             <Route path='admin' element={<AdminModule />}>
