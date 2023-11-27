@@ -14,6 +14,7 @@ let PassForgotModal = () =>{
     let [ showAlert, setShowAlert ] = useState(false)
     let [ alertMsg, setAlertMsg ] = useState("")
     let [otp, setOtp] = useState({ value : "", state : false })
+    // { value : "", state : false }
     let [ nextStep, setNextStep ] = useState(false)
     let [ eyeBtn, setEyeBtn ] = useState(false)
 
@@ -27,10 +28,12 @@ let PassForgotModal = () =>{
             let response = await axios.post(`${API_URL}/user/authentication/number/verification`, formData, {headers : {Authorization : ID}})
             if(response.data.status === 200){
                 setShowAlert(true)
-                setOtp({ ...otp, value : response.data.otp, state : true })
+                setOtp({ ...otp, state : true })
+                // setOtp({ ...otp, state : false });
                 setTimeout(()=>{
                     setShowAlert(false)
-                    setOtp({ ...otp,value : response.data.otp, state : false })
+                    setOtp({ ...otp, state : false })
+
                 }, 6000);
             }else if(response.data.status === 403){
                 if(response.data.errType === 1){
