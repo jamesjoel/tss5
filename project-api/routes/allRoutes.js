@@ -5,6 +5,7 @@ routes.use("/api/teacher", require("../controllers/TeacherController"));
 routes.use("/api/city", require("../controllers/CityController"));
 routes.use("/api/user", require("../controllers/UserController"));
 routes.use("/api/auth", require("../controllers/AuthController"));
+routes.use("/api/adminauth", require("../controllers/AdminAuthController"));
 routes.use("/api/profile", require("../controllers/ProfileController"));
 
 module.exports = routes;
