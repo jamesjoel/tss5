@@ -86,7 +86,7 @@ const SideBar = ({ children }) => {
       ],
     },
     {
-      path: "/login",
+      path: "/admin/logout",
       name: "Exit",
       icon: <i class="fa fa-sign-out" aria-hidden="true"></i>
     }
