@@ -65,29 +65,45 @@ const SignUp = () => {
                         <div className='my-3'>
                             <label>Full Name</label>
                             <input type='text' name='name' onChange={SignUpForm.handleChange} className='form-control'/>
-                           
+                           {
+                            SignUpForm.errors.name ? <small>{SignUpForm.errors.name}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label> Gender </label><br/>
                             Male <input type='radio' name='gender' onChange={SignUpForm.handleChange} value='male'/>
                             Female <input type='radio' name='gender' onChange={SignUpForm.handleChange} value='female'/>
+                            {
+                            SignUpForm.errors.gender ? <small>{SignUpForm.errors.gender}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label>Mobile Number</label>
                             <input type='text' name='number' className='form-control' onChange={SignUpForm.handleChange}/>
-
+                            {
+                            SignUpForm.errors.number ? <small>{SignUpForm.errors.number}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label>Username/Email</label>
                             <input type='text' name='email' className='form-control'  onChange={SignUpForm.handleChange}/>
+                            {
+                            SignUpForm.errors.email ? <small>{SignUpForm.errors.email}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label>Password</label>
                             <input type='password' name='password' className='form-control' onChange={SignUpForm.handleChange}/>
+                            {
+                            SignUpForm.errors.password ? <small>{SignUpForm.errors.password}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label>Re-Write Password</label>
                             <input type='password' name='repassword' onChange={SignUpForm.handleChange} className='form-control'/>
+                            {
+                            SignUpForm.errors.repassword ? <small>{SignUpForm.errors.repassword}</small> : ""
+                           }
                         </div>
                         <div className='container'>
                             <div className='row'>
@@ -99,6 +115,9 @@ const SignUp = () => {
                         <div className='my-3'>
                             <label>Address line 1</label>
                             <textarea name='address' onChange={SignUpForm.handleChange} className='form-control' ></textarea>
+                            {
+                            SignUpForm.errors.address ? <small>{SignUpForm.errors.address}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label>State</label>
@@ -112,6 +131,9 @@ const SignUp = () => {
                                     })
                                 }
                             </select>
+                            {
+                            SignUpForm.errors.state ? <small>{SignUpForm.errors.state}</small> : ""
+                           }
                         </div>
                         <div className='my-3'>
                             <label>City</label> <br/>
@@ -125,6 +147,9 @@ const SignUp = () => {
                                     })
                                 }
                             </select>
+                            {
+                            SignUpForm.errors.city ? <small>{SignUpForm.errors.city}</small> : ""
+                           }
                         </div>
                         </div>
                         <div className='card-footer'>
