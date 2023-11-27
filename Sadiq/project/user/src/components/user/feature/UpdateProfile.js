@@ -56,10 +56,17 @@ const UpdateProfile = () => {
     let updateProfile = useFormik({
         initialValues ,
         onSubmit : async(formData) =>{
-            console.log(formData)
-            return
             let ID = localStorage.getItem('Token')
             let response = await axios.post(`${API_URL}/user/authentication/update/profile`, formData, { headers : { Authorization : ID } })
+            if(response.data.status === 200){
+                navigate(`/user/my-account`)
+            }else{
+                setShowAlert(true)
+                setAlertMsg("Error 404! user not found")
+                setTimeout(()=>{
+                    setShowAlert(false)
+                }, 3000)
+            }
         }
     })
 

@@ -1,8 +1,46 @@
-import React from 'react'
-import Header from '../shared/Header'
-import Footer from '../shared/Footer'
+import React, { useState } from 'react'
+import {NavLink, useNavigate} from 'react-router-dom'
+import LoginSchema from '../../schemas/LoginSchema';
+import { useFormik } from 'formik';
+import { API_URL } from '../../utils/API';
+import axios from 'axios';
 
 const Login = () => {
+	
+	let navigate = useNavigate();
+	let [showAlert, setShowAlert] = useState(false);
+	let [alertMsg, setAlertMsg] = useState("");
+
+	let loginForm = useFormik({
+		validationSchema : LoginSchema,
+		initialValues : {
+			email : "",
+			password : ""
+		},
+		onSubmit : async(formData) =>{
+			let response = await axios.get(`${API_URL}/banking/login`, formData)
+			if(response.data.status === 200){
+				let token = response.data.token;
+				localStorage.setItem('Naruto', token);
+				navigate(`/home`)
+			}else if(response.data.status === 403){
+				if(response.data.errType === 1){
+					setShowAlert(true)
+					setAlertMsg("Invalid Email ID")
+					setTimeout(()=>{
+						setShowAlert(false)
+					}, 3000)
+				}else{
+					setShowAlert(true)
+					setAlertMsg("Incorrect Password")
+					setTimeout(()=>{
+						setShowAlert(false)
+					}, 3000)
+				}
+			}
+		}
+	})
+
   return (
     <>
       
@@ -10,7 +48,7 @@ const Login = () => {
 		<div className="overlay"></div>
 		<div className="login-form">
 			<div className="container">
-				<form>
+				<form onSubmit={loginForm.handleSubmit}>
 					<div className="login-social-icon">
 						<h2>Login</h2>
 						<ul className="social-buttons">
@@ -34,12 +72,12 @@ const Login = () => {
 					
 					<div className="input-group">
 						<span className="login-form-icon"><i className="uil uil-user"></i></span>
-						<input type="text" className="form-control" id="inputUsername" tabindex="1" placeholder="Username" required />
+						<input type="email" className="form-control" id="inputUsername" name='email' onChange={loginForm.handleChange} tabindex="1" placeholder="Username/Email" required />
 					</div>
 					
 					<div className="input-group">
 						<span className="login-form-icon"><i className="uil uil-lock"></i></span>
-						<input type="password" className="form-control" id="inputPassword" tabindex="2" placeholder="Password" required />
+						<input type="password" className="form-control" name='password' onChange={loginForm.handleChange} id="inputPassword" tabindex="2" placeholder="Password" required />
 					</div>
 	
 					<div className="input-group">
@@ -59,7 +97,7 @@ const Login = () => {
 						</div>
 					</div>
 
-					<div className="login-footer">Don't have an account? <a href='signup.html'>Signup</a>
+					<div className="login-footer">Don't have an account? <NavLink to='/signup'>Signup</NavLink>
 					</div>
 				</form>
 			</div>
