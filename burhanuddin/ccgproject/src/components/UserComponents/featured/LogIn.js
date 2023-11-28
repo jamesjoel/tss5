@@ -14,7 +14,7 @@ const LogIn = () => {
     },
     onSubmit: (formdata)=>{
       // console.log(formdata);
-      axios.post("http://localhost8080/api/login", formdata).then(response=>{console.log(response.data)})
+      axios.post("http://localhost:8080/api/login", formdata).then(response=>{console.log(response.data)})
     } 
 
   })
