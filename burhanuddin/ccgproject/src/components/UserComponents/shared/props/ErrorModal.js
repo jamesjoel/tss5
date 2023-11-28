@@ -8,7 +8,7 @@ let ErrorModal = () => {
        <div className='modal-dialog'>
         <div className='modal-content'>
             <div className='modal-body'>
-                <small className='color-danger'>Please fill all the details correctly</small>
+                <small className='text-danger'>Please fill all the details correctly</small>
             </div>
         </div>
        </div>

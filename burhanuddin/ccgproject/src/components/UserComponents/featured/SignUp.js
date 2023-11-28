@@ -3,13 +3,14 @@ import {NavLink} from 'react-router-dom'
 import axios from 'axios';
 import {useFormik} from 'formik'
 import SignUpSchema from '../../../schemas/UserSchema'
-import ErrorModal from '../shared/props/ErrorModal';
+// import ErrorModal from '../shared/props/ErrorModal';
 
 
 
 const SignUp = () => {
-     let [city, setCity] = useState([]);
-     let [state, setState] = useState([]);
+    let [city, setCity] = useState([]);
+    let [state, setState] = useState([]);
+   
      
      let SignUpForm = useFormik({
         validationSchema: SignUpSchema,
@@ -26,10 +27,13 @@ const SignUp = () => {
 
         } ,
         onSubmit: (formdata)=>{
-            // console.log(formdata);
-            axios.post("http://localhost:8080/api/user", formdata).then(response=>{console.log(response.data)})
+            // SignUpForm.errors ? console.log(SignUpForm.errors) : ""
+           axios.post("http://localhost:8080/api/user", formdata).then(response=>{console.log(response.data)})
+            
         } 
      })
+     
+    
 
 
        useEffect(()=>{
@@ -66,7 +70,7 @@ const SignUp = () => {
                             <label>Full Name</label>
                             <input type='text' name='name' onChange={SignUpForm.handleChange} className='form-control'/>
                            {
-                            SignUpForm.errors.name ? <small>{SignUpForm.errors.name}</small> : ""
+                            SignUpForm.errors.name ? <small className='text-danger'>{SignUpForm.errors.name}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
@@ -74,35 +78,35 @@ const SignUp = () => {
                             Male <input type='radio' name='gender' onChange={SignUpForm.handleChange} value='male'/>
                             Female <input type='radio' name='gender' onChange={SignUpForm.handleChange} value='female'/>
                             {
-                            SignUpForm.errors.gender ? <small>{SignUpForm.errors.gender}</small> : ""
+                            SignUpForm.errors.gender ? <small className='text-danger'>{SignUpForm.errors.gender}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
                             <label>Mobile Number</label>
                             <input type='text' name='number' className='form-control' onChange={SignUpForm.handleChange}/>
                             {
-                            SignUpForm.errors.number ? <small>{SignUpForm.errors.number}</small> : ""
+                            SignUpForm.errors.number ? <small className='text-danger'>{SignUpForm.errors.number}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
                             <label>Username/Email</label>
                             <input type='text' name='email' className='form-control'  onChange={SignUpForm.handleChange}/>
                             {
-                            SignUpForm.errors.email ? <small>{SignUpForm.errors.email}</small> : ""
+                            SignUpForm.errors.email ? <small className='text-danger'>{SignUpForm.errors.email}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
                             <label>Password</label>
                             <input type='password' name='password' className='form-control' onChange={SignUpForm.handleChange}/>
                             {
-                            SignUpForm.errors.password ? <small>{SignUpForm.errors.password}</small> : ""
+                            SignUpForm.errors.password ? <small className='text-danger'>{SignUpForm.errors.password}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
                             <label>Re-Write Password</label>
                             <input type='password' name='repassword' onChange={SignUpForm.handleChange} className='form-control'/>
                             {
-                            SignUpForm.errors.repassword ? <small>{SignUpForm.errors.repassword}</small> : ""
+                            SignUpForm.errors.repassword ? <small className='text-danger'>{SignUpForm.errors.repassword}</small> : ""
                            }
                         </div>
                         <div className='container'>
@@ -116,7 +120,7 @@ const SignUp = () => {
                             <label>Address line 1</label>
                             <textarea name='address' onChange={SignUpForm.handleChange} className='form-control' ></textarea>
                             {
-                            SignUpForm.errors.address ? <small>{SignUpForm.errors.address}</small> : ""
+                            SignUpForm.errors.address ? <small className='text-danger'>{SignUpForm.errors.address}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
@@ -132,7 +136,7 @@ const SignUp = () => {
                                 }
                             </select>
                             {
-                            SignUpForm.errors.state ? <small>{SignUpForm.errors.state}</small> : ""
+                            SignUpForm.errors.state ? <small className='text-danger'>{SignUpForm.errors.state}</small> : ""
                            }
                         </div>
                         <div className='my-3'>
@@ -148,14 +152,17 @@ const SignUp = () => {
                                 }
                             </select>
                             {
-                            SignUpForm.errors.city ? <small>{SignUpForm.errors.city}</small> : ""
+                            SignUpForm.errors.city ? <small className='text-danger' >{SignUpForm.errors.city}</small> : ""
                            }
                         </div>
                         </div>
                         <div className='card-footer'>
 
-                            <button type='submit' className='btn btn-primary my-3 offset-md-5' data-bs-toggle="modal" data-bs-target="#modal"style={{color: "white"
-                        }} >Sign Up</button>  <br/> 
+                        <button type='submit' className='btn btn-primary my-3 offset-md-5' data-bs-toggle="modal" data-bs-target="#modal"style={{color: "white"
+                        }} >Sign Up</button> 
+
+                         
+                             <br/> 
 
                 
                         
@@ -166,8 +173,11 @@ const SignUp = () => {
                 </div>
             </div>
             </form> 
+               
         </div>
-        <ErrorModal/>
+       
+       
+       
     </>
   )
 }
