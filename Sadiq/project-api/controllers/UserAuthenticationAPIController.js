@@ -151,4 +151,18 @@ route.post("/otp/verification", async(req, res)=>{
     }
 })
 
+route.post("/update/profile", async(req, res)=>{
+    if(req.headers.authorization){
+        let token = req.headers.authorization;
+        let ID = jwt.decode(token, key);
+        let userData = await signup.find({ _id : ID.id });
+        if(userData[0]?.length != 0){
+            await signup.updateMany({ _id : ID.id }, req.body );
+            res.send({ status : 200, errType : 0 })
+        }else{
+            res.send({ status : 403, errType : 1 })
+        }
+    }
+})
+
 module.exports = route;
