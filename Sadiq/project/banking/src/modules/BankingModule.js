@@ -5,7 +5,7 @@ const BankingModule = () => {
 
   let navigate = useNavigate();
   useEffect(()=>{
-      if(! localStorage.getItem("Bank_Token"))
+      if(! localStorage.getItem("Naruto"))
       {
           navigate("/login");
       }
