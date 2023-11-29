@@ -56,12 +56,12 @@ const Sigunp = () => {
 			<div className="container">
 				<form onSubmit={signupForm.handleSubmit}> 
 					<div className="login-social-icon">
+						<h2>Signup</h2>
 					{
                         showAlert === true ? <div class="alert alert-danger">
                         { alertMsg } <button data-dismiss='alert' className='btn' style={{float : "right"}}>X</button>
                         </div> : null
                     }
-						<h2>Signup</h2>
 						<ul className="social-buttons">
 							<li className="social-buttons-hover">
 								<a href="http://google.com/">
