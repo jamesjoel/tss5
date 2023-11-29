@@ -10,6 +10,7 @@ import Dashboard from '../Components/admin/feature/Dashboard'
 import Product from '../Components/admin/feature/Product'
 import Signup from '../Components/user/Feature/Signup'
 import About from '../Components/user/Feature/About'
+import AdminLogin from '../Components/admin/feature/Login'
 
 const AllRoutes = () => {
   return (
@@ -23,7 +24,8 @@ const AllRoutes = () => {
       <Route path='About' element={<About />} />
        </Route>
        <Route path='admin' element={<AdminModule />}>
-          <Route path='' element={<Dashboard />} />
+          <Route path='' element={<AdminLogin />} />
+          <Route path='dashboard' element={<Dashboard />} />
           <Route path='product' element={<Product />} />
        </Route>
     </Routes>
