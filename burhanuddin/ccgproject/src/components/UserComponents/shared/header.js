@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -24,14 +25,14 @@ const Header = () => {
           <div className="offcanvas-body">
             <ul id="navbar" className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
             <li className="nav-item">
-                <a className="nav-link me-4" href="/">Home</a>
+                <NavLink className="nav-link me-4" to="/">Home</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-4" href="/about">About Us</a>
+                <NavLink className="nav-link me-4" to="/about">About Us</NavLink>
               </li>
               <li className="nav-item dropdown me-4">
-                <a className="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
-                >Shop</a>
+                <NavLink className="nav-link dropdown-toggle" to="#" id="dropdownPages" data-bs-toggle="dropdown"
+                >Shop</NavLink>
                 <ul className="dropdown-menu list-unstyled">
                   <li>
                     <a href="shop-sidebar.html" className="dropdown-item item-anchor">Shop Sidebar <span className="badge bg-secondary text-dark ms-2">PRO</span></a>
@@ -42,10 +43,10 @@ const Header = () => {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-4" href="/blog">Our Blogs</a>
+                <NavLink className="nav-link me-4" to="/blog">Our Blogs</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-4" href="/signup">LogIn/SignUp</a>
+                <NavLink className="nav-link me-4" to="/signup">LogIn/SignUp</NavLink>
               </li>
               
               <li className="nav-item">

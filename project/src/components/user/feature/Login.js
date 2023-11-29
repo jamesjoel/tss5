@@ -1,12 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useFormik } from 'formik'
 import LoginSchema from '../../../schemas/LoginSchema'
 import axios from 'axios'
 import { API_URL } from '../../../util/API'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     
+    let navigate = useNavigate();
+
+    useEffect(()=>{
+        if(localStorage.getItem("access-token"))
+        {
+            navigate("/my-account");
+        }
+    }, [])
+
+
     let [errMsg, setErrMsg] = useState("");
+    let [spinner, setSpinner] = useState(false);
 
     let loginForm = useFormik({
         validationSchema : LoginSchema,
@@ -15,8 +27,10 @@ const Login = () => {
             password : ""
         },
         onSubmit : (formdata)=>{
-            // localhost:8080/api/auth
+            setSpinner(true);
             axios.post(`${API_URL}/auth`, formdata).then(response=>{
+                
+                setSpinner(false);
                 
                 if(response.data.success==false && response.data.type==1)
                 {
@@ -26,12 +40,18 @@ const Login = () => {
                 {
                     setErrMsg("Invalid Password !");
                 }
+                if(response.data.success == true)
+                {
+                    localStorage.setItem("access-token", response.data.token);
+                    navigate("/my-account");
+                }
             })
         }
     })
 
   return (
     <>
+    
         <div className="container" style={{minHeight : "750px", marginTop : "150px"}}>
             <form onSubmit={loginForm.handleSubmit}>
             <div className="row">
@@ -57,7 +77,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button type='submit' className='btn btn-primary'>Login</button>
+                            <button type='submit' className='btn btn-primary'>Login { spinner ? <span className='spinner-border spinner-border-sm'></span> : ''}</button>
                             <br />
                             {
                                 errMsg ? <p className='text-danger text-center'>{errMsg}</p> : ''
