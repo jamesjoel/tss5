@@ -54,7 +54,7 @@ const Home = () => {
 
     <Services />
 
-    {/* <Testominal /> */}
+    <Testominal />
 
     <ChooseUs />
 
