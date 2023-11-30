@@ -1,53 +1,95 @@
+import { useState } from "react"
+import axios from 'axios'
 let Home = ()=>{
 
-    let a = "rohit";
-    let x = 10;
-    let arr = ["red", "green", "blue", "yellow", "pink"];
-    let user = [
+    
+    let [temp, setTemp] = useState("");
+    let [allData, setAllData] = useState({});
+
+    let arr = [
         {
-            name : "rohit",
-            age : 25
+            id : 1,
+            name : "Indore",
+            lat : 22.7196,
+            long : 75.8577,
         },
         {
-            name : "amar",
-            age : 22
+            id : 2,
+            name : "Ujjain",
+            lat : 23.1765,
+            long : 75.7885,
         },
         {
-            name : "vijay",
-            age : 20
+            id : 3,
+            name : "Surat",
+            lat : 21.1702,
+            long : 72.8311,
         },
         {
-            name : "nidhi",
-            age : 23
+            id : 4,
+            name : "Chennai",
+            lat : 13.0827,
+            long : 80.2707,
+        },
+        {
+            id : 5,
+            name : "Shrinagar",
+            lat : 34.0837,
+            long : 74.7973,
         }
     ]
-
-
+    
+    let demo = (event)=>{
+        let id = event.target.value;
+        let data = {};
+        arr.forEach(value=>{
+            if(value.id == id)
+            {
+                data = value;
+            }
+        })
+        axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${data.lat}&longitude=${data.long}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`).then(response=>{
+            // console.log(response.data);
+            setAllData(response.data);
+            setTemp(response.data.current.temperature_2m);
+        })
+        
+    }
     return(
         <>
-            <h1>Home</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, facilis. Deserunt consectetur, quibusdam odit illo saepe expedita nesciunt aliquam? Suscipit rerum officiis asperiores quam, saepe architecto quasi neque quod vitae.</p>
-            <h2>{ a }</h2>
-            {
-                x == 11 ? <h3>Indore</h3> : <h3>Mumbai</h3>
-            }
+            <div className="container my-5">
+                <div className="row">
+                    <div className="col-md-12">
+                        <label>Select Your City</label>
+                        <select onChange={(event)=>demo(event)}>
+                            <option>Select</option>
+                            {
+                                arr.map((value, index)=>{
+                                    return(
+                                        <option value={value.id} key={index}>{value.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                        <br />
+                        <br />
+                        Current Temp : {temp}
+                        <br />
+                        <br />
+                        {
+                           allData && allData.hourly && allData.hourly.time ?  allData.hourly.time.map((value, index)=>{
+                                
 
-            {
-                arr.map((value)=>{
-                    return(
-                        <h1>{value}</h1>
-                    )
-                })
-            }
-
-            {
-                user.map((value)=>{
-                    return(
-                        <h5>{value.name} {value.age}</h5>
-                    )
-                })
-            }
-            
+                                    return(
+                                        (index)%24==0 ?  <h4>Date : {value} --- Temp {allData.hourly.temperature_2m[index]}</h4> : ''
+                                    )
+                                
+                            })
+                            : ''
+                        }
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
