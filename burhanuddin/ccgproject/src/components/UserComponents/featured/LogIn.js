@@ -13,7 +13,8 @@ const LogIn = () => {
   // let [IsLogIn, setIsLogIn] = useState(false);
 
 
-  const LogInForm = useFormik({
+  const LogInForm = useFormik(
+    {
     validationSchema : LogInSchema,
     initialValues : {
       username : "",
@@ -23,25 +24,25 @@ const LogIn = () => {
       // console.log(formdata);
     
 
-  })
       axios.post("http://localhost:8080/api/login", formdata).then(response=>{
-      if(response.data.success==false && response.data.type==1)
-      {
-        setErrMsg("Invalid Email and Password");
-      }  
-      if (response.data.success==false && response.data.type==2)
-      {
-        setErrMsg("Invalid Password");
-      }
-      if (response.data.success==true)
-      {
-        localStorage.setItem("access-token", response.data.token);
-        // setIsLogIn(true);
-        navigate("/");
-      }
-
+        if(response.data.success==false && response.data.type==1)
+        {
+          setErrMsg("Invalid Email and Password");
+        }  
+        if (response.data.success==false && response.data.type==2)
+        {
+          setErrMsg("Invalid Password");
+        }
+        if (response.data.success==true)
+        {
+          localStorage.setItem("access-token", response.data.token);
+          // setIsLogIn(true);
+          navigate("/");
+        }})
+        }
+        
     } 
-    )}})
+    )
 
 
 
@@ -89,6 +90,6 @@ const LogIn = () => {
     </div>
     </>
   )
-}
+              }
 
 export default LogIn
