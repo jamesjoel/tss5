@@ -27,7 +27,7 @@ const UserSetting = () => {
                                 </thead>
                                 <thead>
                                     <tr>
-                                        <th><a href="http://localhost:3001/" className="btn text-light" ><i class="fa fa-lg fa-bank" style={{fontSize:"24px"}}></i> Bank Account</a></th>
+                                        <th><a href="http://localhost:3001/home" className="btn text-light" ><i class="fa fa-lg fa-bank" style={{fontSize:"24px"}}></i> Bank Account</a></th>
                                     </tr>
                                 </thead>
                             </table>

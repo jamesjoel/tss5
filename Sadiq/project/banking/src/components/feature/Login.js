@@ -18,7 +18,7 @@ const Login = () => {
 			password : ""
 		},
 		onSubmit : async(formData) =>{
-			let response = await axios.get(`${API_URL}/banking/login`, formData)
+			let response = await axios.post(`${API_URL}/banking/login`, formData)
 			if(response.data.status === 200){
 				let token = response.data.token;
 				localStorage.setItem('Naruto', token);
@@ -57,12 +57,12 @@ const Login = () => {
 									<i className="ri-google-fill"></i>
 								</a>
 							</li>
-							<li className="social-buttons-hover">
-								<a href="https://twitter.com/">
-									<i className="uil uil-twitter"></i>
+							<li className="">
+								<a href="http://localhost:3000/">
+								Exit
 								</a>
 							</li>
-							<li className="social-buttons-hover">
+							<li className="">
 								<a href="https://www.facebook.com/">
 									<i className="uil uil-facebook-f"></i>
 								</a>

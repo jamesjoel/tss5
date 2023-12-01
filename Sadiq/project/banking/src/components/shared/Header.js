@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -29,22 +30,9 @@ const Header = () => {
                     </a>
                     <div className="collapse navbar-collapse mean-menu">
                         <ul className="navbar-nav">
-                            <li className="nav-item"><a href="#" className="nav-link active">Home <i
-                                        className='las la-angle-down'></i></a>
-                                <ul className="dropdown-menu">
-                                    <li className="nav-item"><a className='nav-link active' href='index-2.html'>Home 1</a></li>
-                                    <li className="nav-item"><a className='nav-link' href='index-3.html'>Home 2</a></li>
-                                    <li className="nav-item"><a className='nav-link' href='index-4.html'>Home 3</a></li>
-                                </ul>
-                            </li>
+                            <li className="nav-item"><NavLink to="/home" className="nav-link">Home</NavLink></li>
 
-                            <li className="nav-item"><a href="#" className="nav-link">About Us <i
-                                        className='las la-angle-down'></i></a>
-                                <ul className="dropdown-menu">
-                                    <li className="nav-item"><a className='nav-link' href='about-us-1.html'>About Us 1</a></li>
-                                    <li className="nav-item"><a className='nav-link' href='about-us-2.html'>About Us 2</a></li>
-                                </ul>
-                            </li>
+                            <li className="nav-item"><a href="#" className="nav-link">About Us </a></li>
 
                             <li className="nav-item"><a href="#" className="nav-link">Portfolio <i
                                         className='las la-angle-down'></i></a>
@@ -86,17 +74,15 @@ const Header = () => {
                                 </ul>
                             </li>
 
-                            <li className="nav-item"><a href="#" className="nav-link">Blog <i className='las la-angle-down'></i></a>
+                            <li className="nav-item"><a href='http://localhost:3000/' className="nav-link">Exit <i
+                                        className='las la-angle-down'></i></a>
                                 <ul className="dropdown-menu">
-                                    <li className="nav-item"><a className='nav-link' href='blog.html'>Blog</a></li>
-                                    <li className="nav-item"><a className='nav-link' href='blog-grid.html'>Blog Grid</a></li>
-                                    <li className="nav-item"><a className='nav-link' href='blog-single-sidebar.html'>Blog Single
-                                            Sidebar</a>
-                                    </li>
-                                    <li className="nav-item"><a className='nav-link' href='blog-single.html'>Blog Single</a>
-                                    </li>
+                                    <li className="nav-item"><a className='nav-link' href='http://localhost:3000/'>Exit</a></li>
+                                    <li className="nav-item"><NavLink to="/logout" className="nav-link">Logout </NavLink></li>
                                 </ul>
                             </li>
+
+                            
                         </ul>
                         <div className="others-option d-flex align-items-center">
                             <div className="option-item">

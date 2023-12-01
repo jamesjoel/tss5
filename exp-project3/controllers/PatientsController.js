@@ -8,6 +8,11 @@ routes.get("/", async(req, res)=>{
     res.render("pages/patients-list", pagedata);
     
 })
+
+
+
+
+
 routes.get("/add", (req, res)=>{
     res.render("pages/patients-add");
     
@@ -20,7 +25,10 @@ routes.post("/save", async(req, res)=>{
     res.redirect("/patients");
 })
 
-routes.get("/delete/:id", async(req, res)=>{
+
+
+
+routes.get("/remove/:id", async(req, res)=>{
     let id = req.params.id;
     // let result = await Patients.find({_id : id});
 
@@ -48,7 +56,7 @@ routes.get("/edit/:id", async(req, res)=>{
     res.render("pages/patients-edit", pagedata)
 })
 
-routes.post("/update/:id", async(req, res)=>{
+routes.post("/change/:id", async(req, res)=>{
     let id = req.params.id;
     await Patients.updateMany({_id : id}, req.body);
     let x = 100;

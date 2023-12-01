@@ -6,7 +6,7 @@ let BankUserSchema = mongoose.Schema({
     username : {type : String, default : ""},
     fullname : {type : String, default : ""},
     bank_name : {type : String, default : ""},
-    create_date : {type : String, default : ""},
+    create_date : {type : Date, default : new Date},
     linked_account : {type : String, default : ""},
     transaction : {type : Array, default : []},
     phone_no : {type : String, default : ""},

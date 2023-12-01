@@ -9,7 +9,7 @@ import AuthRoutes from './Auth/AuthRoutes';
 const AllRoutes = () => {
 
   let isTokenPresent = () =>{
-    if(localStorage.getItem('Bank_Token')){
+    if(localStorage.getItem('Naruto')){
       return true
     }else{
       return false

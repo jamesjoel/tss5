@@ -28,12 +28,8 @@ route.post("/signup", async(req, res)=>{
         let UPI_ID = "KER"+userData[0]?.contact;
         //Generating UPI ID
 
-        //Finding Creation Date of Account
-        let date = new Date; 
-        //Finding Creation Date of Account
             IMPData.account_no = accountNumber;
             IMPData.upi_id = UPI_ID;
-            IMPData.create_date = date;
             IMPData.password = Password;
             // console.log(IMPData)
             await bankSignup.updateMany({ email : Email }, IMPData )
@@ -49,9 +45,7 @@ route.post("/signup", async(req, res)=>{
     }
 })
 
-route.get("/login", async(req, res)=>{
-    console.log(req.body)
-    return
+route.post("/login", async(req, res)=>{
     let Email = req.body.email;
     let Password = sha(req.body.password);
     let userData = await bankSignup.find({ email : Email });
