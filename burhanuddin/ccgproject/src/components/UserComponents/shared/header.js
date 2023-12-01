@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {NavLink} from 'react-router-dom'
 
 const Header = () => {
+  let [IsLogIn, setIsLogIn] = useState(false);
+  useEffect(()=>{
+    localStorage? setIsLogIn(true) : '';
+  })
   return (
     
     <header id="header" className="site-header text-black">
@@ -45,9 +49,17 @@ const Header = () => {
               <li className="nav-item">
                 <NavLink className="nav-link me-4" to="/blog">Our Blogs</NavLink>
               </li>
-              <li className="nav-item">
+
+
+                { (IsLogIn==true) ?  <li className="nav-item">
+                <NavLink className="nav-link me-4" to="/account">My Account</NavLink>
+              </li> : <li className="nav-item">
                 <NavLink className="nav-link me-4" to="/signup">LogIn/SignUp</NavLink>
               </li>
+              }
+
+
+
               
               <li className="nav-item">
                 <div className="user-items ps-5">

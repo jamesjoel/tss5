@@ -1,10 +1,17 @@
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import LogInSchema from '../../../schemas/LogInSchema'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
+// import {navigate} from 'react'
+
 
 
 const LogIn = () => {
+  let [ErrMssg, setErrMsg] = useState("");
+  let navigate = useNavigate()
+  // let [IsLogIn, setIsLogIn] = useState(false);
+
 
   const LogInForm = useFormik({
     validationSchema : LogInSchema,
@@ -14,17 +21,37 @@ const LogIn = () => {
     },
     onSubmit: (formdata)=>{
       // console.log(formdata);
-      axios.post("http://localhost8080/api/login", formdata).then(response=>{console.log(response.data)})
-    } 
+      axios.post("http://localhost:8080/api/login", formdata).then(response=>{
+      if(response.data.success==false && response.data.type==1)
+      {
+        setErrMsg("Invalid Email and Password");
+      }  
+      if (response.data.success==false && response.data.type==2)
+      {
+        setErrMsg("Invalid Password");
+      }
+      if (response.data.success==true)
+      {
+        localStorage.setItem("access-token", response.data.token);
+        // setIsLogIn(true);
+        navigate("/");
+      }
 
-  })
+    } 
+    )}})
+
+
+
+    
   return (
     <>
-    <div className='container'>
+    
+     
+    <div className='container' style={{backgroundImage : 'url(/assets/images/featured-item3.jpg)', minHeight: "450px"}}>
       <form onSubmit={LogInForm.handleSubmit}>
         <div className='row'>
           <div className='col-md-6 offset-md-3' >
-            <div className='card'>
+            <div className='card my-5'>
               <div className='card-header'>
                 <h2>Log In</h2>
               </div>
@@ -48,6 +75,9 @@ const LogIn = () => {
                 <div className='my-3'>
                   <button type='submit' className='btn btn-bordered' style={{color: '#D6C7AE'}}>Log In </button>
                 </div>
+                {
+                  ErrMssg ? <small className='text-danger'>{ErrMssg}</small> : ""
+                }
               </div>
             </div>
           </div>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import {useFormik} from 'formik'
+// import {navigate} from 'react'
 import SignUpSchema from '../../../schemas/UserSchema'
 // import ErrorModal from '../shared/props/ErrorModal';
 
@@ -10,7 +11,7 @@ import SignUpSchema from '../../../schemas/UserSchema'
 const SignUp = () => {
     let [city, setCity] = useState([]);
     let [state, setState] = useState([]);
-   
+    let navigate = useNavigate();
      
      let SignUpForm = useFormik({
         validationSchema: SignUpSchema,
@@ -29,7 +30,7 @@ const SignUp = () => {
         onSubmit: (formdata)=>{
             // SignUpForm.errors ? console.log(SignUpForm.errors) : ""
            axios.post("http://localhost:8080/api/user", formdata).then(response=>{console.log(response.data)})
-            
+            navigate("/login")
         } 
      })
      

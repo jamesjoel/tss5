@@ -9,6 +9,7 @@ import Dashboard from '../components/AdminComponents/featured/Dashboard'
 import Stock from '../components/AdminComponents/featured/Stock'
 import SignUp from '../components/UserComponents/featured/SignUp'
 import LogIn from '../components/UserComponents/featured/LogIn'
+import MyAccount from '../components/UserComponents/featured/MyAccount'
 
 
 const AlRoutes = () => {
@@ -20,6 +21,7 @@ const AlRoutes = () => {
         <Route path="blog" element={<Blogs/>} />
         <Route path="signup" element={<SignUp/>} />
         <Route path="login" element={<LogIn/>} />
+        <Route path="account" element={<MyAccount/>} />
       </Route>
 
       <Route path='admin' element={<AdminModules/>} >
