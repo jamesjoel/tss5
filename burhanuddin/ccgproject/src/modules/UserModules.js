@@ -6,7 +6,8 @@ import {Outlet} from 'react-router-dom'
 const UserModules = () => {
   return (
     <>
-    <Header/>
+    <Header/> 
+   
     <Outlet/>
     <Footer/>
     </>

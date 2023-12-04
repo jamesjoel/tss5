@@ -4,12 +4,13 @@ const sha1 = require('sha1');
 let jwt = require("jsonwebtoken");
 let TokenKey= require("../config/tokenKey")
 
+//localhost:8080/api/login
 
 routes.post("/", async(req, res)=>{
     let e = req.body.username;
     let p = req.body.password;
     let result = await user.find({email : e});
-    if(result.lenght > 0)
+    if(result.length >= 1)    
     {
         if(result[0].password===  sha1(p))
         {
