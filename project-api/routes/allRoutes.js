@@ -7,5 +7,6 @@ routes.use("/api/user", require("../controllers/UserController"));
 routes.use("/api/auth", require("../controllers/AuthController"));
 routes.use("/api/adminauth", require("../controllers/AdminAuthController"));
 routes.use("/api/profile", require("../controllers/ProfileController"));
+routes.use("/api/category", require("../controllers/CategoryController"));
 
 module.exports = routes;
