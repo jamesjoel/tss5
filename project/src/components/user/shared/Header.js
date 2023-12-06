@@ -1,15 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
+import { API_URL } from '../../../util/API'
+
 
 const Header = () => {
 
     let [loggedIn, setLoggedIn] = useState(false);
+    let [cate, setCate] = useState([]);
 
     useEffect(()=>{
         if(localStorage.getItem("access-token"))
         {
             setLoggedIn(true);
         }
+
+
+    },[])
+
+
+    useEffect(()=>{
+        axios.get(`${API_URL}/category`).then(response=>{
+            // console.log(response.data);
+            setCate(response.data.result);
+        })
     },[])
 
   return (
@@ -58,6 +72,20 @@ const Header = () => {
                                         </>
                                     
                                 }
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Categories
+                                    </a>
+                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                        {
+                                            cate.map(value=><a className="dropdown-item" href="category.html">{value.name}</a>)
+                                        }
+                                        
+                                        
+                                        
+                                    </div>
+                                </li>
                                 
                                 {/* <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
