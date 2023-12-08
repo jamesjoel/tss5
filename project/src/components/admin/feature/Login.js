@@ -1,13 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useFormik } from 'formik'
 import AdminLoginSchema from '../../../schemas/AdminLoginSchema'
 import axios from 'axios';
 import { API_URL } from '../../../util/API'
 import { useNavigate } from 'react-router-dom'
 const Login = () => {
+    let navigate = useNavigate();
+
+    useEffect(()=>{
+        if(localStorage.getItem("lorem")){
+            navigate("/admin/dashboard");
+        }
+    },[])
 
     let [errMsg, setErrMsg] = useState("");
-    let navigate = useNavigate();
+    
 
     let loginFrm = useFormik({
         validationSchema : AdminLoginSchema,

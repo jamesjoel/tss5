@@ -17,6 +17,8 @@ import AdminLogin from '../components/admin/feature/Login';
 import AdminLogout from '../components/admin/feature/Logout'
 import Category from '../components/admin/feature/Category'
 import CategoryList from '../components/admin/feature/CategoryList'
+import SubCategory from '../components/admin/feature/SubCategory'
+import SubCategoryList from '../components/admin/feature/SubCategoryList'
 const AllRoutes = () => {
   return (
     <>
@@ -37,6 +39,8 @@ const AllRoutes = () => {
                 <Route path="product" element={<Product />} />
                 <Route path="category" element={<Category />} />
                 <Route path="category-list" element={<CategoryList />} />
+                <Route path="subcategory" element={<SubCategory />} />
+                <Route path="subcategory-list" element={<SubCategoryList />} />
                 <Route path="teacher" element={<Teacher />} />
                 <Route path="logout" element={<AdminLogout />} />
             </Route>
