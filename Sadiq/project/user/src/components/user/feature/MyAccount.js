@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { API_URL } from '../../../util/API'
 import { useNavigate } from 'react-router-dom'
+import Header from '../shared/Header'
+import Footer from '../shared/Footer'
 
 const MyAccount = () => {
 
@@ -71,6 +73,7 @@ const MyAccount = () => {
 
   return (
     <>
+    <Header />
         <div className='container'>
           <div className='row'>
             <div className='col-md-8 offset-md-2' style={{ minHeight : "700px" }}>
@@ -103,6 +106,7 @@ const MyAccount = () => {
             </div>
           </div>
         </div>
+        <Footer />
     </>
   )
 }

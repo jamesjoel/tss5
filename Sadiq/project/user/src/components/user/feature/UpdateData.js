@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { UpdateIndividualVali} from '../../../schemas/UpdateSchema'
 import { API_URL } from '../../../util/API'
+import Header from '../shared/Header'
+import Footer from '../shared/Footer'
 
 const UpdateData = () => {
 
@@ -83,6 +85,7 @@ let IDPost = async() =>{
 
   return (
     <>
+    <Header />
     <div className='container' style={{ minHeight : "700px" }}>
         <div className='row'>
             <div className='col-md-6 offset-md-3 my-4'>
@@ -119,6 +122,7 @@ let IDPost = async() =>{
             </div>
         </div>
     </div>
+    <Footer />
     </>
   )
 }

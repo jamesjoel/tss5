@@ -34,12 +34,12 @@ const Header = () => {
         </div>
         <div className="container">
             <div className="row">
-                <div className="col-lg-3 col-md-3">
+                <div className="col-lg-2 col-md-2">
                     <div className="header__logo">
                         <a href="./index.html"><img src="/assets/img/logo.png" alt="" /></a>
                     </div>
                 </div>
-                <div className="col-lg-6 col-md-6">
+                <div className="col-lg-8 col-md-8">
                     <nav className="header__menu mobile-menu">
                         {
                             localStorage.getItem('Token') ? <ul>
@@ -53,6 +53,7 @@ const Header = () => {
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
+                            <li><NavLink to="/user/social">Socialise</NavLink></li>
                             <li><NavLink to="/user/my-account">My Account</NavLink>
                                 <ul className="dropdown">
                                     <li><NavLink to="/user/my-account">Profile</NavLink></li>
@@ -80,7 +81,7 @@ const Header = () => {
                         }
                     </nav>
                 </div>
-                <div className="col-lg-3 col-md-3">
+                <div className="col-lg-2 col-md-2">
                     <div className="header__nav__option">
                         <a href="#" id='close' className="search-switch"><img src="/assets/img/icon/search.png" alt="" /></a>
                         <a href="#"><img src="/assets/img/icon/heart.png" alt="" /></a>

@@ -5,7 +5,10 @@ let signup = require("../model/userSignup");
 let key = require("../config/token_keys");
 let randomNum = require("random-number");
 
+//localhost:8080/api/user/authentication/social
+route.use("/social", require("./sub-controllers/SocialSiteController"))
 
+//localhost:8080/api/user/authentication/signup
 route.post("/signup", async(req, res)=>{
     req.body.password = sha(req.body.password);
     let email = req.body.email;
@@ -18,6 +21,7 @@ route.post("/signup", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/login
 route.post("/login", async(req, res)=>{
     let Password = sha(req.body.password);
     let Gmail = req.body.email
@@ -35,6 +39,7 @@ route.post("/login", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/accounts
 route.get("/accounts" , async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
@@ -51,6 +56,7 @@ route.get("/accounts" , async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/update
 route.post("/update", async(req, res)=>{
     if(req.headers.authorization){
         let contactLength = req.body.contact.split("")
@@ -67,6 +73,7 @@ route.post("/update", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/update/password
 route.post("/update/password", async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
@@ -88,6 +95,7 @@ route.post("/update/password", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/forgot/password
 route.post("/forgot/password", async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
@@ -108,6 +116,7 @@ route.post("/forgot/password", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/number/verification
 route.post("/number/verification", async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
@@ -133,6 +142,7 @@ route.post("/number/verification", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/otp/verification
 route.post("/otp/verification", async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
@@ -151,6 +161,7 @@ route.post("/otp/verification", async(req, res)=>{
     }
 })
 
+//localhost:8080/api/user/authentication/update/profile
 route.post("/update/profile", async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
@@ -164,5 +175,6 @@ route.post("/update/profile", async(req, res)=>{
         }
     }
 })
+
 
 module.exports = route;

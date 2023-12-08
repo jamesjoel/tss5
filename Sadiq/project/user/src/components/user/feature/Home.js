@@ -4,6 +4,8 @@ import BigSlider from '../shared/BigSlider'
 import SaleCouter from '../shared/SaleCountDown'
 import NewTrend from '../shared/NewTrend'
 import ProductCard from '../shared/props/ProductCard'
+import Header from '../shared/Header'
+import Footer from '../shared/Footer'
 
 
 const Home = () => {
@@ -53,6 +55,7 @@ const Home = () => {
 
   return (
     <>
+    <Header />
     <BigSlider />
         <section className="banner spad">
         <div className="container">
@@ -116,6 +119,7 @@ const Home = () => {
     </section>
     <SaleCouter />
     <NewTrend />
+    <Footer />
     </>
   )
 }
