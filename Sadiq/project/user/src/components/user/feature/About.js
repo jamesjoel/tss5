@@ -1,9 +1,12 @@
+import Footer from '../shared/Footer';
+import Header from '../shared/Header';
 import Breadcrumb from '../shared/props/Breadcrumb';
 
 const About = () => {
 
   return (
     <>
+    <Header />
         <Breadcrumb data={'About'} />
         <section className="about spad">
         <div className="container">
@@ -188,6 +191,7 @@ const About = () => {
             </div>
         </div>
     </section>
+    <Footer />
     </>
   )
 }

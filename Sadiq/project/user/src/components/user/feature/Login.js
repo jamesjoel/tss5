@@ -6,6 +6,8 @@ import LoginCheck from '../../../schemas/LoginSchema';
 import { API_URL } from '../../../util/API';
 import {useFormik} from 'formik'
 import axios from "axios";
+import Header from '../shared/Header';
+import Footer from '../shared/Footer';
 
 const Login = () => {
 
@@ -64,8 +66,10 @@ const Login = () => {
 })
 // data post for Login section ends
 
+
   return (
     <>
+    <Header />
       <div className='container my-5' style={{minHeight:"700px"}}>
         <div className='row'>
           <div className='col-md-8 offset-md-2'>
@@ -110,8 +114,9 @@ const Login = () => {
             </form>
           </div>
         </div>
-      </div>
+      </div> 
       <Modal />
+    <Footer />
     </>
   )
 }

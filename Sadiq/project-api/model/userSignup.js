@@ -12,7 +12,8 @@ let signupSchema = mongoose.Schema({
     status : {type : Number, default : "3"},
     address : {type : String, default : ""},
     contact : {type : String, default : ""},
-    otp : {type : String, default : ""}
+    otp : {type : String, default : ""},
+    social : { type : Array, default : [] }
 }, { collection : "usersignup" })
 
 let signupModel = mongoose.model("usersignup", signupSchema);

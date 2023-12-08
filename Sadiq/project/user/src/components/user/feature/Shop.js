@@ -4,6 +4,8 @@ import axios from 'axios'
 import ProductBox from '../shared/props/ProductBox';
 import Breadcrumb from '../shared/props/Breadcrumb';
 import { API_URL } from '../../../util/API';
+import Header from '../shared/Header';
+import Footer from '../shared/Footer';
 
 
 const Shop = () => {
@@ -29,6 +31,7 @@ const Shop = () => {
 
   return (
     <>
+    <Header />
         <Breadcrumb data={'Shop'} />
         <section className="shop spad">
         <div className="container">
@@ -227,6 +230,7 @@ const Shop = () => {
                 </div>
             </div>
     </section>
+    <Footer />
     </>
   )
 }

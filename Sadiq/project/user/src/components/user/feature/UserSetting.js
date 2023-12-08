@@ -1,9 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Header from '../shared/Header'
+import Footer from '../shared/Footer'
 
 const UserSetting = () => {
   return (
     <>
+    <Header />
         <div className='container' style={{minHeight : "700px"}} >
             <div className='row'>
                 <div className='col-md-8 offset-md-2'>
@@ -36,6 +39,7 @@ const UserSetting = () => {
                 </div>
             </div>
         </div>
+        <Footer />
     </>
   )
 }

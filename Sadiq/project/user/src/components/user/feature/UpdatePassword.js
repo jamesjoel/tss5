@@ -7,6 +7,8 @@ import OpenEye from '../../user/assets/eyeButton/OpenEye'
 import CloseEye from '../../user/assets/eyeButton/CloseEye'
 import PassForgotModal from '../shared/props/PassForgotModal';
 import {API_URL} from '../../../util/API';
+import Footer from '../shared/Footer'
+import Header from '../shared/Header'
 
 const UpdatePassword = () => {
 
@@ -42,6 +44,7 @@ const UpdatePassword = () => {
 
 return (
     <>
+    <Header />
     <div className='container' style={{minHeight : "700px"}}>
         <div className='row'>
             <div className='col-md-6 offset-md-3 my-5'>
@@ -95,6 +98,7 @@ return (
         </div>
     </div>
     <PassForgotModal />
+    <Footer />
     </>
   )
 }

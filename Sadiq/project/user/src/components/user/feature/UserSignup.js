@@ -8,6 +8,8 @@ import OpenEye from '../assets/eyeButton/OpenEye';
 import CloseEye from '../assets/eyeButton/CloseEye';
 import Validation from '../../../schemas/SignupSchema';
 import { API_URL } from '../../../util/API';
+import Header from '../shared/Header';
+import Footer from '../shared/Footer';
 
 
 let UserSignup = () =>{
@@ -71,6 +73,7 @@ let UserSignup = () =>{
 
   return (
     <>
+    <Header />
         <div className='container' style={{minHeight : "700px"}}>
             <div className='row'>
                 <div className='col-md-8 offset-md-2'>
@@ -191,6 +194,7 @@ let UserSignup = () =>{
             </div>
         </div>
         <Modal />
+        <Footer />
     </>
   )
 }

@@ -9,6 +9,7 @@ import Logout from '../../components/user/shared/Logout'
 import Home from '../../components/user/feature/Home'
 import Shop from '../../components/user/feature/Shop'
 import About from '../../components/user/feature/About'
+import SocialSite from '../../components/user/feature/social/SocilaSite'
 
 const AuthRoutes = [
   {
@@ -50,6 +51,10 @@ const AuthRoutes = [
   {
     path : 'about',
     element : <About />
+  },
+  {
+    path : 'social',
+    element : <SocialSite />
   }
 ]
 
