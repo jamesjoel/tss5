@@ -15,13 +15,13 @@ route.get("/site", async(req, res)=>{
     res.send(userAccounts)
 })
 
-route.get("/follow", async(req, res)=>{
-    console.log("hello")
-})
-
-route.post("/follow", (req, res)=>{
-    let id = req.body;
-    console.log(id)
+route.get("/follow", (req, res)=>{
+    if(req.headers.authorization){
+        let token = req.headers.authorization;
+        let ID = jwt.decode(token, key);
+        console.log(ID)
+        console.log(req.headers)
+    }
 })
 
 module.exports = route;

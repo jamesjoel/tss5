@@ -22,11 +22,13 @@ const SocialSite = () => {
 
     let sendReq = async(event) =>{
         setFollowBtn(true)
-        let token = {
-            Sender : ID,
-            Receiver : event
-        }
-        let response = await axios.post(`http://localhost:8080/api/user/authentication/social/follow`, token)
+        let token = [
+            {
+                Sender : ID,
+                Receiver : event
+            }
+        ]
+        let response = await axios.get(`${API_URL}/user/authentication/social/follow`, { headers : { Authorization : token } })
     }
 
     let cancelReq = () =>{
