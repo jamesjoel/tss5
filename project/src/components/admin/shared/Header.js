@@ -28,12 +28,25 @@ const Header = () => {
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/product">Product</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/admin/category">Category</NavLink>
+        <li className="nav-item dropdown">
+          <a className='nav-link dropdown-toggle' data-toggle="dropdown">
+            Category
+          </a>
+          <div className='dropdown-menu'>
+          <NavLink className="dropdown-item" to="/admin/category">Add</NavLink>
+          <NavLink className="dropdown-item" to="/admin/category-list">List</NavLink>
+          </div>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/admin/category-list">Category List</NavLink>
+        <li className="nav-item dropdown">
+          <a className='nav-link dropdown-toggle' data-toggle="dropdown">
+            Sub-Category
+          </a>
+          <div className='dropdown-menu'>
+          <NavLink className="dropdown-item" to="/admin/subcategory">Add</NavLink>
+          <NavLink className="dropdown-item" to="/admin/subcategory-list">List</NavLink>
+          </div>
         </li>
+        
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/teacher">Teacher</NavLink>
         </li>
