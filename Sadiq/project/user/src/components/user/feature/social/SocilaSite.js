@@ -9,6 +9,7 @@ const SocialSite = () => {
 
     let [userProfile, setUserProfile] = useState([]);
     let ID = localStorage.getItem('Token')
+    let [followBtn, setFollowBtn] = useState(false)
 
     let userProfiles = async() =>{
         let response = await axios.get(`${API_URL}/user/authentication/social/site`, { headers : { Authorization : ID } })
@@ -18,6 +19,19 @@ const SocialSite = () => {
     useEffect(()=>{
         userProfiles()
     }, [])
+
+    let sendReq = async(event) =>{
+        setFollowBtn(true)
+        let token = {
+            Sender : ID,
+            Receiver : event
+        }
+        let response = await axios.post(`http://localhost:8080/api/user/authentication/social/follow`, token)
+    }
+
+    let cancelReq = () =>{
+        setFollowBtn(false)
+    }
 
   return (
     <>
@@ -33,7 +47,10 @@ const SocialSite = () => {
                                 <div className='card'>
                                     <div className='card-header'>
                                         <h4 style={{display : "inline"}}>{value.firstname + " " + value.lastname}</h4>
-                                        <button className='btn btn-primary' style={{ display : "inline", float : "right" }}>Follow</button>
+                                        {
+                                            followBtn === false ? <button className='btn btn-primary'onClick={()=>sendReq(value._id)} style={{ display : "inline", float : "right" }}>Follow</button> :
+                                            <button className='btn btn-success'onClick={cancelReq} style={{ display : "inline", float : "right" }}>Requested</button>
+                                        }
                                     </div>
                                 </div>
                             )
