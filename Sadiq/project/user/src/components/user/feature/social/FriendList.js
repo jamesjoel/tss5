@@ -1,11 +1,11 @@
 import React from 'react'
 
-const profile = () => {
+const FriendList = () => {
   return (
     <>
-        
+      
     </>
   )
 }
 
-export default profile
+export default FriendList

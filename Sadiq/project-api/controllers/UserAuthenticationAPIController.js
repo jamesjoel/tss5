@@ -29,7 +29,7 @@ route.post("/login", async(req, res)=>{
     if(account[0]?.length != 0){
         let obj = { id : account[0]?._id };
         let token = jwt.sign(obj, key);
-        if(account[0].password == Password.trim()){
+        if(account[0]?.password == Password.trim()){
             res.send({status : 200 , errType : 0, Token : token })
         }else{
             res.send({status : 403 ,errType : 1})

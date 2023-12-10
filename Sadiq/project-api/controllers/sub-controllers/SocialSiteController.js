@@ -15,12 +15,23 @@ route.get("/site", async(req, res)=>{
     res.send(userAccounts)
 })
 
-route.get("/follow", (req, res)=>{
+route.post("/follow/:sender/:receiver", async(req, res)=>{
+    let Receiver = req.params.receiver;
+    let token = req.params.sender;
+    let Sender = jwt.decode(token, key);
+    await signup.updateMany({ _id : Sender.id }, { $push : { request : { sender : Sender.id, receiver : Receiver } } })
+    await signup.updateMany({ _id : Receiver }, { $push : { request : { sender : Sender.id, receiver : Receiver } } })
+    res.send({ status : 200 })
+    
+})
+
+route.get("/request", async(req, res)=>{
     if(req.headers.authorization){
         let token = req.headers.authorization;
         let ID = jwt.decode(token, key);
-        console.log(ID)
-        console.log(req.headers)
+        let result = await signup.find({ _id : ID.id })
+        // console.log(result.request)
+        res.send({ status : 200, userData : result.request })
     }
 })
 

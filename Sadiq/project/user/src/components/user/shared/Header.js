@@ -53,7 +53,12 @@ const Header = () => {
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><NavLink to="/user/social">Socialise</NavLink></li>
+                            <li><NavLink to="/user/social">Socialise</NavLink>
+                                <ul className="dropdown">
+                                    <li><NavLink to="/user/social">Search</NavLink></li>
+                                    <li><NavLink to="/user/profile">Profile</NavLink></li>
+                                </ul>
+                            </li>
                             <li><NavLink to="/user/my-account">My Account</NavLink>
                                 <ul className="dropdown">
                                     <li><NavLink to="/user/my-account">Profile</NavLink></li>

@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../Components/User/Featured/Home";
-import About from "../Components/User/Featured/About";
+import Home from "../components/User/Featured/Home";
+import About from "../components/User/Featured/About";
 import Usermodule from "../Module/Usermodule";
 import Adminmodule from "../Module/Adminmodule";
-import Products from "../Components/Admin/Featured//Products";
-import Signup from "../Components/User/Featured/Signup";
-import Login from "../Components/User/Featured/Login";
-import Dashboard from "../Components/Admin/Featured/Dashboard";
+import Products from "../components/Admin/Featured/Products";
+import Signup from "../components/User/Featured/Signup";
+import Login from "../components/User/Featured/Login";
+import Dashboard from "../components/Admin/Featured/Dashboard";
 
 const Allroutes = () => {
     return (

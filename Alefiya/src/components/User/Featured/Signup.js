@@ -1,13 +1,17 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import { useFormik } from 'formik';
 import { API_URL } from '../../../Util/api';
 import { useNavigate } from 'react-router-dom';
 import SignupSchema from '../../../schemas/SignupSchema';
+// import { date } from 'yup';
 
 
 
 const Signup = () => {
+
+    let [city, setCity] = useState([]);
+    let [state, setState] = useState([]);
 
     let navigate = useNavigate();
     let signupForm = useFormik({
@@ -24,10 +28,27 @@ const Signup = () => {
             contact: ""
         },
         onSubmit: (data) => {
-            axios.post(`${API_URL}/user/signup`, data).then(response => { })
-            navigate("/login");
+            axios.post(`${API_URL}/user/signup`, data).then(response => { 
+                navigate("/login");
+            })
+            
         }
     })
+
+    let indiaState = async() =>{
+        let response = await axios.get(`${API_URL}/city`)
+        setState(response.data)
+    }
+
+    useEffect(()=>{
+        indiaState()
+    }, [])
+
+    let City = async(event) =>{
+        let state = event.target.value;
+        let response = await axios.get(`${API_URL}/city/${state}`)
+        setCity(response.data)
+    }
 
     return (
         <>
@@ -88,12 +109,18 @@ const Signup = () => {
                                     </div>
                                     <div className='my-3'>
                                         <label>State</label>
-                                        <select name='state' onChange={signupForm.handleChange} className={'form-control ' + (signupForm.errors.state && signupForm.touched.state ? 'is-invalid' : '')}>
+                                        <select name='state' onChange={(event)=>{signupForm.handleChange(event); City(event)}} className={'form-control ' + (signupForm.errors.state && signupForm.touched.state ? 'is-invalid' : '')}>
                                             {
                                                 signupForm.errors.state && signupForm.touched.state ? <small className='text-danger'>{signupForm.errors.state}</small> : ""
                                             }
                                             <option>Select</option>
-
+                                            {
+                                                state.map((value)=>{
+                                                    return(
+                                                        <option>{value}</option>
+                                                    )
+                                                })
+                                            }
                                         </select>
                                     </div>
 
@@ -104,7 +131,13 @@ const Signup = () => {
                                                 signupForm.errors.city && signupForm.touched.city ? <small className='text-danger'>{signupForm.errors.city}</small> : ""
                                             }
                                             <option>Select</option>
-                                            {/* Loop */}
+                                            {
+                                                city.map((value)=>{
+                                                    return(
+                                                        <option>{value.name}</option>
+                                                    )
+                                                })
+                                            }
                                         </select>
                                     </div>
                                     <div className='my-3'>
