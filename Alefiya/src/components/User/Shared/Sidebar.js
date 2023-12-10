@@ -1,7 +1,8 @@
 import React from "react";
 
-const Sidebar = () => {
+const sidebar = () => {
     return (
+
         <>
             <div className="container-fluid mb-5">
                 <div className="row border-top px-xl-5">
@@ -11,7 +12,7 @@ const Sidebar = () => {
                             <i className="fa fa-angle-down text-dark"></i>
                         </a>
                         <nav className="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-                            <div className="navbar-nav w-100 overflow-hidden" style={{ height: " 410px" }}>
+                            <div className="navbar-nav w-100 overflow-hidden" style={{ height: "410px" }}>
                                 <div className="nav-item dropdown">
                                     <a href="#" className="nav-link" data-toggle="dropdown">Dresses <i className="fa fa-angle-down float-right mt-1"></i></a>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
@@ -31,11 +32,11 @@ const Sidebar = () => {
                                 <a href="" className="nav-item nav-link">Shoes</a>
                             </div>
                         </nav>
+
                     </div>
                 </div>
             </div>
         </>
-
     )
 }
 

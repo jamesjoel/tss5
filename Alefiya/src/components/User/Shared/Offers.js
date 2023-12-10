@@ -3,6 +3,7 @@ import React from "react";
 const Offers = () => {
     return (
         <>
+            {/* <!-- Offer Start --> */}
             <div className="container-fluid offer pt-5">
                 <div className="row px-xl-5">
                     <div className="col-md-6 pb-4">
@@ -27,6 +28,7 @@ const Offers = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- Offer End --> */}
         </>
     )
 }

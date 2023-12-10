@@ -1,17 +1,16 @@
 import React from "react";
-import Categories from "../Shared/Categories";
 import FullHeader from "../Shared/FullHeader";
 import Footer from "../Shared/Footer";
-import Topbar from "../Shared/Topbar";
+import Product1 from "../Shared/Product1";
 
 const Home = () => {
     return (
         <>
-            <Topbar />
             <FullHeader />
-            <Categories />
+            <Product1 />
             <Footer />
         </>
     )
 }
+
 export default Home;

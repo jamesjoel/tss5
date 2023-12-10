@@ -3,6 +3,7 @@ import React from "react";
 const Featured = () => {
     return (
         <>
+            {/* <!-- Featured Start --> */}
             <div className="container-fluid pt-5">
                 <div className="row px-xl-5 pb-3">
                     <div className="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -31,9 +32,9 @@ const Featured = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- Featured End --> */}
         </>
     )
-
 }
 
 export default Featured;

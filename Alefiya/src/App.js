@@ -1,9 +1,12 @@
-import React from 'react';
-import Allroutes from './Routes/Allroutes';
+import React from "react";
+import Allroutes from "./Routes/Allroutes";
+
 const App = () => {
   return (
     <>
+
       <Allroutes />
+
     </>
   )
 }

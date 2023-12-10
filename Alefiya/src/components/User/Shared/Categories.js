@@ -3,7 +3,7 @@ import React from "react";
 const Categories = () => {
     return (
         <>
-
+            {/* <!-- Categories Start --> */}
             <div className="container-fluid pt-5">
                 <div className="row px-xl-5 pb-3">
                     <div className="col-lg-4 col-md-6 pb-1">
@@ -62,6 +62,7 @@ const Categories = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- Categories End --> */}
         </>
     )
 }

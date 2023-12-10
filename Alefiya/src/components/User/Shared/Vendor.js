@@ -3,7 +3,7 @@ import React from "react";
 const Vendor = () => {
     return (
         <>
-
+            {/* <!-- Vendor Start --> */}
             <div className="container-fluid py-5">
                 <div className="row px-xl-5">
                     <div className="col">
@@ -36,6 +36,7 @@ const Vendor = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- Vendor End --> */}
         </>
     )
 }

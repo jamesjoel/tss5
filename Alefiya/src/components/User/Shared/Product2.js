@@ -1,9 +1,10 @@
 import React from "react";
 
-const Products2 = () => {
+const Product2 = () => {
     return (
-        <>
 
+        <>
+            {/* <!-- Products Start --> */}
             <div className="container-fluid pt-5">
                 <div className="text-center mb-4">
                     <h2 className="section-title px-5"><span className="px-2">Just Arrived</span></h2>
@@ -147,8 +148,10 @@ const Products2 = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- Products End --> */}
+
         </>
     )
 }
 
-export default Products2;
+export default Product2;

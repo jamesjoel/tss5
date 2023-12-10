@@ -1,8 +1,9 @@
 import React from "react";
 
-const Products1 = () => {
+const Product1 = () => {
     return (
         <>
+            {/* <!-- Products Start --> */}
             <div className="container-fluid pt-5">
                 <div className="text-center mb-4">
                     <h2 className="section-title px-5"><span className="px-2">Trandy Products</span></h2>
@@ -146,9 +147,9 @@ const Products1 = () => {
                     </div>
                 </div>
             </div>
-
+            {/* <!-- Products End --> */}
         </>
     )
 }
 
-export default Products1;
+export default Product1;

@@ -1,12 +1,15 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
+
 
 const Adminmodule = () => {
     return (
         <>
-            <h1>Adminmodule</h1>
+
+            <Outlet />
 
         </>
     )
 }
 
-export default Adminmodule; 
+export default Adminmodule;
