@@ -30,8 +30,24 @@ route.get("/request", async(req, res)=>{
         let token = req.headers.authorization;
         let ID = jwt.decode(token, key);
         let result = await signup.find({ _id : ID.id })
-        // console.log(result.request)
-        res.send({ status : 200, userData : result.request })
+        // console.log(result[0])
+        let FrndData = {}
+        if(result?.length != 0){
+        let Sender = result[0]
+        let Receiver = result[0]?.request.receiver
+            console.log(Sender)
+            console.log(Receiver)
+            let userID = await signup.find({ _id : Sender })
+            let friendID = await signup.find({ _id : Receiver })
+            if(userID?.length != 0 || friendID?.length != 0){
+                FrndData = {
+                    Sender : userID[0],
+                    Receiver : friendID[0]
+                }
+            }
+        }
+        
+        res.send({ status : 200, friendData : FrndData })
     }
 })
 

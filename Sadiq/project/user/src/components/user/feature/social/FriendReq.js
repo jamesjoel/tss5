@@ -12,13 +12,16 @@ const FriendReq = () => {
 
   let PageLoad = async() =>{
     let response = await axios.get(`${API_URL}/user/authentication/social/request`, { headers : { Authorization : ID } })
-    if(response.data?.status === 200){
-      if(response.data?.userData.sender?.length != 0){
-        setSendReq(response.data.userData)
-        }else if(response.data?.userData.receiver?.length != 0){
-          setRecReq(response.data.userData)
-        }
-    }
+    console.log(response.data)
+    // if(response.data?.status === 200){
+    //   if(response.data?.userData.length != 0){
+    //     if(response.data?.userData.sender?.length != 0){
+    //       setSendReq(response.data.userData)
+    //       }else if(response.data?.userData.receiver?.length != 0){
+    //         setRecReq(response.data.userData)
+    //       }
+    //   }
+    // }
   }
 
   useEffect(()=>{
@@ -36,9 +39,18 @@ const FriendReq = () => {
                 <div className='card-body'>
                   <table className='table table-hover table-primary table-striped'>
                     <tbody>
-                      <tr>
-                        <td>hello</td>
-                      </tr>
+                      {
+                        recReq?.length != 0 ? recReq.map((value)=>{
+                          return(
+                            <tr>
+                              <td>{value}</td>
+                            </tr>
+                          )
+                        }) :
+                        <tr>
+                          <th>No Request Received</th>
+                        </tr>
+                      }
                     </tbody>
                   </table>
                 </div>

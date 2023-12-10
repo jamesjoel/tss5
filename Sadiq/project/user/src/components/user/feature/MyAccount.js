@@ -84,7 +84,7 @@ const MyAccount = () => {
               }
               <div className='card'>
                 <div className='card-header text-center'>
-                  <h3>Welcome {userData.firstname}</h3>
+                  <h3>Welcome {userData?.firstname}</h3>
                 </div>
                 <div className='card-body text-center'>
                   <table className='table table-info table-hover table-striped'>
