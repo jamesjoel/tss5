@@ -10,7 +10,9 @@ let Category = ()=>{
             name : ""
         },
         onSubmit : (formdata)=>{
-            axios.post(`${API_URL}/category`, formdata).then(response=>{
+            axios.post(`${API_URL}/category`, formdata, {
+                headers : { Authorization : localStorage.getItem("lorem")}
+            }).then(response=>{
                 // console.log(response.data);
                 navigate("/admin/category-list");
             })

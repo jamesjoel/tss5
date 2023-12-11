@@ -19,6 +19,7 @@ import Category from '../components/admin/feature/Category'
 import CategoryList from '../components/admin/feature/CategoryList'
 import SubCategory from '../components/admin/feature/SubCategory'
 import SubCategoryList from '../components/admin/feature/SubCategoryList'
+import ProductList from '../components/admin/feature/ProductList'
 const AllRoutes = () => {
   return (
     <>
@@ -37,6 +38,7 @@ const AllRoutes = () => {
                 <Route path="" element={<AdminLogin />} />
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="product" element={<Product />} />
+                <Route path="product-list" element={<ProductList />} />
                 <Route path="category" element={<Category />} />
                 <Route path="category-list" element={<CategoryList />} />
                 <Route path="subcategory" element={<SubCategory />} />
