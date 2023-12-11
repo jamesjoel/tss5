@@ -10,6 +10,9 @@ import Home from '../../components/user/feature/Home'
 import Shop from '../../components/user/feature/Shop'
 import About from '../../components/user/feature/About'
 import SocialSite from '../../components/user/feature/social/SocilaSite'
+import SocialProfile from '../../components/user/feature/social/SocialProfile'
+import FriendList from '../../components/user/feature/social/FriendList'
+import FriendReq from '../../components/user/feature/social/FriendReq'
 
 const AuthRoutes = [
   {
@@ -55,6 +58,18 @@ const AuthRoutes = [
   {
     path : 'social',
     element : <SocialSite />
+  },
+  {
+    path : 'profile',
+    element : <SocialProfile />
+  },
+  {
+    path : 'friend-req',
+    element : <FriendReq />
+  },
+  {
+    path : 'friend-list',
+    element : <FriendList />
   }
 ]
 
