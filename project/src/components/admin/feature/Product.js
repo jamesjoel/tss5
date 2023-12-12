@@ -7,6 +7,8 @@ import ProdcutSchema from '../../../schemas/ProductSchema'
 
 const Product = () => {
 
+  let navigate = useNavigate();
+
   let [cate, setCate] = useState([]);
   let [subcate, setSubCate] = useState([]);
 
@@ -33,7 +35,8 @@ const Product = () => {
       axios.post(`${API_URL}/product`, formdata, {
         headers : { Authorization : localStorage.getItem("lorem")}
       }).then(response=>{
-        console.log(response);
+        // console.log(response);
+        navigate("/admin/product-list");
       })
     }
   })
