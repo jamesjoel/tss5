@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {useFormik} from 'formik'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
@@ -7,6 +7,9 @@ import ProdcutSchema from '../../../schemas/ProductSchema'
 
 const Product = () => {
 
+  // localStore.setItem("name", []);
+
+  let file = useRef();
   let navigate = useNavigate();
 
   let [cate, setCate] = useState([]);
@@ -28,11 +31,27 @@ const Product = () => {
       subcategory : "",
       quantity : "",
       detail : "",
-      discount : ""
+      discount : "",
+      image : ""
 
     },
     onSubmit : (formdata)=>{
-      axios.post(`${API_URL}/product`, formdata, {
+      
+      let filedata = file.current.files[0];
+
+      // create a virtual form by FormData() fun
+      let vform = new FormData();
+      vform.append("image", filedata);
+      vform.append("alldata", JSON.stringify(formdata));
+      // vform.append("title", formdata.title);
+      // vform.append("price", formdata.price);
+      // vform.append("category", formdata.category);
+      // vform.append("subcategory", formdata.subcategory);
+      // vform.append("quantity", formdata.quantity);
+      // vform.append("discount", formdata.discount);
+      // vform.append("detail", formdata.detail);
+      
+      axios.post(`${API_URL}/product`, vform, {
         headers : { Authorization : localStorage.getItem("lorem")}
       }).then(response=>{
         // console.log(response);
@@ -67,6 +86,13 @@ const Product = () => {
             <input type='text' name='price' onChange={proForm.handleChange} className='form-control' />
             {
               proForm.errors.price && proForm.touched.price ? <small className="text-danger">{proForm.errors.price}</small> : ''
+            }
+          </div>
+          <div className='my-2'>
+            <label>Product Image</label>
+            <input type='file' ref={file} name='image' onChange={proForm.handleChange} className='form-control' />
+            {
+              proForm.errors.image && proForm.touched.image ? <small className="text-danger">{proForm.errors.image}</small> : ''
             }
           </div>
           <div className='my-2'>
