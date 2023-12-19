@@ -16,6 +16,7 @@ import MyProfile from '../components/user/feature/MyProfile'
 import AdminLogin from '../components/admin/feature/Login';
 import AdminLogout from '../components/admin/feature/Logout'
 import Category from '../components/admin/feature/Category'
+import UserCategory from '../components/user/feature/Category'
 import CategoryList from '../components/admin/feature/CategoryList'
 import SubCategory from '../components/admin/feature/SubCategory'
 import SubCategoryList from '../components/admin/feature/SubCategoryList'
@@ -31,6 +32,7 @@ const AllRoutes = () => {
                   <Route path='about' element={<About />} />
                   <Route path='login' element={<Login />} />
                   <Route path='product-detail/:id' element={<ProductDetail />} />
+                  <Route path='category/:catename' element={<UserCategory />} />
                   
                   <Route path='signup' element={<Signup />} />
                   <Route path='my-account' element={<MyAccount />} />
