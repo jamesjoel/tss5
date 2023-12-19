@@ -1,82 +1,93 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useState,useEffect } from 'react'
-import {useFormik} from 'formik'
+import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
 const Signup = () => {
-let [State,setState] = useState([])  
-let [City,setCity] = useState([])  
-let IndiaState = async()=>{
-  let response = await axios.get("http://localhost:8080/api/state")
-  console.log(response.data)
-  setState(response.data)
-  // console.log(City)
 
-}
-useEffect (()=>{
-  IndiaState()
-},[])
-let city = async(event)=>{
-  let State = event.target.value
-  let response= await axios.get(`http://localhost:8080/api/city/${State}`)
-  setCity(response.data)
-}
+  let [City,setCity] = useState([]);
+  let [state,setState] = useState([]);
+  useEffect(()=>{
+   //   axios.get("https://localhost:8080/api/state").then(Response=>{
+       // console.log(Response);
+     //   setCity(Response.data);    
+     axios.get("https://localhost:8080/api/city/state").then(response=>{
+      setState(response.data);
+     })
+  }, [])
 
-return (
-<>
-<div className='container my-5' style={{minHeight : "700px"}}>
-        <div className='row'>
-          <div className='col-md-6 offset-md-3'>
-        <div className='card'>
-              <div className='card-header text-center bg-primary'>
-                <h2 className='text-light'>Signup Form</h2>
-              </div>
-              <div className='card-body'>
-                  <div className='my-3'>
-                  <label>First Name</label>
-                  <input type='text' className='form-control' placeholder='Enter Your First Name' />
-                  </div>
-                  <div className='my-3'>
-                  <label>Last Name</label>
-                  <input type ="text"    className='form-control' placeholder='Enter Your Last Name' />
-                  </div>
-                  <div className='my-3'>
-                  <label>Contact</label>
-                  <input type ="text"  className='form-control' placeholder='Enter Your Number' />
-                  </div>
-                  <div className='my-3'>
-                  <label>State</label>
-                  <select onChange={(event)=>city(event)} className='form-control'>
-                    <option>Select</option>
-                    {
-                      State.map((value)=>{
-                      return(<option>{value}</option>)
-                      })
-                    }
-                  </select>
-                  </div>
-                  <div className='my-3'>
-                  <label>City</label>
-                  <select className='form-control'>
-                    <option>Select</option>
+  let getcity= (event)=>{
+    let city = event.target.value;
+    axios.get("https://localhost:8080/api/city/"+city).then(response=>{
+      console.log(response.data);
+    })
+  }
+
+  return (
+     <>
+    <div className='container' style={{marginTop : "150px", minHeight : "650px"}}>
+      <div className='row'>
+        <div className='col-md-8 offset-md-2'>
+          <div className='card-header'>
+            <h4>User Registration</h4>
+          </div>
+          <div className='card-body'>
+            <div className='my-3'>
+              <label>Full Name</label>
+              <input type='text' className='form-control' />  
+            </div>
+            <div className='my-3'>
+              <label>Email/UserName</label>
+              <input type='text' className='form-control' />  
+            </div>
+            <div className='my-3'>
+              <label>Contact</label>
+              <input type='text' className='form-control' />  
+            </div>
+            <div className='my-3'>
+              <label>Password</label>
+              <input type='password' className='form-control' />  
+            </div>
+            <div className='my-3'>
+              <label>Re-Password</label>
+              <input type='password' className='form-control' />  
+            </div>
+            <div className='my-3'>
+              <label>Address</label>
+              <textarea  className='form-control' ></textarea>  
+            </div>
+            <div className='my-3'>
+              <label>State</label>
+              <select className='form-control' onChange={(event)=>getCity(event)}>
+                  <option>Select</option>
                   {
-                    City.map((value)=>{
-                      return(<option>{value.name}</option>)
-                    })
+                    state.map((value,index)=><option key={index}>{value}</option>)
                   }
-                  </select>
-                  </div>
-              </div>
-              <div className='card-footer bg-primary'>
-                <button className=' form-control btn btn-primary'>SIGNUP</button> 
-              </div>
+                </select>         
+            </div>
+            <div className='my-3'>
+              <label>City</label>
+              <select className='form-control' >
+                <option>select</option>
+                {
+                    City.map(value=><option>{value.name}</option>)
+                }
+              </select>
+            <div className='my-3'>
+              <label>Gender</label>
+             <br /> 
+             Male <input type='radio' />
+             Female <input type='radio' /> 
+            </div>
+            </div>
+            <div className='card-footer'>
+              <button className='btn-btn-primary'>Signups</button>
             </div>
           </div>
         </div>
       </div>
-</>
-    )
+    </div>
+    </>
+  )
 }
+
 
 export default Signup

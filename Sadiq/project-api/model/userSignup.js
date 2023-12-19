@@ -2,6 +2,10 @@ require("../config/DataBase");
 
 let mongoose = require("mongoose");
 let signupSchema = mongoose.Schema({
+
+    
+
+
     firstname : String,
     lastname : String,
     email : String,
@@ -20,3 +24,16 @@ let signupSchema = mongoose.Schema({
 let signupModel = mongoose.model("usersignup", signupSchema);
 
 module.exports = signupModel;
+
+/*
+    {
+        senderid : mongoose.Schema.ObjectId,
+        receiverid : mongoose.Schema.ObjectId,
+        createAt : ,
+        status : {type : Number, default : 0}
+    }
+
+
+    Request.create({ })
+
+*/
