@@ -15,13 +15,13 @@ let a = useRef();
       initialValues : {
         Image : ""
       },
-      onSubmit : (FormData)=>{
+      onSubmit : (formdata)=>{
 
        // console.log(a.current.files[0])
       let file = a.current.files[0];
      let myfrom = new FormData();
      myfrom.append("photo",file)
-      axios.post("https://localhost:8080/api/demo",myfrom).then(Response.data);
+      axios.post("http://localhost:8080/api/demo",myfrom).then(Response.data);
     }
     })
  
