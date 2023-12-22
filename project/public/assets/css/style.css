@@ -7776,4 +7776,13 @@ h6 {
   }
 }
 
+.left-cate-active{
+  background-color: #F13D80;
+  color : #fff !important;
+  padding: 5px;
+}
+.left-cate-active a{
+  color  : #fff !important;
+}
+
 /*# sourceMappingURL=style.css.map */

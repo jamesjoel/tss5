@@ -1,22 +1,33 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {API_URL} from '../../../util/API';
+import { NavLink, useParams } from 'react-router-dom'
+import ProductBox from '../shared/ProductBox';
 
 
 const Category = () => {
 
+    let param = useParams();
+    let [link, setLink] = useState("");
+    let [allProduct, setAllProduct] = useState([]);
     let [category, setCategory] = useState([]);
 
     useEffect(()=>{
         getCategory();   
-        
-    },[])
+        getProductByCategory();
+        setLink(param.catename);
+    },[param])
 
 
 
     let getCategory = async()=>{
         let response = await axios.get(`${API_URL}/category/count`);
         setCategory(response.data.result);
+    }
+
+    let getProductByCategory = async()=>{
+        let response = await axios.get(`${API_URL}/product/category/${param.catename}`);
+        setAllProduct(response.data.result);
     }
 
 
@@ -39,8 +50,8 @@ const Category = () => {
                                     {
                                         category.map(value=>{
                                             return(
-                                                <li key={value._id}>
-                                                    <a href="#">{value.name}</a>
+                                                <li key={value._id} className={ link == value.name ? 'left-cate-active' : ''}>
+                                                    <NavLink  to={`/category/${value.name}`}>{value.name}</NavLink>
                                                     <span>({value.count})</span>
                                                 </li>
                                             )
@@ -183,16 +194,11 @@ const Category = () => {
                     </div>
 
                     <div className="row align-items-center latest_product_inner">
-                        <div className="col-lg-4 col-sm-6">
-                            <div className="single_product_item">
-                                <img src="img/product/product_1.png" alt="" />
-                                <div className="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" className="add_cart">+ add to cart<i className="ti-heart"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    {
+                        allProduct.map((x, index)=>{
+                            return <ProductBox key={index} info={x} />
+                        })
+                    }
                         
                     </div>
                 </div>
