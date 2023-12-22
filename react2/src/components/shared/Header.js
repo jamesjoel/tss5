@@ -13,10 +13,26 @@ let Header = ()=>{
                     <li className="nav-item">
                     <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
-                    <li className="nav-item">
-                    <NavLink className="nav-link" to="/about">About</NavLink>
-                    </li>
-                    <li className="nav-item">
+                    {
+                        localStorage.getItem("access-token")
+                        ?
+                        <>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/profile">Profile</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/logout">Logout</NavLink>
+                            </li>
+                        </>
+                        :
+                        <>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/login">Login</NavLink>
+                        </li>
+                        </>
+                    }
+                    
+                    {/* <li className="nav-item">
                     <NavLink className="nav-link" to="/contact">Contact</NavLink>
                     </li>
                     <li className="nav-item">
@@ -45,7 +61,7 @@ let Header = ()=>{
                     </li>
                     <li className="nav-item">
                     <NavLink className="nav-link" to="/student-list">Student-List</NavLink>
-                    </li>
+                    </li> */}
                 </ul>
                 </div>
             </div>
