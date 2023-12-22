@@ -3,6 +3,7 @@ let routes = require ('express').Router();
 
 
 
-routes.use("/api",require("../controller/IndiaStateController"));
-routes.use("/api",require("../controller/DemoController"));
+routes.use("/api/city",require("../controller/IndiaStateController"));
+routes.use("/api/demo",require("../controller/DemoController"));
+routes.use("/api/user",require("../controller/UserController"));
 module.exports = routes ;
