@@ -4,7 +4,7 @@ import UserLogin from '../../components/user/feature/UserLogin'
 import UserSignup from '../../components/user/feature/UserSignup'
 import Shop from '../../components/user/feature/Shop'
 import About from '../../components/user/feature/About'
-import Login from '../../components/user/feature/Login'
+import AdminLogin from '../../components/admin/feature/AdminLogin'
 
 const Root = [
   {
@@ -28,8 +28,8 @@ const Root = [
     element : <About />
   },
   {
-    path : '/login',
-    element : <Login />
+    path : '/adminlogin',
+    element : <AdminLogin />
   }
 ]
 

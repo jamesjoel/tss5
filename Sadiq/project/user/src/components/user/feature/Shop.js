@@ -24,7 +24,7 @@ const Shop = () => {
 
   let getCategory = async(event) =>{
     let city = event
-    let Response = await axios.get(`${API_URL}/product/${city}`)
+    let Response = await axios.get(`${API_URL}/category/${city}`)
     setProduct(Response.data)
     
   }
@@ -57,7 +57,7 @@ const Shop = () => {
                                                     {
                                                         productCategory.map((value)=>{
                                                             return(
-                                                                <li><button className='btn my-1' onClick={()=>getCategory(value)} style={{color : "#b7b7b7"}}>{value}</button></li>
+                                                                <li><button className='btn my-1' onClick={()=>getCategory(value.category)} style={{color : "#b7b7b7"}}>{value.category}</button></li>
                                                             )
                                                         })
                                                     }
