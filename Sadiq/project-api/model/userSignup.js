@@ -2,10 +2,6 @@ require("../config/DataBase");
 
 let mongoose = require("mongoose");
 let signupSchema = mongoose.Schema({
-
-    
-
-
     firstname : String,
     lastname : String,
     email : String,
@@ -17,8 +13,6 @@ let signupSchema = mongoose.Schema({
     address : {type : String, default : ""},
     contact : {type : String, default : ""},
     otp : {type : String, default : ""},
-    social : { type : Array, default : [] },
-    request : {type : Array, default : []}
 }, { collection : "usersignup" })
 
 let signupModel = mongoose.model("usersignup", signupSchema);

@@ -6,11 +6,22 @@ import UserLoginModule from '../modules/UserLoginModule';
 import UserSignup from '../components/user/feature/UserSignup';
 import Root from './Root/Root'
 import AuthRoutes from './Auth/AuthRoutes'
+import AdminModule from '../modules/AdminModule'
+import AdminRoutes from './Admin/AdminRoutes';
+import AdminLogin from '../components/admin/feature/AdminLogin';
 
 const AllRoutes = () => {
 
   let isTokenPresent = () =>{
     let token = localStorage.getItem('Token');
+    if(token){
+      return true
+    }else{
+      return false
+    }
+  }
+  let isAdminTokenPresent = () =>{
+    let token = localStorage.getItem('Naruto');
     if(token){
       return true
     }else{
@@ -27,6 +38,13 @@ const AllRoutes = () => {
       children : Root
     },
     {
+      path : '/',
+      element : isAdminTokenPresent() ? (
+        <Navigate to="/admin/home" replace />
+      ) : (<AdminLogin />),
+      children : Root
+    },
+    {
       path : '/usersignup',
       element : isTokenPresent() ? (
         <Navigate to='/user/my-account' replace />
@@ -39,9 +57,20 @@ const AllRoutes = () => {
       ) : (<UserLogin />)
     },
     {
+      path : '/adminlogin',
+      element : isAdminTokenPresent() ? (
+        <Navigate to='/admin/home' replace />
+      ) : (<AdminLogin />)
+    },
+    {
       path : '/user',
       element : <UserLoginModule />,
       children : AuthRoutes
+    },
+    {
+      path : '/admin',
+      element : <AdminModule />,
+      children : AdminRoutes
     }
   ])
 
