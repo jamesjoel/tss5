@@ -45,7 +45,12 @@ const AllRoutes = () => {
                 <Route path="users" element={<Users />} />
                 <Route path="product" element={<Product />} />
                 <Route path="product-list" element={<ProductList />} />
+
                 <Route path="category" element={<Category />} />
+                <Route path="category/:id" element={<Category />} />
+                
+                
+                
                 <Route path="category-list" element={<CategoryList />} />
                 <Route path="subcategory" element={<SubCategory />} />
                 <Route path="subcategory-list" element={<SubCategoryList />} />
