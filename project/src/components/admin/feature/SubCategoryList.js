@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../util/API'
+import {useNavigate} from 'react-router-dom'
 
 const SubCategoryList = () => {
+    let navigate = useNavigate();
   let [allsubcate, setAllSubCate] = useState([]);
   let [subcate, setSubCate] = useState({});
   let btn = useRef()
@@ -26,19 +28,26 @@ const SubCategoryList = () => {
     btn.current.click();
   }
 
+  let askEdit = (obj)=>{
+    navigate("/admin/subcategory/"+obj._id)
+  }
+
   return (
     <>
     <div className="container my-4">
         <div className="row">
             <div className="col-md-8 offset-md-2">
                 <h3>List of All Sub-Category</h3>
-                <table className="table table-dark table-bordered table-hover">
+                {
+                    allsubcate.length > 0 ? 
+                    <table className="table table-dark table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>S.No.</th>
                             <th>Category Name</th>
                             <th>Sub-Category Name</th>
                             <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,12 +59,16 @@ const SubCategoryList = () => {
                                         <td>{value.category}</td>
                                         <td>{value.name}</td>
                                         <td><button onClick={()=>askDelete(value)} data-toggle="modal" data-target="#delModal" className='btn btn-sm btn-danger'>Delete</button></td>
+                                        <td><button onClick={()=>askEdit(value)} className='btn btn-info btn-sm'>Edit</button></td>
                                     </tr>
                                 )
                             })
                         }
                     </tbody>
                 </table>
+                :
+                <div className='alert alert-info my-4'>No Data Found </div>
+                }
             </div>
         </div>
     </div>

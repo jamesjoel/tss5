@@ -1,11 +1,13 @@
 import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import { API_URL} from '../../../util/API'
+import {useNavigate} from 'react-router-dom'
 
 
 
 const ProductList = () => {
 
+  let navigate = useNavigate();
   let [pro, setPro] = useState({});
   let btn = useRef();
 
@@ -29,6 +31,9 @@ const ProductList = () => {
     btn.current.click();
   }
 
+  let askEdit = (obj)=>{
+    navigate("/admin/product/"+obj._id)
+  }
   return (
     <>
     <div className="container my-3">
@@ -44,6 +49,7 @@ const ProductList = () => {
                 <th>Category</th>
                 <th>Sub-Category</th>
                 <th>Delete</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -57,6 +63,7 @@ const ProductList = () => {
                       <td>{value.category}</td>
                       <td>{value.subcategory}</td>
                       <td><button data-target="#delModal" data-toggle="modal" onClick={()=>askDelete(value)} className='btn btn-danger btn-sm'>Delete</button></td>
+                      <td><button onClick={()=>askEdit(value)} className='btn btn-info btn-sm'>Edit</button></td>
                     </tr>
                   )
                 })
