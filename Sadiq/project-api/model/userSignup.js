@@ -13,10 +13,21 @@ let signupSchema = mongoose.Schema({
     address : {type : String, default : ""},
     contact : {type : String, default : ""},
     otp : {type : String, default : ""},
-    social : { type : Array, default : [] },
-    request : {type : Array, default : []}
 }, { collection : "usersignup" })
 
 let signupModel = mongoose.model("usersignup", signupSchema);
 
 module.exports = signupModel;
+
+/*
+    {
+        senderid : mongoose.Schema.ObjectId,
+        receiverid : mongoose.Schema.ObjectId,
+        createAt : ,
+        status : {type : Number, default : 0}
+    }
+
+
+    Request.create({ })
+
+*/

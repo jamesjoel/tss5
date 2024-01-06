@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const upload = require("express-fileupload");
 let routes = require('./routes/AllRoutes')
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(cors());
+app.use(upload());
 app.use(routes);
 
 

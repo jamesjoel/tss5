@@ -1,15 +1,12 @@
-import {useEffect} from 'react'
+import React from 'react'
+import {useFormik} from 'formik'
+import {API_URL} from '../../../util/API'
+import axios from "axios";
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Modal from '../shared/props/SignupModal'
-import LoginCheck from '../../../schemas/LoginSchema';
-import { API_URL } from '../../../util/API';
-import {useFormik} from 'formik'
-import axios from "axios";
-import Header from '../shared/Header';
-import Footer from '../shared/Footer';
+import LoginCheck from '../../../schemas/LoginSchema';;
 
-const Login = () => {
+const AdminLogin = () => {
 
   let navigate = useNavigate();
 
@@ -44,8 +41,8 @@ const Login = () => {
       await axios.post(`${API_URL}/authentication/login`, formData).then(response =>{
           let ID = response.data.Token
             if(response.data.status === 200){
-              localStorage.setItem('Token', ID)
-              navigate(`/admin/${ID}`)
+              localStorage.setItem('Naruto', ID)
+              navigate(`/admin/home`)
             }else if(response.data.status === 403){
               if(response.data.errType === 2){
                 setShowAlert(true);
@@ -65,11 +62,9 @@ const Login = () => {
     }
 })
 // data post for Login section ends
-
-
   return (
     <>
-    <Header />
+    
       <div className='container my-5' style={{minHeight:"700px"}}>
         <div className='row'>
           <div className='col-md-8 offset-md-2'>
@@ -102,23 +97,14 @@ const Login = () => {
               </div>
               <div className='card-footer bg-dark'>
                 <button type='submit' className=' btn btn-primary' style={{display:"inline", float:"left"}}>LOGIN</button>
-                <button className="btn text-light" 
-                  style={{display:"inline", float:"right"}}
-                  data-toggle="modal" data-target="#Open"
-                  type='button'
-                  >
-                  create account
-                </button>
               </div>
             </div>
             </form>
           </div>
         </div>
       </div> 
-      <Modal />
-    <Footer />
     </>
   )
 }
 
-export default Login
+export default AdminLogin

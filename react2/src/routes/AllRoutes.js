@@ -11,10 +11,17 @@ import Comp6 from '../components/feature/Comp6'
 import Comp7 from '../components/feature/Comp7'
 import Student from '../components/feature/Student'
 import StudentList from '../components/feature/StudentList'
+import Login from '../components/feature/Login'
+import Profile from '../components/feature/Profile'
+import Logout from '../components/feature/Logout'
 let AllRoutes = ()=>{
     return(
     <Routes>
         <Route path='' element={<Home />} />
+        <Route path='login' element={<Login />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='logout' element={<Logout />} />
+
         <Route path='about' element={<About />} />
         <Route path='contact' element={<Contact />} />
         <Route path='help' element={<Help />} />

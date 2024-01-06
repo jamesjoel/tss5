@@ -34,22 +34,29 @@ const Signup = () => {
 
 
     useEffect(()=>{
+        getState();
         // axios.get("http://localhost:8080/api/city").then(responose=>{
         //     //console.log(responose.data);
         //     setCity(responose.data);
         // })
-        axios.get(`${API_URL}/city/state`).then(response=>{
-            setState(response.data);
-        })
+         
     }, [])
 
-    let getCity = (event)=>{
+
+    let getState = async()=>{
+        let response = await axios.get(`${API_URL}/city/state`)
+        setState(response.data.result);
+    }
+
+    let getCity = async (event)=>{
         
         let x = event.target.value;
+        let response = await axios.get(`${API_URL}/city/${x}`);
+        setCity(response.data);
         // console.log(x);
-        axios.get(`${API_URL}/city/${x}`).then(response=>{
-            setCity(response.data);
-        })
+        // axios.get(`${API_URL}/city/${x}`).then(response=>{
+        //     setCity(response.data);
+        // })
     }
 
   return (

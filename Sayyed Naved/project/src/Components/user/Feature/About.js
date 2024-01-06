@@ -1,44 +1,45 @@
- import React,{useState} from 'react'
+import React,{useRef} from 'react'
 import { useFormik } from 'formik'
+import axios from 'axios'
 
-import * as YUP from 'yup'
 
-let mySchema = YUP.object({
-    a : YUP.string().required("*"),
-    b : YUP.string().required("*")
-})
+
+
 
 const About = () => {
-  
-  let myform = useFormik({
- validationSchema : mySchema,
-    initialValues : {
-    a : "",
-    b : "",
- },
- onSubmit : (data)=>{
-    console.log(data);
- }
-  });
+
+let a = useRef();
+
+
+  let frm = useFormik({
+      initialValues : {
+        Image : ""
+      },
+      onSubmit : (formdata)=>{
+
+       // console.log(a.current.files[0])
+      let file = a.current.files[0];
+     let myfrom = new FormData();
+     myfrom.append("photo",file)
+      axios.post("http://localhost:8080/api/demo",myfrom).then(Response.data);
+    }
+    })
+ 
     return (
     <div className='container ' style={{marginTop : "150px",minHeight :"700px"}} >
+       <form onSubmit={frm.handleSubmit}>
         <div className='row'>
-            <form onSubmit={myform.handleSubmit}>
-            <div className='col-md-12'>
-            <label>Full Name {myform.errors.a && myform.touched.a ? <span className='text-danger'>{myform.errors.a}</span> : '' } </label>
-            <input type='text'className={myform.errors.a && myform.touched.a ? 'border border-danger' : ''} name="a" onChange={myform.handleChange}/>
-            <br/>            
-            <br/>
-            <label>Email {myform.errors.b && myform.touched.b ? <span className='text-danger'>{myform.errors.b}</span> : ''} </label>
-            <br/>
-            <input type='text'className={myform.errors.b && myform.touched.b ? 'border border-danger' : ''}  name="b" onChange={myform.handleChange}/>
-            <br/>
-            <br/>
-            <button type='Submit'>OK</button>
-    
-            </div>
-            </form>
+          <div className='col-md-12'>
+            <label>Select Your File</label>
+            <input ref={a} type='file' name='image' onChange={frm.handleChange} />
+            <br />
+            <br />
+            <button type='submit'>OK</button>
+           </div>
+                
+            
         </div>
+        </form>
     </div>
   )
 }

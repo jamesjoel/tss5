@@ -1,10 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef } from 'react'
 import axios  from 'axios'
 import { API_URL } from '../../../util/API'
+import {useNavigate} from 'react-router-dom'
 
 const CategoryList = () => {
 
+    let navigate = useNavigate();
+    let [cate, setCate] = useState({});
     let [allCate, setAllCate] = useState([]);
+
+    let btn = useRef();
 
     useEffect(()=>{
         axios.get(`${API_URL}/category`).then(response=>{
@@ -12,7 +17,26 @@ const CategoryList = () => {
         })
     },[])
 
+
+    let del = (obj)=>{
+        // console.log(obj);
+        setCate(obj);
+    }
+    let confDel = async ()=>{
+        await axios.delete(`${API_URL}/category/${cate._id}`);
+        setAllCate(()=>{
+            return allCate.filter(value=> value._id != cate._id );
+        });
+        btn.current.click();
+    }
+
+    let askEdit = (obj)=>{
+        console.log(obj);
+        navigate("/admin/category/"+obj._id)
+    }
+
   return (
+    <>
     <div className="container my-4">
         <div className="row">
             <div className="col-md-8 offset-md-2">
@@ -22,6 +46,8 @@ const CategoryList = () => {
                         <tr>
                             <th>S.No.</th>
                             <th>Category Name</th>
+                            <th>Delete</th>
+                            <td>Edit</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +57,8 @@ const CategoryList = () => {
                                     <tr key={value._id}>
                                         <td>{index+1}</td>
                                         <td>{value.name}</td>
+                                        <td><button onClick={()=>del(value)} data-toggle="modal" data-target="#delModal" className='btn btn-sm btn-danger'>Delete</button></td>
+                                        <td><button onClick={()=>askEdit(value)} className='btn btn-info btn-sm'>Edit</button></td>
                                     </tr>
                                 )
                             })
@@ -40,6 +68,26 @@ const CategoryList = () => {
             </div>
         </div>
     </div>
+
+    <div className="modal fade" id="delModal">
+        <div className="modal-dialog">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h4>Delete Category</h4>
+                </div>
+                <div className="modal-body">
+                    <p>Are you sure want to delete <strong style={{fontWeight : "bold"}}>{ cate ? cate.name : ''}</strong></p>
+                </div>
+                <div className="modal-footer">
+                    <button className='btn btn-sm btn-danger' onClick={confDel}>Delete</button>
+                    <button data-dismiss="modal" ref={btn} className='btn btn-sm btn-dark'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>                    
+
+
+    </>
   )
 }
 

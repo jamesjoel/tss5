@@ -74,7 +74,7 @@ const Header = () => {
                         <li><a href="#">Pages</a>
                             <ul className="dropdown">
                                 <li><NavLink to="/about">About Us</NavLink></li>
-                                <li><NavLink to="/login">Admin Login</NavLink></li>
+                                <li><NavLink to="/adminlogin">Admin Login</NavLink></li>
                                 <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                 <li><a href="./checkout.html">Check Out</a></li>
                                 <li><a href="./blog-details.html">Blog Details</a></li>
