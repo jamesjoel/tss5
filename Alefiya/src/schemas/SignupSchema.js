@@ -2,7 +2,7 @@ import * as YUP from 'yup';
 
 let SignupSchema = YUP.object({
     name: YUP.string().required("Please insert you Fullname"),
-    email: YUP.string().required("Please insert your email"),
+    email: YUP.string().email("This Email Id is Incorrect").required("Insert Your Email/Username"),
     password: YUP.string().required("Please insert your password"),
     repassword: YUP.string().required("Please re-enter your password"),
     gender: YUP.string().required("Please select your gender"),

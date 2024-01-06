@@ -1,7 +1,7 @@
 import * as YUP from "yup";
 
 let loginSchema = YUP.object({
-    email: YUP.string().email("This Email Id is Incorrect").required("Insert Your Email/Username"),
+    username: YUP.string().required("Please enter your username"),
     password: YUP.string().required("Please enter your password")
 })
 
