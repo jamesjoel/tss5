@@ -2,10 +2,10 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header>
-  <div className="site-wrap"/>
+  <>
+    <div className="site-wrap"/>
     
-
+    
     <div className="site-navbar bg-white py-2">
 
       <div className="search-wrap">
@@ -63,7 +63,8 @@ const Header = () => {
         </div>
       </div>
     </div>
-  </header>
+  </>
+  
 
   )
 }

@@ -11,9 +11,10 @@ route.get("/site", async(req, res)=>{
     let ID = jwt.decode(token, key);
     // console.log(ID)
     let allAccounts = await signup.find({});
+    let User = await FrndRequest.find({senderid : ID.id});
     let userAccounts = allAccounts.filter(user=>user._id != ID.id)
     // console.log(userAccounts)
-    res.send(userAccounts)
+    res.send({accounts : userAccounts, user : User})
 })
 
 route.post("/follow/:sender/:receiver", async(req, res)=>{
