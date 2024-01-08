@@ -13,10 +13,11 @@ const Login = () => {
     let Navigate = useNavigate();
     let [errMsg, setErrMsg] = useState("");
     let [spinner, setSpinner] = useState(false);
+
     let loginPage = useFormik({
         validationSchema: loginSchema,
         initialValues: {
-            name: "",
+            email: "",
             password: ""
         },
         onSubmit: async (formdata) => {
@@ -24,8 +25,8 @@ const Login = () => {
 
             setSpinner(true);
 
-            await axios.post(`${API_URL}/auth`, formdata).then(response => {
-                console.log(response.data)
+            await axios.post(`${API_URL}/login`, formdata).then(response => {
+
                 setSpinner(false);
 
                 if (response.data.success == false && response.data.type == 1) {
@@ -56,10 +57,10 @@ const Login = () => {
                                 </div>
                                 <div className="card-body">
                                     <div className='my-2'>
-                                        <label>Username</label>
-                                        <input type='text' name="name" onChange={loginPage.handleChange} className='form-control' />
+                                        <label>email</label>
+                                        <input type='text' name="email" onChange={loginPage.handleChange} className='form-control' />
                                         {
-                                            loginPage.errors.name && loginPage.touched.name ? <small className='text-danger'>{loginPage.errors.name} </small> : ''
+                                            loginPage.errors.email && loginPage.touched.email ? <small className='text-danger'>{loginPage.errors.email} </small> : ''
                                         }
                                     </div>
                                     <div className='my-2'>
@@ -72,7 +73,7 @@ const Login = () => {
                                 </div>
                                 <div className="card-footer">
                                     <button type='submit' className='btn btn-primary'>Login{
-                                        spinner ? <span className='spinner-border spinner-border-sm'></span> : ""
+                                        spinner ? <span className='spinner-border spinner-border-sm'>{ }</span> : ""
                                     }</button>
                                     <br />
                                     {

@@ -1,7 +1,0 @@
-1 git clone repolink
-2 git status 
-3 git add .
-4 git commit -an "......"
-5 git pull origin master
-6 git push origin master
-

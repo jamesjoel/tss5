@@ -9,11 +9,11 @@ const SocialSite = () => {
 
     let [userProfile, setUserProfile] = useState([]);
     let ID = localStorage.getItem('Token')
-    let [followBtn, setFollowBtn] = useState({ id : ""})
+    let [followBtn, setFollowBtn] = useState([])
 
     let userProfiles = async() =>{
         let response = await axios.get(`${API_URL}/user/authentication/social/site`, { headers : { Authorization : ID } })
-        setUserProfile(response.data)
+        setUserProfile(response.data.accounts)
     }
 
     useEffect(()=>{

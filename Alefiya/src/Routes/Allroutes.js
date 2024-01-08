@@ -1,15 +1,16 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Usermodule from "../Module/Usermodule";
 import Home from "../Components/User/Featured/Home";
 import About from "../Components/User/Featured/About";
-import Usermodule from "../Module/Usermodule";
-import Adminmodule from "../Module/Adminmodule";
 import Products from "../Components/Admin/Featured//Products";
-import Signup from "../Components/User/Featured/Signup";
 import Login from "../Components/User/Featured/Login";
-import Dashboard from "../Components/Admin/Featured/Dashboard";
+import Signup from "../Components/User/Featured/Signup";
 import Logout from "../Components/User/Featured/Logout"
 import My_account from "../Components/User/Featured/My_account"
+import Adminmodule from "../Module/Adminmodule";
+import Dashboard from "../Components/Admin/Featured/Dashboard";
+import AdminLogin from "../Components/Admin/Featured/AdminLogin";
 
 const Allroutes = () => {
     return (
@@ -26,6 +27,7 @@ const Allroutes = () => {
                 </ Route>
 
                 <Route path='admin' element={<Adminmodule />} >
+                    <Route path='' element={<AdminLogin />} />
                     <Route path='dashboard' element={<Dashboard />} />
                     <Route path='Products' element={<Products />} />
 

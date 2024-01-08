@@ -135,17 +135,18 @@ const FullHeader = () => {
                                     loggedIn ?
                                         <>
                                             <div className="navbar-nav ml-auto py-0">
-                                                <NavLink to="/login" className="nav-item nav-link">Login</ NavLink>
-                                                <NavLink to="/signup" className="nav-item nav-link">Register</ NavLink>
+                                                <NavLink to="/myaccount" className="nav-item nav-link">My account</ NavLink>
+                                                <NavLink to="/logout" className="nav-item nav-link">Logout</ NavLink>
                                             </div>
                                         </>
                                         :
                                         <>
                                             <div className="navbar-nav ml-auto py-0">
-                                                <NavLink to="/myaccount" className="nav-item nav-link">My account</ NavLink>
-                                                <NavLink to="/logout" className="nav-item nav-link">Logout</ NavLink>
+                                                <NavLink to="/login" className="nav-item nav-link">Login</ NavLink>
+                                                <NavLink to="/signup" className="nav-item nav-link">Register</ NavLink>
                                             </div>
                                         </>
+
                                 }
                             </div>
                         </nav>
