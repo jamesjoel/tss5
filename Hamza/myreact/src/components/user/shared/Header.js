@@ -1,69 +1,53 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header>
-  <div className="site-wrap"/>
-    
-
-    <div className="site-navbar bg-white py-2">
-
-      <div className="search-wrap">
-        <div className="container">
-          <a href="#" className="search-close js-search-close"><span className="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" className="form-control" placeholder="Search keyword and hit enter..."/>
-          </form>  
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="d-flex align-items-center justify-content-between">
-          <div className="logo">
-            <div className="site-logo">
-              <a href="index.html" className="js-logo-clone">ShopMax</a>
+    <header className="header-area header-sticky">
+    <div className="container">
+        <div className="row">
+            <div className="col-12">
+                <nav className="main-nav">
+                    
+                    <a href="index.html" className="logo">
+                        <img src="/assets/images/logo.png"/>
+                    </a>
+                    
+            
+                    <ul className="nav">
+                    <li className="nav-item"/>
+                                    <NavLink className="nav-link" to="/">Home</NavLink>
+                                    <NavLink className="nav-link" to="/About">About</NavLink>
+                                    <NavLink className="nav-link" to="/Contact">Contact</NavLink>
+                        <li className="submenu">
+                            <a href="#">Pages</a>
+                            <ul>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="single-product.html">Single Product</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li className="submenu">
+                            <a href="#">Features</a>
+                            <ul>
+                                <li><a href="#">Features Page 1</a></li>
+                                <li><a href="#">Features Page 2</a></li>
+                                <li><a href="#">Features Page 3</a></li>
+                                <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
+                            </ul>
+                        </li>
+                        <li className="scroll-to-section"><a href="#explore">Explore</a></li>
+                    </ul>        
+                    <a className='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+              
+                </nav>
             </div>
-          </div>
-          <div className="main-nav d-none d-lg-block">
-            <nav className="site-navigation text-right text-md-center" role="navigation">
-              <ul className="site-menu js-clone-nav d-none d-lg-block">
-                <li className="has-children active">
-                  <a href="index.html">Home</a>
-                  <ul className="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                    <li className="has-children">
-                      <a href="#">Sub Menu</a>
-                      <ul className="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div className="icons">
-            <a href="#" className="icons-btn d-inline-block js-search-open"><span className="icon-search"></span></a>
-            <a href="#" className="icons-btn d-inline-block"><span className="icon-heart-o"></span></a>
-            <a href="cart.html" className="icons-btn d-inline-block bag">
-              <span className="icon-shopping-bag"></span>
-              <span className="number">2</span>
-            </a>
-            <a href="#" className="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span className="icon-menu"></span></a>
-          </div>
         </div>
-      </div>
     </div>
-  </header>
+</header>
 
   )
 }
