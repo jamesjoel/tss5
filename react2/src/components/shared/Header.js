@@ -1,5 +1,9 @@
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 let Header = ()=>{
+
+    let allData = useSelector(state=>state);
+
     return(
         <>
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -12,6 +16,9 @@ let Header = ()=>{
                 <ul className="navbar-nav">
                     <li className="nav-item">
                     <NavLink className="nav-link" to="/">Home</NavLink>
+                    </li>
+                    <li className="nav-item">
+                    <NavLink className="nav-link" to="/inbox">Inbox ({allData.length})</NavLink>
                     </li>
                     {
                         localStorage.getItem("access-token")
