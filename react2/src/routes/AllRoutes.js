@@ -14,6 +14,7 @@ import StudentList from '../components/feature/StudentList'
 import Login from '../components/feature/Login'
 import Profile from '../components/feature/Profile'
 import Logout from '../components/feature/Logout'
+import Inbox from '../components/feature/Inbox'
 let AllRoutes = ()=>{
     return(
     <Routes>
@@ -23,6 +24,7 @@ let AllRoutes = ()=>{
         <Route path='logout' element={<Logout />} />
 
         <Route path='about' element={<About />} />
+        <Route path='inbox' element={<Inbox />} />
         <Route path='contact' element={<Contact />} />
         <Route path='help' element={<Help />} />
         <Route path='comp2' element={<Comp2 />} />

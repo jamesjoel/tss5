@@ -1,0 +1,25 @@
+{
+  "teacher": [
+    {
+      "id": 1,
+      "name": "Rohit",
+      "salary": 5000,
+      "education": "BA",
+      "address": "testing"
+    },
+    {
+      "id": 2,
+      "name": "Amar Joshi",
+      "salary": "10000",
+      "education": "MCA",
+      "address": "palaysia"
+    },
+    {
+      "name": "Gaurav",
+      "salary": "10500",
+      "education": "MCA",
+      "address": "sdg sdfg sdfg",
+      "id": 3
+    }
+  ]
+}
