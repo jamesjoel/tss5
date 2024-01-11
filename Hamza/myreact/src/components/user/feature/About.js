@@ -1,9 +1,12 @@
 import React from 'react'
-
+import AboutPageHeading from '../shared/AboutPageHeading'
+import AboutUs from '../shared/AboutUs'
 const About = () => {
   return (
-    <div>About</div>
-  )
-}
 
+  <>
+  <AboutPageHeading/>
+  <AboutUs/>
+  </>
+  )}
 export default About

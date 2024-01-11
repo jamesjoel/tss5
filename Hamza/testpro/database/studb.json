@@ -1,0 +1,42 @@
+{
+    "student" :[
+        
+        {
+        "id" : 1,
+        "name" : "Burhan",
+        "age" : 20,
+        "collegeyera" : 2,
+        "education" : "bca"
+         },
+         {
+            "id" : 2,
+            "name" : "Jafar",
+            "age" : 19,
+            "collegeyera" : 1,
+            "education" : "bca"
+             },
+             {
+                "id" : 3,
+                "name" : "Hamza",
+                "age" : 20,
+                "collegeyera" : 1,
+                "education" : "bba"
+                 },
+                 {
+                    "id" : 1,
+                    "name" : "Alefiya",
+                    "age" : 18,
+                    "collegeyera" : 1,
+                    "education" : "bcom"
+                     },
+                     {
+                        "id" : 1,
+                        "name" : "Rifakat",
+                        "age" : 21,
+                        "collegeyera" : 3,
+                        "education" : "bsc"
+                         }
+                                        
+
+  ]
+}

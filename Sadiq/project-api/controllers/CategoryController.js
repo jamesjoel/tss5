@@ -1,6 +1,8 @@
 let route = require('express').Router();
 let categoryData = require("../model/Categories");
 
+route.use("/subcategory", require("./sub-controllers/SubCategoryController"))
+
 route.get("/", async(req, res)=>{
     let allCategories = await categoryData.find({});
     // let Count
@@ -23,6 +25,7 @@ route.get("/", async(req, res)=>{
 route.get("/:id", async(req, res)=>{
     let Category = req.params.id;
     let categories = await categoryData.find({ category : Category })
+    res.send(categories)
 })
 
 route.post("/", async(req, res)=>{
@@ -35,14 +38,6 @@ route.post("/", async(req, res)=>{
         }else{
             res.send({success : false})
         }
-    }
-})
-
-route.post("/subcategory/:id", async(req, res)=>{
-    if(req.headers.authorization){
-        let Category = req.params.id;
-        await categoryData.updateMany({ category : Category }, {$push : {subcategory : req.body}})
-        res.send({success : true})
     }
 })
 

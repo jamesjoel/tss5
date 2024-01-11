@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   return (
     <header className="header-area header-sticky">
-    <div className="container">
-        <div className="row">
-            <div className="col-12">
+    <div className="container"/>
+        <div className="row"/>
+            <div className="col-12"/>
                 <nav className="main-nav">
                     
                     <a href="index.html" className="logo">
@@ -15,17 +15,16 @@ const Header = () => {
                     
             
                     <ul className="nav">
-                    <li className="nav-item"/>
-                                    <NavLink className="nav-link" to="/">Home</NavLink>
-                                    <NavLink className="nav-link" to="/About">About</NavLink>
-                                    <NavLink className="nav-link" to="/Contact">Contact</NavLink>
+                    <li className="nav-item"/> mera login page
+                                    <NavLink className="nav-link text-dark" to="/">Home</NavLink>
+                                    <NavLink className="nav-link text-dark" to="/About">About</NavLink>
+                                    <NavLink className="nav-link text-dark" to="/Contact">Contact</NavLink>
+                                    <NavLink className="nav-link text-blue" to="/SignUp">SignUp</NavLink>
+                                    <NavLink className="nav-link text-blue" to="/Contact">LogIn</NavLink>
                         <li className="submenu">
                             <a href="#">Pages</a>
                             <ul>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="products.html">Products</a></li>
-                                <li><a href="single-product.html">Single Product</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+
                             </ul>
                         </li>
                         <li className="submenu">
@@ -44,11 +43,16 @@ const Header = () => {
                     </a>
               
                 </nav>
-            </div>
-        </div>
-    </div>
-</header>
 
+    <div className="site-wrap"/>
+    
+    
+    <div className="site-navbar bg-white py-2"/>
+
+
+
+</header>
+  
   )
 }
 
