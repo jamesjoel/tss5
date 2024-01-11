@@ -5,7 +5,7 @@ const CitySchema = mongoose.Schema({
     id : String,
     name : String,
     state : String
-},{collection: "city"})
+},{collection: "city"})       
 
 const CityModel = mongoose.model("city", CitySchema);
 
