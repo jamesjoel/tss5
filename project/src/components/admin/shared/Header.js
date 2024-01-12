@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+
+  let data = useSelector(state=>state);
 
   let [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
@@ -23,7 +26,7 @@ const Header = () => {
       {
         isAdminLoggedIn ? <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink className="nav-link" to="/admin/dashboard">Dashboard</NavLink>
+          <NavLink className="nav-link" to="/admin/dashboard">Dashboard ({data.length})</NavLink>
         </li>
         <li className="nav-item dropdown">
           <a className='nav-link dropdown-toggle' data-toggle="dropdown">
@@ -58,6 +61,9 @@ const Header = () => {
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/users">Users</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/admin/student">Student</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/logout">Logout</NavLink>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
-import { API_URL} from '../../../util/API'
+import { API_URL, API_PATH} from '../../../util/API'
 import {useNavigate} from 'react-router-dom'
 
 
@@ -48,6 +48,8 @@ const ProductList = () => {
                 <th>Price</th>
                 <th>Category</th>
                 <th>Sub-Category</th>
+                <th>Image</th>
+
                 <th>Delete</th>
                 <th>Edit</th>
               </tr>
@@ -62,6 +64,7 @@ const ProductList = () => {
                       <td>{value.price}</td>
                       <td>{value.category}</td>
                       <td>{value.subcategory}</td>
+                      <td><img src={`${API_PATH}product-images/${value.image}`} style={{height : "50px", width : "50px"}} /></td>
                       <td><button data-target="#delModal" data-toggle="modal" onClick={()=>askDelete(value)} className='btn btn-danger btn-sm'>Delete</button></td>
                       <td><button onClick={()=>askEdit(value)} className='btn btn-info btn-sm'>Edit</button></td>
                     </tr>
