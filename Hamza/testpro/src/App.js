@@ -8,7 +8,7 @@ const App = () => {
     <>
     <Header/>
     <div className='container' style={{minHeight:"700px"}}>
-    <AllRoutes/>
+       <AllRoutes/>
     </div>
     <Footer/>
     </>

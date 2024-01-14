@@ -1,42 +1,60 @@
 {
-    "student" :[
-        
-        {
-        "id" : 1,
-        "name" : "Burhan",
-        "age" : 20,
-        "collegeyera" : 2,
-        "education" : "bca"
-         },
-         {
-            "id" : 2,
-            "name" : "Jafar",
-            "age" : 19,
-            "collegeyera" : 1,
-            "education" : "bca"
-             },
-             {
-                "id" : 3,
-                "name" : "Hamza",
-                "age" : 20,
-                "collegeyera" : 1,
-                "education" : "bba"
-                 },
-                 {
-                    "id" : 1,
-                    "name" : "Alefiya",
-                    "age" : 18,
-                    "collegeyera" : 1,
-                    "education" : "bcom"
-                     },
-                     {
-                        "id" : 1,
-                        "name" : "Rifakat",
-                        "age" : 21,
-                        "collegeyera" : 3,
-                        "education" : "bsc"
-                         }
-                                        
-
+  "student": [
+    {
+      "id": 1,
+      "name": "Burhan",
+      "age": 20,
+      "collegeyear": 2,
+      "education": "bca"
+    },
+    {
+      "id": 2,
+      "name": "Jafar",
+      "age": 19,
+      "collegeyear": 1,
+      "education": "bca"
+    },
+    {
+      "id": 3,
+      "name": "Hamza",
+      "age": 20,
+      "collegeyear": 1,
+      "education": "bba"
+    },
+    {
+      "id": 1,
+      "name": "Alefiya",
+      "age": 18,
+      "collegeyear": 1,
+      "education": "bcom"
+    },
+    {
+      "id": 1,
+      "name": "Rifakat",
+      "age": 21,
+      "collegeyear": 3,
+      "education": "bsc"
+    },
+    {
+      "id": "0ced",
+      "name": "demo",
+      "age": "20",
+      "collegeyear": "1",
+      "education": "BCA"
+    },
+    {
+      "id": "a83a",
+      "name": "demo",
+      "age": "20",
+      "collegeyear": "1",
+      "education": "BCA"
+    },
+    {
+      "id": "4bf7",
+      "name": "mehfooz",
+      "age": "21",
+      "collegeyear": "2",
+      "education": "BCA"
+    }
   ]
 }
