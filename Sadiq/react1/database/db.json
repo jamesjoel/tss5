@@ -1,0 +1,25 @@
+{
+  "teacher": [
+    {
+      "id": "2",
+      "name": "mohit",
+      "age": "28",
+      "gender": "male",
+      "salary": "35000"
+    },
+    {
+      "id": "3",
+      "name": "sohan",
+      "age": "22",
+      "gender": "male",
+      "salary": "20000"
+    },
+    {
+      "id": "1",
+      "name": "rohan",
+      "age": "23",
+      "gender": "male",
+      "salary": "26000"
+    }
+]
+}
