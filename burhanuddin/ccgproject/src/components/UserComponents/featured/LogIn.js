@@ -35,7 +35,7 @@ const LogIn = () => {
         }
         if (response.data.success==true)
         {
-          localStorage.setItem("access-token", response.data.token);
+          localStorage.setItem("gomugomunoo", response.data.token);
           // setIsLogIn(true);
           navigate("/");
         }})

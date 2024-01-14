@@ -4,7 +4,10 @@ import {NavLink} from 'react-router-dom'
 const Header = () => {
   let [IsLogIn, setIsLogIn] = useState(false);
   useEffect(()=>{
-    localStorage? setIsLogIn(true) : '';
+    // setIsLogIn(localStorage.getItem("token") ? true : false);
+    if(localStorage.getItem("gomugomunoo")){
+      setIsLogIn(true);
+    }
   })
   return (
     
@@ -51,11 +54,16 @@ const Header = () => {
               </li>
 
 
-                { (IsLogIn==true) ?  <li className="nav-item">
+                { (IsLogIn==true) ?<li className="nav-item">
                 <NavLink className="nav-link me-4" to="/account">My Account</NavLink>
               </li> : <li className="nav-item">
                 <NavLink className="nav-link me-4" to="/signup">LogIn/SignUp</NavLink>
               </li>
+              }
+              {
+                IsLogIn? <li className="nav-item">
+                <NavLink className="nav-link me-4" to="/logout">Log Out</NavLink>
+              </li> : ''
               }
 
 

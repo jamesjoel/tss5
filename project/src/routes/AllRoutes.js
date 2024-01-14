@@ -23,6 +23,8 @@ import SubCategoryList from '../components/admin/feature/SubCategoryList'
 import ProductList from '../components/admin/feature/ProductList'
 import Users from '../components/admin/feature/Users'
 import ProductDetail from '../components/user/feature/ProductDetail'
+import Student from '../components/admin/feature/Student'
+import MyCart from '../components/user/feature/MyCart'
 const AllRoutes = () => {
   return (
     <>
@@ -35,6 +37,7 @@ const AllRoutes = () => {
                   <Route path='category/:catename' element={<UserCategory />} />
                   
                   <Route path='signup' element={<Signup />} />
+                  <Route path='mycart' element={<MyCart />} />
                   <Route path='my-account' element={<MyAccount />} />
                   <Route path='my-account/profile' element={<MyProfile />} />
                   <Route path='logout' element={<Logout />} />
@@ -44,6 +47,7 @@ const AllRoutes = () => {
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="users" element={<Users />} />
                 <Route path="product" element={<Product />} />
+                <Route path="student" element={<Student />} />
                 <Route path="product/:id" element={<Product />} />
                 <Route path="product-list" element={<ProductList />} />
 
