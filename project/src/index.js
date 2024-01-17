@@ -7,8 +7,9 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import StudentSlice from './redux/StudentSlice';
 import CartSlice from './redux/CartSlice'
+import TeacherSlice from './redux/TeacherSlice';
 
-let allReducer = combineReducers({StudentSlice, CartSlice})
+let allReducer = combineReducers({StudentSlice, CartSlice, TeacherSlice})
 
 
 let data = configureStore({

@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
+import {API_URL} from '../../../util/API'
 
 const Header = () => {
 
-  let data = useSelector(state=>state);
+  let data = useSelector(state=>state.StudentSlice);
+
+  let [allCate, setAllCate] = useState([]);
 
   let [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
@@ -14,6 +18,15 @@ const Header = () => {
       setIsAdminLoggedIn(true);
     }
   }, [])
+
+  useEffect(()=>{
+    axios.get(`${API_URL}/category`).then(response=>{
+      
+      console.log(response.data.result);
+      setAllCate(response.data.result);
+    })
+  },[])
+
 
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -39,7 +52,7 @@ const Header = () => {
         </li>
         <li className="nav-item dropdown">
           <a className='nav-link dropdown-toggle' data-toggle="dropdown">
-            Category
+            Category ({allCate.length})
           </a>
           <div className='dropdown-menu'>
           <NavLink className="dropdown-item" to="/admin/category">Add</NavLink>

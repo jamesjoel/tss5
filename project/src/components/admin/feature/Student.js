@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { add, remove } from '../../../redux/StudentSlice'
 
 const Student = () => {
-  let data = useSelector(state=>state);
+  let data = useSelector(state=>state.StudentSlice);
 
   let disp = useDispatch();
   let form = useFormik({
