@@ -1,9 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useParams } from 'react-router-dom'
 import { API_URL, API_PATH } from '../../../util/API';
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { add } from '../../../redux/CartSlice'
 
 const ProductDetail = () => {
+    let btn = useRef();
+    let disp = useDispatch();
     let [product, setProduct] = useState({});
     let param = useParams();
     let id = param.id;
@@ -19,12 +23,22 @@ const ProductDetail = () => {
         })
     },[])
 
+    let demo = (obj)=>{
+        disp(add(obj));
+        setTimeout(()=>{
+            // console.log("******")
+            btn.current.click();
+        }, 2000)
+    }
+
   return (
-    <div className='container' style={{minHeight : "600px", marginTop : "150px"}}>
+    <>
+    
+    <div className='container' style={{minHeight : "600px", marginTop : "100px"}}>
         <div className='row'>
             <div className='col-md-12'>
-                <h4 className='text-center'>Product Detail</h4>
-                <div className="product_image_area section_padding">
+                <h3 className='text-center'>Product Detail</h3>
+                <div className="product_image_area" style={{paddingTop : "50px"}}>
                     <div className="container">
                     <div className="row s_product_inner justify-content-between">
                         <div className="col-lg-7 col-xl-7">
@@ -60,13 +74,9 @@ const ProductDetail = () => {
                                 {product.detail}
                             </p>
                             <div className="card_area d-flex justify-content-between align-items-center">
-                            <div className="product_count">
-                                <span className="inumber-decrement"> <i className="ti-minus"></i></span>
-                                
-                                <span className="number-increment"> <i className="ti-plus"></i></span>
-                            </div>
-                            <a href="#" className="btn_3">add to cart</a>
-                            <a href="#" className="like_us"> <i className="ti-heart"></i> </a>
+                            
+                            <button onClick={()=>demo(product)} data-toggle="modal" data-target="#cartModal" className="btn_3">add to cart</button>
+                            
                             </div>
                         </div>
                         </div>
@@ -76,6 +86,22 @@ const ProductDetail = () => {
             </div>
         </div>
     </div>
+
+
+    <div className='modal fade' id='cartModal'>
+        <div className="modal-dialog">
+            <div className="modal-content">
+                <div className='modal-header'>
+                    <h3>Message</h3>
+                </div>
+                <div className='modal-body'>
+                    <p>This Product Success added in your cart</p>
+                    <button ref={btn} style={{display : "none"}} data-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </>
   )
 }
 

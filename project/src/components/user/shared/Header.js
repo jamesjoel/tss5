@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL } from '../../../util/API'
+import { useSelector } from 'react-redux'
 
 
 const Header = () => {
-
+    let cart = useSelector(state=>state.CartSlice);
     let [loggedIn, setLoggedIn] = useState(false);
     let [cate, setCate] = useState([]);
 
@@ -132,10 +133,11 @@ const Header = () => {
                             
                             <a href=""><i className="ti-heart"></i></a>
                             <div className="dropdown cart">
-                                <a className="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                                <NavLink className="dropdown-toggle" to="/mycart" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i className="fas fa-cart-plus"></i>
-                                </a>
+                                        <span className='badge badge-danger badge-pill'>{cart.length}</span>
+                                </NavLink>
                                 
                                 
                             </div>

@@ -1,73 +1,67 @@
 import React from 'react'
-
- const Footer = () => {
+const Footer = () => {
   return (
-    <>    <footer className="site-footer custom-border-top">
-    <div className="container"/>
-      <div className="row">
-        <div className="col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <h3 className="footer-heading mb-4">Promo</h3>
-          <a href="#" className="block-6">
-            <img src="/assets/images/about_1.jpg" alt="Image placeholder" className="img-fluid rounded mb-4"/>
-            <h3 className="font-weight-light  mb-0">Finding Your Perfect Shirts This Summer</h3>
-            <p>Promo from  July 15 &mdash; 25, 2019</p>
-          </a>
-        </div>
-        <div className="col-lg-5 ml-auto mb-5 mb-lg-0">
-          <div className="row">
-            <div className="col-md-12">
-              <h3 className="footer-heading mb-4">Quick Links</h3>
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <ul className="list-unstyled">
-                <li><a href="#">Sell online</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Shopping cart</a></li>
-                <li><a href="#">Store builder</a></li>
-              </ul>
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <ul className="list-unstyled">
-                <li><a href="#">Mobile commerce</a></li>
-                <li><a href="#">Dropshipping</a></li>
-                <li><a href="#">Website development</a></li>
-              </ul>
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <ul className="list-unstyled">
-                <li><a href="#">Point of sale</a></li>
-                <li><a href="#">Hardware</a></li>
-                <li><a href="#">Software</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div className="col-md-6 col-lg-3">
-          <div className="block-5 mb-5">
-            <h3 className="footer-heading mb-4">Contact Info</h3>
-            <ul className="list-unstyled">
-              <li className="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
-              <li className="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-              <li className="email">emailaddress@domain.com</li>
-            </ul>
-          </div>
+    <footer>
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-3">
+                    <div className="first-item">
+                        <div className="logo">
+                            <img src="assets/images/white-logo.png" alt="hexashop ecommerce templatemo"/>
+                        </div>
+                        <ul>
+                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
+                            <li><a href="#">hexashop@company.com</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="#">Men’s Shopping</a></li>
+                        <li><a href="#">Women’s Shopping</a></li>
+                        <li><a href="#">Kid's Shopping</a></li>
+                    </ul>
+                </div>
+                <div className="col-lg-3">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Homepage</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div className="col-lg-3">
+                    <h4>Help &amp; Information</h4>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Tracking ID</a></li>
+                    </ul>
+                </div>
+                <div className="col-lg-12">
+                    <div className="under-footer">
+                    
+                        
+                        <br/>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
 
-          <div className="block-7">
-          </div>
+                        <br/>Distributed By: <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">ThemeWagon</a>
+                        <ul>
+                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i className="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div className="row pt-5 mt-5 text-center">
-        <div className="col-md-12">
-          <p>
-          </p>
-        </div>
-        
-      </div>
-    
-  </footer>
+    </footer>
 
-    </>
   )
 }
+
 export default Footer

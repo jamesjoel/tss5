@@ -25,6 +25,12 @@ let Header = () =>{
                     <li className="nav-item">
                     <NavLink className="nav-link" to="/ofc">CalcuLator</NavLink>
                     </li>
+                    <li className="nav-item">
+                    <NavLink className="nav-link" to="/teacher">Teacher</NavLink>
+                    </li>
+                    <li className="nav-item">
+                    <NavLink className="nav-link" to="/teacher/add">Add Teacher</NavLink>
+                    </li>
                 </ul>
                 </div>
             </div>
