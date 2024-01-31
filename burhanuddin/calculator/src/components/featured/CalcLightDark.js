@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import {manga, defaul} from '../shared/css'
+import React from 'react'
+import { useState } from 'react';
+import { defaul, light } from '../shared/css';
+import ChangeSwitch from '../shared/switch'
 
-
-const Calculate = () => {
+const CalcLightDark = () => {
     const [input, setinput] = useState('');
     const [theme, setTheme] = useState(defaul);
     const [tec, setTec] = useState('');
@@ -81,13 +82,15 @@ const Calculate = () => {
 
     return (
         <div className="container-fluid bordered" style={theme.BG}>
+            <ChangeSwitch/>
+            
            
             <div className="row">
                 <div className="col-md-4 offset-md-4 my-3">
                 <div className='dropdown'>
             <button data-bs-toggle="dropdown" className='btn ms-5  dropdown-toggle' style={theme.buttn} >Themes</button>
             <div className='dropdown-menu' style={theme.buttn} >
-                <button className='dropdown-item' style={theme.buttn} onClick={()=>{setTheme(manga)}}>Manga</button>
+                <button className='dropdown-item' style={theme.buttn} onClick={()=>{setTheme(light)}}>White</button>
                 <button className='dropdown-item' style={theme.buttn} onClick={()=>{setTheme(defaul)}}  >Default</button>
             </div>
             </div>
@@ -102,7 +105,7 @@ const Calculate = () => {
                                     <button className='form-control btn btn-primary' onClick={clearSlate}>Clear</button>
                                     {[1,2,3,4,5,6,7,8,9,0,'+','=','-','/','*'].map((value)=>{
                                         return(
-                                        <button key={value} style={{width:"50px"}} className='btn btn-primary offset-md-1 my-1' onClick={()=>handleClick(value)} >{value}</button>)
+                                        <button key={value} style={theme.keybuttn}  className='btn offset-md-1 my-1' onClick={()=>handleClick(value)} >{value}</button>)
                                     })}
                                 </div>
 
@@ -129,4 +132,4 @@ const Calculate = () => {
   )
 }
 
-export default Calculate
+export default CalcLightDark
