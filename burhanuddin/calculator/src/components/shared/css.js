@@ -18,7 +18,6 @@ const light={
     calcBG : {
         maxWidth:"320px",
         backgroundSize: "contain",
-        backgroundRepeat: "no-repeat",
     backgroundImage: 'url(https://t4.ftcdn.net/jpg/02/52/46/25/240_F_252462546_y03sYp6GzeW8oZnPNbCr8ZTF2VDxJtE8.jpg)'
     },
     BG : {
@@ -47,7 +46,8 @@ const defaul={
     },
     BG : {
         backgroundImage: 'url(https://static.vecteezy.com/system/resources/thumbnails/000/696/278/small/textured-black-background.jpg)',
-        minHeight:"600px"
+        minHeight:"600px",
+        backgroundSize: "contain"
     },
     buttn: {
         backgroundImage: 'url(https://static.vecteezy.com/system/resources/thumbnails/000/696/278/small/textured-black-background.jpg)',
